@@ -16,6 +16,12 @@ public class UserCreateComplateAction extends ActionSupport implements SessionAw
 
 	public String userName;
 
+	public String telNumber;
+
+	public String eMail;
+
+	public String address;
+
 	public Map<String,Object> createUserSession;
 
 	public String result;
@@ -28,7 +34,8 @@ public class UserCreateComplateAction extends ActionSupport implements SessionAw
 
 		userCreateComplateDAO.cerateUser(createUserSession.get("loginUserId").toString(),
 				createUserSession.get("loginPassword").toString(),
-				createUserSession.get("userName").toString());
+				createUserSession.get("userName").toString(),createUserSession.get("TelNumber").toString(),
+				createUserSession.get("eMail").toString(),createUserSession.get("address").toString());
 
 		result = SUCCESS;
 

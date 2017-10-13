@@ -5,9 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import com.internousdev.template.dto.MyPageDTO;
 import com.internousdev.template.util.DBConnector;
@@ -16,35 +13,30 @@ public class MyPageDAO {
 	private DBConnector dbConnector = new DBConnector();
 
 	private Connection connection = dbConnector.getConnection();
-	
+
 	/**
-	 * 商品履歴取得
+	 * ユーザー情報獲得
 	 *
-	 * @param item_transaction_id
-	 * @param user_master_id
+	 * @param id
 	 * @return
 	 * @throws SQLException
 	 */
-	public ArrayList<MyPageDTO> getMyPageUserInfo(String item_transaction_id, String user_master_id) throws SQLException {
+	public ArrayList<MyPageDTO>userData(int id) throws SQLException {
 		ArrayList<MyPageDTO> myPageDTO = new ArrayList<MyPageDTO>();
 
-		String sql = "SELECT ubit.id, iit.item_name, ubit.total_price, ubit.total_count, ubit.pay, ubit.insert_date FROM user_buy_item_transaction ubit LEFT JOIN item_info_transaction iit ON ubit.item_transaction_id = iit.id where ubit.item_transaction_id  = ? AND ubit.user_master_id  = ? ORDER BY insert_date DESC";
+		String sql = "SELECT user_name,tel_number,e_mail,address FROM user_data WHERE id=?";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, item_transaction_id);
-			preparedStatement.setString(2, user_master_id);
-
+			preparedStatement.setInt(1,id);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			while(resultSet.next()) {
 				MyPageDTO dto = new MyPageDTO();
-				dto.setId(resultSet.getString("id"));
-				dto.setItemName(resultSet.getString("item_name"));
-				dto.setTotalPrice(resultSet.getString("total_price"));
-				dto.setTotalCount(resultSet.getString("total_count"));
-				dto.setPayment(resultSet.getString("pay"));
-				dto.setInsert_date(resultSet.getString("insert_date"));
+				dto.setUserName(resultSet.getString("user_name"));
+				dto.setTelNumber(resultSet.getString("tel_number"));
+				dto.setEmail(resultSet.getString("e_mail"));
+				dto.setAddress(resultSet.getString("address"));
 				myPageDTO.add(dto);
 			}
 
@@ -57,33 +49,4 @@ public class MyPageDAO {
 		return myPageDTO;
 	}
 
-	/**
-	 * 商品履歴削除
-	 *
-	 * @param item_transaction_id
-	 * @param user_master_id
-	 * @return
-	 * @throws SQLException
-	 */
-	public int buyItemHistoryDelete(String item_transaction_id, String user_master_id) throws SQLException {
-
-		String sql = "DELETE FROM user_buy_item_transaction where item_transaction_id  = ? AND user_master_id  = ?";
-
-		PreparedStatement preparedStatement;
-		int result =0;
-		try {
-			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, item_transaction_id);
-			preparedStatement.setString(2, user_master_id);
-
-			result = preparedStatement.executeUpdate();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			connection.close();
-		}
-
-		return result;
-	}
 }

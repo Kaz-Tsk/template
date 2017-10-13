@@ -20,6 +20,12 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 	public String userName;
 
+	public String telNumber;
+
+	public String eMail;
+
+	public String address;
+
 	public Map<String,Object> createUserSession = new HashMap<String, Object>();
 
 	public String result;
@@ -34,6 +40,11 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			createUserSession.put("loginUserId", loginUserId);
 			createUserSession.put("loginPassword", loginPassword);
 			createUserSession.put("userName", userName);
+			createUserSession.put("telNumber", telNumber);
+			createUserSession.put("eMail", eMail);
+			createUserSession.put("address", address);
+
+
 		} else {
 
 			errorMassage = "未入力の項目があります。";

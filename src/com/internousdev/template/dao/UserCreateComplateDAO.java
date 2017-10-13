@@ -15,16 +15,19 @@ public class UserCreateComplateDAO {
 
 	private DateUtil dateUtil = new DateUtil();
 
-	private String sql = "INSERT INTO login_user_transaction (login_id, login_pass, user_name, insert_date) VALUES(?, ? ,?, ?)";
+	private String sql = "INSERT INTO login_user_data (login_id, login_pass, user_name, tel_number, e_mail, address, insert_date) VALUES(?, ? ,?, ?, ?, ?, ?)";
 
-	public void cerateUser(String loginUserId, String loginUserPassword, String userName) throws SQLException {
+	public void cerateUser(String loginUserId, String loginUserPassword, String userName,String telNumber,String eMail,String address) throws SQLException {
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, loginUserId);
 			preparedStatement.setString(2, loginUserPassword);
 			preparedStatement.setString(3, userName);
-			preparedStatement.setString(4, dateUtil.getDate());
+			preparedStatement.setString(4, telNumber);
+			preparedStatement.setString(5, eMail);
+			preparedStatement.setString(6, address);
+			preparedStatement.setString(7, dateUtil.getDate());
 
 			preparedStatement.execute();
 

@@ -5,11 +5,14 @@ use ecsite;
 
 drop table if exists login_user_transaction;
 
-create table login_user_transaction(
+create table user_data(
 id int not null primary key auto_increment,
 login_id varchar(16) unique,
 login_pass varchar(16),
 user_name varchar(50),
+tel_number varchar(50),
+e_mail varchar(50),
+address varchar(100),
 insert_date datetime,
 updated_date datetime
 );

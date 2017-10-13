@@ -16,7 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * Login.jspからログインID、ログインパスワードを受け取り
  * DBへ問い合わせを行います。
  *
- * @author internous
+ * @author Kazuyuki Tasaki
  * @param loginUserId
  * @param loginPassword
  *
@@ -50,7 +50,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public LoginDAO loginDAO = new LoginDAO();
 
 	/**
-	 * ログイン情報格納IDTO
+	 * ログイン情報格納DTO
 	 */
 	private LoginDTO loginDTO = new LoginDTO();
 
@@ -60,6 +60,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public BuyItemDAO buyItemDAO = new BuyItemDAO();
 
 	/**
+	 *
 	 * 実行メソッド
 	 */
 	public String execute() {
@@ -73,6 +74,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		// ログイン情報を比較
 		if(((LoginDTO) loginUserInfoMap.get("loginUser")).getLoginFlg()) {
+			loginUserInfoMap.put("id",loginDTO.getId());
 			result = SUCCESS;
 
 			// アイテム情報を取得
