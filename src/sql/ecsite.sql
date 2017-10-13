@@ -17,13 +17,12 @@ insert_date datetime,
 updated_date datetime
 );
 
-drop table if exists item_info_transaction;
+drop table if exists menu;
 
-create table item_info_transaction(
+create table menu(
 id int not null primary key auto_increment,
-item_name varchar(30),
-item_price int,
-item_stock int,
+menu_name varchar(50),
+menu_price int,
 insert_date datetime,
 update_date datetime
 );
@@ -42,5 +41,5 @@ delete_date datetime
 );
 
 
-INSERT INTO item_info_transaction(item_name, item_price, item_stock) VALUES("ノートBook", 100, 50);
-INSERT INTO login_user_transaction(login_id, login_pass, user_name) VALUES("internous", "internous01", "test");
+INSERT INTO menu(menu_name, menu_price) VALUES("CUT", 6480);
+INSERT INTO user_data(login_id, login_pass, user_name,tel_number,e_mail,address) VALUES("tasaki","1234","田崎和幸","012345678","tasaki@gmail.com",	"日本");
