@@ -15,7 +15,7 @@ public class UserCreateComplateDAO {
 
 	private DateUtil dateUtil = new DateUtil();
 
-	private String sql = "INSERT INTO login_user_data (login_id, login_pass, user_name, tel_number, e_mail, address, insert_date) VALUES(?, ? ,?, ?, ?, ?, ?)";
+	private String sql = "INSERT INTO user_data (login_id, login_pass, user_name, tel_number, e_mail, address, insert_date) VALUES(?, ? ,?, ?, ?, ?, ?)";
 
 	public void cerateUser(String loginUserId, String loginUserPassword, String userName,String telNumber,String eMail,String address) throws SQLException {
 

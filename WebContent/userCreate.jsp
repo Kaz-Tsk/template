@@ -79,7 +79,7 @@
 						<label>ログインID:</label>
 					</td>
 					<td>
-						<input type="text" name="loginUserId" value="" />
+						<input type="text" name="loginUserId" required="required"/>
 					</td>
 				</tr>
 				<tr>
@@ -87,7 +87,7 @@
 						<label>ログインPASS:</label>
 					</td>
 					<td>
-						<input type="text" name="loginPassword" value="" />
+						<input type="text" name="loginPassword" required="required"/>
 					</td>
 				</tr>
 				<tr>
@@ -95,7 +95,31 @@
 						<label>ユーザー名:</label>
 					</td>
 					<td>
-						<input type="text" name="userName" value="" />
+						<input type="text" name="userName"  required="required"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>電話番号:</label>
+					</td>
+					<td>
+						<input type="text" name="telNumber" required="required"  />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>メールアドレス:</label>
+					</td>
+					<td>
+						<input type="text" name="eMail" required="required"  />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>住所:</label>
+					</td>
+					<td>
+						<input type="text" name="address" required="required"  />
 					</td>
 				</tr>
 				<s:submit value="登録"/>

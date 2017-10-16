@@ -101,9 +101,33 @@
 							<s:property value="userName" escape="false" />
 						</td>
 					</tr>
+					<tr id="box">
+						<td>
+							<label>電話番号:</label>
+						</td>
+						<td>
+							<s:property value="telNumber" escape="false" />
+						</td>
+					</tr>
+					<tr id="box">
+						<td>
+							<label>メールアドレス:</label>
+						</td>
+						<td>
+							<s:property value="eMail" escape="false" />
+						</td>
+					</tr>
+					<tr id="box">
+						<td>
+							<label>住所:</label>
+						</td>
+						<td>
+							<s:property value="address" escape="false" />
+						</td>
+					</tr>
 					<tr>
 						<td>
-							<s:submit value="完了" />
+							<s:submit value="登録完了" />
 						</td>
 					</tr>
 				</s:form>

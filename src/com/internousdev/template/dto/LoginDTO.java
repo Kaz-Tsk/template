@@ -10,7 +10,9 @@ public class LoginDTO {
 
 	private String userName;
 
-	private boolean loginFlg = false;
+	private int loginFlg;
+
+	private int userFlg;
 
 	public int getId(){
 		return id;
@@ -44,11 +46,19 @@ public class LoginDTO {
 		this.userName = userName;
 	}
 
-	public boolean getLoginFlg() {
+	public int getLoginFlg() {
 		return loginFlg;
 	}
 
-	public void setLoginFlg(boolean loginFlg) {
+	public void setLoginFlg(int loginFlg) {
 		this.loginFlg = loginFlg;
+	}
+
+	public int getUserFlg(){
+		return userFlg;
+	}
+
+	public void setUserFlg(int userFlg){
+		this.userFlg = userFlg;
 	}
 }

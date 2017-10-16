@@ -34,7 +34,7 @@ public class UserCreateComplateAction extends ActionSupport implements SessionAw
 
 		userCreateComplateDAO.cerateUser(createUserSession.get("loginUserId").toString(),
 				createUserSession.get("loginPassword").toString(),
-				createUserSession.get("userName").toString(),createUserSession.get("TelNumber").toString(),
+				createUserSession.get("userName").toString(),createUserSession.get("telNumber").toString(),
 				createUserSession.get("eMail").toString(),createUserSession.get("address").toString());
 
 		result = SUCCESS;

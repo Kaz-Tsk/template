@@ -3,6 +3,7 @@ package com.internousdev.template.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import com.internousdev.template.dto.LoginDTO;
 import com.internousdev.template.util.DBConnector;
@@ -24,7 +25,7 @@ public class LoginDAO {
 	 */
 	public LoginDTO getLoginUserInfo(String loginUserId, String loginPassword) {
 
-		String sql = "SELECT * FROM login_user_data where login_id = ? AND login_pass = ?";
+		String sql = "SELECT * FROM user_data where login_id = ? AND login_pass = ?";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -37,17 +38,43 @@ public class LoginDAO {
 				loginDTO.setLoginId(resultSet.getString("login_id"));
 				loginDTO.setLoginPassword(resultSet.getString("login_pass"));
 				loginDTO.setUserName(resultSet.getString("user_name"));
+				loginDTO.setLoginFlg(resultSet.getInt("login_flg"));
+				loginDTO.setLoginFlg(resultSet.getInt("login_flg"));
+				loginDTO.setUserFlg(resultSet.getInt("user_flg"));
 
-				if(!(resultSet.getString("login_id").equals(null))) {
-					loginDTO.setLoginFlg(true);
-				}
 			}
 
 		} catch(Exception e) {
 			e.printStackTrace();
+		}try{
+			connection.close();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return loginDTO;
+	}
+
+/**
+ * loginFlg=1にするメソッド
+ */
+	public void updateFlg(int Id){
+		String sql = "update  users set login_flg=1 where id=?";
+		try{
+
+			PreparedStatement preparedStatement  = connection.prepareStatement(sql);
+
+			preparedStatement.setInt(1, Id);
+			preparedStatement.executeUpdate();
+
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}try{
+			connection.close();
+		}catch(SQLException e){
+			e.printStackTrace();
 		}
 
-		return loginDTO;
 	}
 
 	public LoginDTO getLoginDTO() {
