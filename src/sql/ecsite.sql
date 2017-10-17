@@ -24,7 +24,7 @@ drop table if exists menu;
 create table menu(
 menu_id int not null primary key auto_increment,
 menu_name varchar(50),
-menu_price int,
+menu_price decimal not null,
 menu_time int,
 insert_date datetime,
 update_date datetime
@@ -40,4 +40,4 @@ delete_date datetime
 );
 
 
-INSERT INTO menu(menu_name, menu_price) VALUES("CUT", 6480);
+INSERT INTO menu(menu_name, menu_price,menu_time) VALUES("CUT", 6480,60);

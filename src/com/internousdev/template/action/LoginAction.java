@@ -1,6 +1,5 @@
 package com.internousdev.template.action;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -40,7 +39,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	/**
 	 * ログイン情報を格納
 	 */
-	public Map<String, Object> session = new HashMap<>();
+	public Map<String, Object> session;
 
 	/**
 	 * ログイン情報取得DAO
@@ -65,7 +64,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		if(loginDTO.getLoginFlg()==1){
 			result= ERROR;
 		}else if(loginDTO.getUserFlg()==1){
-			session.put("id", loginDTO.getId());
+			session.put("Id", loginDTO.getId());
 			session.put("userFlg", loginDTO.getUserFlg());
 			System.out.println(loginDTO.getId());
 			loginDAO.updateFlg(loginDTO.getId());

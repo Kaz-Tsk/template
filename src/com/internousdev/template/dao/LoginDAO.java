@@ -59,7 +59,9 @@ public class LoginDAO {
  * loginFlg=1にするメソッド
  */
 	public void updateFlg(int Id){
-		String sql = "update  users set login_flg=1 where id=?";
+		 DBConnector dbConnector = new DBConnector();
+		 Connection connection = dbConnector.getConnection();
+		String sql = "update  user_data set login_flg=1 where id=?";
 		try{
 
 			PreparedStatement preparedStatement  = connection.prepareStatement(sql);

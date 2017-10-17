@@ -25,7 +25,7 @@
  <!-- スライドしている画像 --------------------------------------------------------------------------->
 	<div class="index_img">
 		<div class="img">
-			<img src="img/main.jpg" height="90%" width="90%">
+			<img src="img/main.jpg" height="90vh" width="90vh">
 		</div>
 		<div class="img">
 			<img src="img/main1.jpg" height="90%" width="90%">

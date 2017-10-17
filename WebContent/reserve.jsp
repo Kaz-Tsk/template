@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,7 +33,7 @@
 
 	<div class="container">
 		<!--予約日時-->
-		<s:form action="ReserveAction">
+		<s:form action="GoReserveAction">
 			<div class="reserve-date">
 				<p>予約日時を選択してください</p>
 				<input type="text" id="datepicker">
@@ -49,12 +50,14 @@
 						<th></th>
 					</tr>
 
+					<s:iterator value="menuList">
 					<tr>
-						<td>menu</td>
-						<td>price</td>
-						<td>time</td>
+						<td><s:property value="menuName"/></td>
+						<td><fmt:formatNumber value="${menuPrice}" pattern="###,###,###"/>円</td>
+						<td><s:property value="menuTime"/>分</td>
 						<td><input type="checkbox" name="check" value=""></td>
 					</tr>
+					</s:iterator>
 				</table>
 			</div>
 			<!-- stylist指名 -->

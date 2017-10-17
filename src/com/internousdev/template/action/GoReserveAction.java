@@ -1,13 +1,12 @@
 package com.internousdev.template.action;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.template.dto.ReserveDTO;
+import com.internousdev.template.dao.MenuDAO;
+import com.internousdev.template.dto.MenuDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -18,25 +17,20 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class GoReserveAction extends ActionSupport implements SessionAware{
 
-	private String menu;
 
-	private BigDecimal price;
+	private Map<String,Object> session;
 
-	private int treatmentTime;
+	private ArrayList<MenuDTO> menuList = new ArrayList<MenuDTO>();
 
-	private Map<String,Object> session = new HashMap<>();
+	MenuDTO menuDTO = new MenuDTO();
 
-	private ArrayList<reserveDTO> menuList = new ArrayList<ReserveDTO>();
-
-	ReserveDTO reserveDTO = new ReserveDTO();
-
-	ReseveMenuDAO reseaveMenuDAO = ReserveMenuDAO();
+	MenuDAO menuDAO = new MenuDAO();
 
 
 	public String execute(){
 		String result = ERROR;
 		if(session.containsKey("Id")){
-			menuList = reserveDAO.selectMenu();
+			menuList = menuDAO.selectMenu();
 			if(menuList.size()!=0){
 				result = SUCCESS;
 			}
@@ -44,4 +38,14 @@ public class GoReserveAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+
+	}
+
+	public ArrayList<MenuDTO> getMenuList(){
+		return menuList;
+	}
 }
