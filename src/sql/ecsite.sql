@@ -30,14 +30,24 @@ insert_date datetime,
 update_date datetime
 );
 
-drop table if exists stylist_data;
+drop table if exists staff_data;
 
-create table stylist_data(
-stylist_id int not null primary key auto_increment,
-stylist_name varchar(50),
+create table staff_data(
+staff_id int not null primary key auto_increment,
+staff_name varchar(50),
+sfaff_comment varchar(300),
 insert_date datetime,
 delete_date datetime
 );
 
+drop table if exists salon_data;
+
+create table salon_data(
+salon_week varchar(50),
+salon_hour varchar(50),
+salon_info varchar(200),
+insert_date date
+);
 
 INSERT INTO menu(menu_name, menu_price,menu_time) VALUES("CUT", 6480,60);
+insert into salon_data(salon_info)values("サロンHP新規オープンしました！");

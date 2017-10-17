@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,15 +24,15 @@
 		<jsp:include page="header.jsp" />
 
  <!-- スライドしている画像 --------------------------------------------------------------------------->
-	<div class="index_img">
+	<div class="index_img" >
 		<div class="img">
-			<img src="img/main.jpg" height="90vh" width="90vh">
+			<img src="img/main.jpg" height="100%" width="100%">
 		</div>
 		<div class="img">
-			<img src="img/main1.jpg" height="90%" width="90%">
+			<img src="img/main1.jpg" height="100%" width="100%">
 		</div>
 		<div class="img">
-			<img src="img/main2.png"height="90%" width="90%">
+			<img src="img/main2.png" height="100%" width="100%">
 		</div>
 	</div>
 
@@ -42,12 +43,27 @@
 				slidesToShow : 1,
 				slidesToScroll : 1,
 				autoplay : true,
-				autoplaySpeed : 2000,
-				arrows : true,
-				dots : true,
+				autoplaySpeed : 2200,
+				arrows : false,
+				dots : false,
 			});
 		});
 	</script>
+
+	<!--informationテーブル-->
+	<s:iterator value="salonInfoList">
+	<div class="information">
+		<p>salon information</p>
+		<table>
+			<tr>
+				<td><s:property value="insertDate"/></td>
+				<td><s:property value="salonInfo"/></td>
+			</tr>
+		</table>
+	</div>
+	</s:iterator>
+<!-- フッター -->
+		<jsp:include page="footer.jsp" />
 
 </body>
 </html>

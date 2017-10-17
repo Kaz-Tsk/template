@@ -14,7 +14,7 @@ public class MenuDAO {
 /**
  * menu取得のためのクラス
  *
- * @return menuList
+ *
  */
 	public ArrayList<MenuDTO> menuList = new ArrayList<MenuDTO>();
 
@@ -24,7 +24,7 @@ public class MenuDAO {
 
 
 	/**
-	 * 背術メニューを取得するメソッド
+	 * メニューを取得するメソッド
 	 *
 	 * @return menuList
 	 */
@@ -40,9 +40,7 @@ public class MenuDAO {
 					menuDTO.setMenuName(resultSet.getString("menu_name"));
 					menuDTO.setMenuPrice(resultSet.getBigDecimal("menu_price"));
 					menuDTO.setMenuTime(resultSet.getInt("menu_time"));
-					System.out.println(menuList);
 					menuList.add(menuDTO);
-					System.out.println(menuList.size());
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
