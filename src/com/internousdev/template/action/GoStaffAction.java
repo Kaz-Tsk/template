@@ -2,7 +2,8 @@ package com.internousdev.template.action;
 
 import java.util.ArrayList;
 
-import com.internousdev.template.dao.SalonDataDTO;
+import com.internousdev.template.dao.GoStaffDAO;
+import com.internousdev.template.dto.StaffDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -14,14 +15,15 @@ public class GoStaffAction extends ActionSupport{
 
 	GoStaffDAO dao = new GoStaffDAO();
 	StaffDTO dto = new StaffDTO();
-	ArrayList<SaffDTO> staffList = new  ArrayList<StaffDTO>();
+	ArrayList<StaffDTO> staffList = new  ArrayList<StaffDTO>();
+
 	public String execute(){
 		staffList = dao.staffSelect();
 
 		return  SUCCESS;
 	}
 
-	public ArrayList<SalonDataDTO> getSalonInfoList(){
+	public ArrayList<StaffDTO> getStaffList(){
 		return staffList;
 	}
 

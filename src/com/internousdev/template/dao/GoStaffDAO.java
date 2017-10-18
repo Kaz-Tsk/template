@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.internousdev.template.dto.StaffDTO;
 import com.internousdev.template.util.DBConnector;
 
 public class GoStaffDAO {
@@ -16,8 +17,8 @@ public class GoStaffDAO {
 
 	private Connection connection =  dbConnector.getConnection();
 
-	public ArrayList<SalonDataDTO> infoSelect(){
-		String sql = "SELECT  staf_name,staff_comment FROM staff_data";
+	public ArrayList<StaffDTO> staffSelect(){
+		String sql = "SELECT  staff_id,staff_name,staff_comment,staff_img FROM staff_data order by staff_id asc";
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -25,9 +26,13 @@ public class GoStaffDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
 					StaffDTO dto = new StaffDTO();
+					dto.setStaffId(resultSet.getInt("staff_id"));
 					dto.setStaffName(resultSet.getString("staff_name"));
 					dto.setStaffComment(resultSet.getString("staff_comment"));
+					dto.setStaffImg(resultSet.getString("staff_img"));
+
 					staffList.add(dto);
+
 			}
 		}catch(SQLException e){
 			e.printStackTrace();

@@ -6,31 +6,33 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.template.dto.SalonDataDTO;
+import com.internousdev.template.dto.StyleDTO;
 import com.internousdev.template.util.DBConnector;
 
-public class GoTopActionDAO {
-/**
- * Indexの情報を引き出すメソッド
- */
-	public ArrayList<SalonDataDTO> salonInfoList = new ArrayList<SalonDataDTO>();
+public class GoStyleDAO {
+
+	public ArrayList<StyleDTO> styleList = new ArrayList<StyleDTO>();
 
 	private DBConnector dbConnector = new DBConnector();
 
 	private Connection connection =  dbConnector.getConnection();
 
-	public ArrayList<SalonDataDTO> infoSelect(){
-		String sql = "SELECT  salon_info,insert_date FROM salon_data";
+	public ArrayList<StyleDTO> styleSelect(){
+		String sql = "SELECT  style_id,style_name,style_comment,style_img FROM style_data order by style_id asc";
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
-					SalonDataDTO dto = new SalonDataDTO();
-					dto.setSalonInfo(resultSet.getString("salon_info"));
-					dto.setInsertDate(resultSet.getDate("insert_date"));
-					salonInfoList.add(dto);
+					StyleDTO dto = new StyleDTO();
+					dto.setStyleId(resultSet.getInt("style_id"));
+					dto.setStyleName(resultSet.getString("style_name"));
+					dto.setStyleComment(resultSet.getString("style_comment"));
+					dto.setStyleImg(resultSet.getString("style_img"));
+
+					styleList.add(dto);
+
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -41,6 +43,7 @@ public class GoTopActionDAO {
 				e.printStackTrace();
 			}
 		}
-		return salonInfoList;
+		return styleList;
 	}
+
 }

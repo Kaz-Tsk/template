@@ -5,27 +5,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>style</title>
+<title>staff</title>
 </head>
-
 <body>
-<!-- ヘッダー ------------------------------>
+	<!-- ヘッダー ------------------------------>
 	<jsp:include page="header.jsp" />
 
 	<!-- staff -->
 	<div class="container">
-		<s:iterator value="styleList">
-			<div class="style">
-				<div class="style-Img">
-				<img src="<s:property value="styleImg"/>">
+		<s:iterator value="staffList">
+			<div class="staff">
+				<div class="staff-Img">
+				<img src="<s:property value="staffImg"/>">
 				</div>
-				<div class="style-data">
+				<div class="staff-data">
 					<table>
 						<tr>
-							<td><s:property value="styleName" /></td>
+							<td><s:property value="staffName" /></td>
 						</tr>
 						<tr>
-							<td><s:property value="styleComment" /></td>
+							<td><s:property value="staffComment" /></td>
 						</tr>
 					</table>
 				</div>

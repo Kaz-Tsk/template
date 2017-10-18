@@ -51,17 +51,19 @@
 	</script>
 
 	<!--informationテーブル-->
-	<s:iterator value="salonInfoList">
+
 	<div class="information">
 		<p>salon information</p>
 		<table>
+			<s:iterator value="salonInfoList">
 			<tr>
 				<td><s:property value="insertDate"/></td>
 				<td><s:property value="salonInfo"/></td>
 			</tr>
+			</s:iterator>
 		</table>
 	</div>
-	</s:iterator>
+
 <!-- フッター -->
 		<jsp:include page="footer.jsp" />
 
