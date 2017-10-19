@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <!-- jQueryUIの読み込み -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -16,13 +16,14 @@
 <!-- jQueryのcssの読み込み-->
 <link rel="stylesheet"
 	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css">
+
 <!-- datepicker -->
 <script>
   $(function() {
     $("#datepicker").datepicker();
     $("#datepicker").datepicker("option", "showOn", 'both');
     $("#datepicker").datepicker("option", "buttonImageOnly", true);
-    $("#datepicker").datepicker("option", "buttonImage", 'ico_calendar.png');
+    $("#datepicker").datepicker("option", "buttonImage", 'img/cal_icon.png');
   });
 </script>
 <title>reserve</title>
@@ -33,10 +34,13 @@
 
 	<div class="container">
 		<!--予約日時-->
-		<s:form action="GoReserveAction">
+		<s:form action="GoReserveConfirmAction">
 			<div class="reserve-date">
 				<p>予約日時を選択してください</p>
-				<input type="text" id="datepicker">
+				<input type="text" name="reserveDate" id="datepicker">
+				<select name="reseveHour">
+					<option value="">
+				</select>
 
 			</div>
 			<!--メニュー-->
@@ -55,7 +59,7 @@
 						<td><s:property value="menuName"/></td>
 						<td><fmt:formatNumber value="${menuPrice}" pattern="###,###,###"/>円</td>
 						<td><s:property value="menuTime"/>分</td>
-						<td><input type="checkbox" name="check" value=""></td>
+						<td><input type="checkbox" name="menuId[]" value="<s:property value="menuId"/>"></td>
 					</tr>
 					</s:iterator>
 				</table>
@@ -66,11 +70,11 @@
 				<table>
 					<tr>
 						<td>stlist</td>
-						<td><input type="radio" name="stylist" value=""></td>
+						<td><input type="radio" name="staff" value="<s:property value="staffName"/>"></td>
 					</tr>
 					<tr>
 						<td>指名なし</td>
-						<td><input type="radio" name="stylist" value=""></td>
+						<td><input type="radio" name="staff" value="指名なし"></td>
 					</tr>
 				</table>
 			</div>

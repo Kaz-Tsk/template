@@ -14,10 +14,8 @@ public class GoStyleInfoAction extends ActionSupport {
 	GoStyleInfoDAO dao = new GoStyleInfoDAO();
 	StyleDTO dto = new StyleDTO();
 	ArrayList<StyleDTO> styleList = new  ArrayList<StyleDTO>();
-
 	public String execute(){
 		styleList = dao.styleSelect(styleId);
-
 		return  SUCCESS;
 	}
 
@@ -25,5 +23,11 @@ public class GoStyleInfoAction extends ActionSupport {
 		return styleList;
 	}
 
+	public int getStyleId(){
+		return styleId;
+	}
 
+	public void setStyleId(int styleId){
+		this.styleId = styleId;
+	}
 }

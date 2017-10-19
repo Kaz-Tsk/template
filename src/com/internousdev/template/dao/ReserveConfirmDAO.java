@@ -6,33 +6,36 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.internousdev.template.dto.StyleDTO;
+import com.internousdev.template.dto.MenuDTO;
 import com.internousdev.template.util.DBConnector;
 
-public class GoStyleInfoDAO {
+public class ReserveConfirmDAO {
 
-	public ArrayList<StyleDTO> styleList = new ArrayList<StyleDTO>();
+	public ArrayList<MenuDTO> reserveConfirmList = new ArrayList<MenuDTO>();
 
 	private DBConnector dbConnector = new DBConnector();
 
 	private Connection connection =  dbConnector.getConnection();
 
-	public ArrayList<StyleDTO> styleSelect(int styleId){
-		String sql = "SELECT style_name,style_comment,style_img FROM style_data where style_Id=?";
+
+	/**
+	 * メニューを取得するメソッド
+	 *
+	 * @return menuList
+	 */
+	public  ArrayList<MenuDTO> selectReserveConfirm(int menuIdList){
+		String sql = "SELECT * FROM menu where=?";
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-			preparedStatement.setInt(1, styleId);
+			preparedStatement.setInt(1, menuId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
-					StyleDTO dto = new StyleDTO();
-					dto.setStyleName(resultSet.getString("style_name"));
-					dto.setStyleComment(resultSet.getString("style_comment"));
-					dto.setStyleImg(resultSet.getString("style_img"));
-
-					styleList.add(dto);
-
+					MenuDTO menuDTO = new MenuDTO();
+					menuDTO.setMenuName(resultSet.getString("menu_name"));
+					menuDTO.setMenuPrice(resultSet.getInt("menu_price"));
+					menuDTO.setMenuTime(resultSet.getInt("menu_time"));
+					reserveConfirmList.add(menuDTO);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -43,7 +46,6 @@ public class GoStyleInfoDAO {
 				e.printStackTrace();
 			}
 		}
-		return styleList;
+		return reserveConfirmList;
 	}
-
 }

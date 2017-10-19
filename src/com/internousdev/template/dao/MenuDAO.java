@@ -37,8 +37,9 @@ public class MenuDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
 					MenuDTO menuDTO = new MenuDTO();
+					menuDTO.setMenuId(resultSet.getInt("menu_id"));
 					menuDTO.setMenuName(resultSet.getString("menu_name"));
-					menuDTO.setMenuPrice(resultSet.getBigDecimal("menu_price"));
+					menuDTO.setMenuPrice(resultSet.getInt("menu_price"));
 					menuDTO.setMenuTime(resultSet.getInt("menu_time"));
 					menuList.add(menuDTO);
 			}

@@ -17,15 +17,13 @@
 		<s:iterator value="styleList">
 			<div class="style">
 				<div class="style-Img">
-				<a href="<s:url></s:url><img src="">"></a>
+				<a href="<s:url action="GoStyleInfoAction"><s:param name="styleId" value="%{StyleId}"/></s:url>">
+				<img  src="<s:property value="StyleImg"/>"><s:hidden value="styleId" /> </a>
 				</div>
 				<div class="style-data">
 					<table>
 						<tr>
 							<td><s:property value="styleName" /></td>
-						</tr>
-						<tr>
-							<td><s:property value="styleComment" /></td>
 						</tr>
 					</table>
 				</div>

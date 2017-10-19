@@ -81,6 +81,10 @@
 			<result name="success">reserve.jsp</result>
 			<result name="error">main.jsp</result>
 		</action>
+	<!-- GoReserveCofirmAction -->
+		<action name="GoReserveConfirmAction" class="com.internousdev.template.action.GoReserveConfirmAction" method="execute">
+			<result name="success">reserveConfirm.jsp</result>
+		</action>
 	<!-- GoMenuAction -->
 		<action name="GoMenuAction" class="com.internousdev.template.action.GoMenuAction" method="execute">
 			<result name="success">menu.jsp</result>
@@ -93,6 +97,10 @@
 	<!-- GoStyleAction -->
 		<action name="GoStyleAction" class="com.internousdev.template.action.GoStyleAction" method="execute">
 			<result name="success">style.jsp</result>
+		</action>
+	<!-- GoStyleAction -->
+		<action name="GoStyleInfoAction" class="com.internousdev.template.action.GoStyleInfoAction" method="execute">
+			<result name="success">styleInfo.jsp</result>
 		</action>
 	<!-- GoInformationAction -->
 		<action name="GoInformationAction" class="com.internousdev.template.action.GoInformationAction" method="execute">
