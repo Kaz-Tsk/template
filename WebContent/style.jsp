@@ -17,8 +17,7 @@
 		<s:iterator value="styleList">
 			<div class="style">
 				<div class="style-Img">
-				<a href="<s:url value="GoStyleInfoAction"><s:param name="styleId" value="%{styleId}"/></s:url>
-				<img src="<s:property value="styleImg"/>">"><s:hidden value="styleId"/></a>
+				<a href="<s:url></s:url><img src="">"></a>
 				</div>
 				<div class="style-data">
 					<table>
