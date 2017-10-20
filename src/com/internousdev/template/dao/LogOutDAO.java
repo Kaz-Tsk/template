@@ -1,4 +1,4 @@
-package com.internousdev.template.action;
+package com.internousdev.template.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

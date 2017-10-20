@@ -9,15 +9,15 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoReserveConfirmAction extends ActionSupport {
 
 	private int menuId;
-	
+
 	private String reserveDate;
-	
+
 	private String reserveHour;
-	
+
 	private String staffName;
-	
+
 	private String pay;
-	
+	@SuppressWarnings("unused")
 	private int subPrice = 0;
 
 	ReserveConfirmDAO dao = new ReserveConfirmDAO();

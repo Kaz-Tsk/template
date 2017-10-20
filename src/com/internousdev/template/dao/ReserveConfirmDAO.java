@@ -17,6 +17,7 @@ public class ReserveConfirmDAO {
 
 	private Connection connection =  dbConnector.getConnection();
 
+	private int menuId;
 
 	/**
 	 * メニューを取得するメソッド
