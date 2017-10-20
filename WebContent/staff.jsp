@@ -1,22 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/master.css">
 <title>staff</title>
 </head>
 <body>
-	<!-- ヘッダー ------------------------------>
-	<jsp:include page="header.jsp" />
+
 
 	<!-- staff -->
-	<div class="container">
+	<div id="container">
+		<!-- ヘッダー ------------------------------>
+		<jsp:include page="header.jsp" />
 		<s:iterator value="staffList">
 			<div class="staff">
 				<div class="staff-Img">
-				<img src="<s:property value="staffImg"/>">
+					<img src="<s:property value="staffImg"/>">
 				</div>
 				<div class="staff-data">
 					<table>
@@ -30,6 +32,8 @@
 				</div>
 			</div>
 		</s:iterator>
+		<!-- フッター -->
+		<jsp:include page="footer.jsp" />
 	</div>
 </body>
 </html>

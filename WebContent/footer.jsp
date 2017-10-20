@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>footer</title>
 </head>
 <body>
-<div class="footer" style=" bottom:0; text-align:center;" >
+<footer>
 	<p>Copyright © 2017 template. All Rights Reserved.</p>
-</div>
+</footer>
 </body>
 </html>

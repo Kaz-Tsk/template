@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="css/master.css">
 <meta charset="UTF-8">
 <!-- jQueryUIの読み込み -->
 <script
@@ -29,10 +30,11 @@
 <title>reserve</title>
 </head>
 <body>
-	<!-- ヘッダー ------------------------------>
-	<jsp:include page="header.jsp" />
+
 
 	<div class="container">
+	<!-- ヘッダー ------------------------------>
+	<jsp:include page="header.jsp" />
 		<!--予約日時-->
 		<s:form action="GoReserveConfirmAction">
 			<div class="reserve-date">
@@ -88,6 +90,8 @@
 			</div>
 			<input type="submit" value="予約決定">
 		</s:form>
+		<!-- フッター -->
+		<jsp:include page="footer.jsp" />
 	</div>
 </body>
 </html>

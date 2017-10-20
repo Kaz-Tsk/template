@@ -69,8 +69,8 @@
 		</action>
 
 		<!-- LogoutAction -->
-		<action name="LogoutAction" class="com.internousdev.template.action.LogoutAction" method="execute">
-			<result name="success">login.jsp</result>
+		<action name="LogOutAction" class="com.internousdev.template.action.LogOutAction" method="execute">
+			<result name="success">main.jsp</result>
 		</action>
 	<!-- GoTopAction -->
 		<action name="GoTopAction" class="com.internousdev.template.action.GoTopAction" method="execute">

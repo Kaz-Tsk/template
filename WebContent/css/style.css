@@ -1,0 +1,13 @@
+img{
+	height:200px;
+	width:200px;
+}
+
+.style{
+	position: relative;
+}
+
+.style-Img{
+	position:relative;
+	float:left;
+}
