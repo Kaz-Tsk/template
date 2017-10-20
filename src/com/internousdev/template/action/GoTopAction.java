@@ -18,8 +18,8 @@ public class GoTopAction extends ActionSupport {
 	ArrayList<SalonDataDTO> salonInfoList = new  ArrayList<SalonDataDTO>();
 	public String execute(){
 		salonInfoList = dao.infoSelect();
-
 		return  SUCCESS;
+
 	}
 
 	public ArrayList<SalonDataDTO> getSalonInfoList(){

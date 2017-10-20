@@ -20,7 +20,7 @@ public class GoTopActionDAO {
 	private Connection connection =  dbConnector.getConnection();
 
 	public ArrayList<SalonDataDTO> infoSelect(){
-		String sql = "SELECT  salon_info,insert_date FROM salon_data";
+		String sql = "SELECT salon_info,insert_date FROM salon_info";
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);

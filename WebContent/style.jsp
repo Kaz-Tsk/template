@@ -20,10 +20,9 @@
 
 
 			<div class="style">
-			<s:iterator value="styleList">
+			<s:iterator value="ladiesStyleList">
 				<div class="style-Img">
-					<a
-						href="<s:url action="GoStyleInfoAction"><s:param name="styleId" value="%{StyleId}"/></s:url>">
+					<a href="<s:url action="GoStyleInfoAction"><s:param name="styleId" value="%{StyleId}"/></s:url>">
 						<img src="<s:property value="StyleImg"/>">
 					<s:hidden value="styleId" />
 					</a>
@@ -35,7 +34,24 @@
 					</table>
 				</div>
 				</div>
-
+				</s:iterator>
+			</div>
+			<br clear="left">
+			<div class="style">
+			<s:iterator value="mensStyleList">
+				<div class="style-Img">
+					<a href="<s:url action="GoStyleInfoAction"><s:param name="styleId" value="%{StyleId}"/></s:url>">
+						<img src="<s:property value="StyleImg"/>">
+					<s:hidden value="styleId" />
+					</a>
+					<div class="style-data">
+					<table>
+						<tr>
+							<td><s:property value="styleName" /></td>
+						</tr>
+					</table>
+				</div>
+				</div>
 				</s:iterator>
 			</div>
 

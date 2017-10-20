@@ -10,20 +10,30 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GoStyleAction extends ActionSupport {
 
+	private String styleSex;
 
 	GoStyleDAO dao = new GoStyleDAO();
 	StyleDTO dto = new StyleDTO();
-	ArrayList<StyleDTO> styleList = new  ArrayList<StyleDTO>();
+	ArrayList<StyleDTO> ladiesStyleList = new  ArrayList<StyleDTO>();
+
+	ArrayList<StyleDTO> mensStyleList = new  ArrayList<StyleDTO>();
+
 
 	public String execute(){
-		styleList = dao.styleSelect();
+		styleSex = "ladies";
+		ladiesStyleList = dao.styleSelect(styleSex);
 
+		styleSex = "mens";
+		mensStyleList = dao.styleSelect(styleSex);
 		return  SUCCESS;
 	}
 
-	public ArrayList<StyleDTO> getStyleList(){
-		return styleList;
+	public ArrayList<StyleDTO> getLadiesStyleList(){
+		return ladiesStyleList;
 	}
 
 
+	public ArrayList<StyleDTO> getMenStyleList(){
+		return mensStyleList;
+	}
 }

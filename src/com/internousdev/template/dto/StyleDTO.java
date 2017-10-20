@@ -6,6 +6,8 @@ public class StyleDTO {
 
 	private String styleName;
 
+	private String styleSex;
+
 	private String styleComment;
 
 	private String styleImg;
@@ -26,6 +28,14 @@ public class StyleDTO {
 
 	public void setStyleName(String styleName){
 		this.styleName = styleName;
+	}
+
+	public String getStyleSex() {
+		return styleSex;
+	}
+
+	public void setStyleSex(String styleSex) {
+		this.styleSex = styleSex;
 	}
 
 	public String getStyleComment(){
