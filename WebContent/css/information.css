@@ -1,0 +1,14 @@
+.salon-date{
+
+}
+
+.salon-date > table{
+	margin:0 auto;
+	width:200px;
+	text-align:center;
+	table-layout:fixed;
+}
+
+.salon-addtel > p{
+	text-align:center;
+}

@@ -5,6 +5,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/master.css">
+<link rel="stylesheet" type="text/css" href="css/information.css">
 <meta charset="UTF-8">
 <title>information</title>
 </head>
@@ -13,30 +14,34 @@
 		<!-- ヘッダー ------------------------------>
 		<jsp:include page="header.jsp" />
 		<div class="salon-date">
-			<p>営業日・時間</p>
-			<s:iterator value="salonDataList">
-				<table>
-					<tr>
-						<td><s:property value="salonWeek" /></td>
-						<td><s:property value="salonHour" /></td>
-					</tr>
-				</table>
-			</s:iterator>
+
+			<table>
+				<tr>
+					<td colspan="2">営業日・時間</td>
+				</tr>
+				<s:iterator value="salonDataList">
+				<tr>
+					<td><s:property value="salonWeek" /></td>
+					<td><s:property value="salonHour" /></td>
+				</tr>
+				</s:iterator>
+			</table>
+
 		</div>
 
 		<div class="salon-addtel">
-			<table>
-				<tr>
-					<th>住所</th>
-					<th>電話番号</th>
-				</tr>
-				<s:iterator value="salonDataList">
-					<tr>
-						<td><s:property value="salonAddress" /></td>
-						<td><s:property value="salonTel" /></td>
-					</tr>
-				</s:iterator>
-			</table>
+			<p>Salon Tel</p>
+			<s:iterator value="salonDataList">
+				<p>
+					<s:property value="salonTel" />
+				</p>
+			</s:iterator>
+			<p>Salon Add</p>
+			<s:iterator value="salonDataList">
+				<p>
+					<s:property value="salonAddress" />
+				</p>
+			</s:iterator>
 		</div>
 		<!-- フッター -->
 		<jsp:include page="footer.jsp" />
