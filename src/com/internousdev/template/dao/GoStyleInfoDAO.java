@@ -18,7 +18,7 @@ public class GoStyleInfoDAO {
 	private Connection connection =  dbConnector.getConnection();
 
 	public ArrayList<StyleDTO> styleSelect(int styleId){
-		String sql = "SELECT style_name,style_comment,style_img FROM style_data where style_Id=?";
+		String sql = "SELECT style_name,style_comment,style_img,staff_name,staff_img FROM  style_data left join staff_data on style_data.staff_id = staff_data.staff_id where style_Id=?";
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -30,6 +30,8 @@ public class GoStyleInfoDAO {
 					dto.setStyleName(resultSet.getString("style_name"));
 					dto.setStyleComment(resultSet.getString("style_comment"));
 					dto.setStyleImg(resultSet.getString("style_img"));
+					dto.setStaffName(resultSet.getString("staff_name"));
+					dto.setStaffImg(resultSet.getString("staff_img"));
 
 					styleList.add(dto);
 

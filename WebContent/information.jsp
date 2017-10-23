@@ -14,7 +14,7 @@
 		<!-- ヘッダー ------------------------------>
 		<jsp:include page="header.jsp" />
 		<div class="salon-date">
-
+		<div class="head-space"></div>
 			<table>
 				<tr>
 					<td colspan="2">営業日・時間</td>

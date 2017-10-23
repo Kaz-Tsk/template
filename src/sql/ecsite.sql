@@ -49,6 +49,7 @@ style_name varchar(50),
 style_sex varchar(10) default "ladies",
 style_comment varchar(300),
 style_img varchar(100) default "img/noimg.png",
+staff_id int not null,
 insert_date datetime,
 delete_date datetime
 );

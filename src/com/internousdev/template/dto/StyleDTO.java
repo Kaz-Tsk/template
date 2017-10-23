@@ -12,6 +12,10 @@ public class StyleDTO {
 
 	private String styleImg;
 
+	private String staffName;
+
+	private String staffImg;
+
 	public int getStyleId(){
 		return styleId;
 	}
@@ -52,6 +56,22 @@ public class StyleDTO {
 
 	public void setStyleImg(String styleImg){
 		this.styleImg = styleImg;
+	}
+
+	public String getStaffName() {
+		return staffName;
+	}
+
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
+	}
+
+	public String getStaffImg() {
+		return staffImg;
+	}
+
+	public void setStaffImg(String staffImg) {
+		this.staffImg = staffImg;
 	}
 }
 

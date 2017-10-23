@@ -21,9 +21,11 @@ public class GoStyleAction extends ActionSupport {
 
 	public String execute(){
 		styleSex = "ladies";
+		System.out.println(styleSex);
 		ladiesStyleList = dao.styleSelect(styleSex);
 
 		styleSex = "mens";
+		System.out.println(styleSex);
 		mensStyleList = dao.styleSelect(styleSex);
 		return  SUCCESS;
 	}
@@ -33,7 +35,7 @@ public class GoStyleAction extends ActionSupport {
 	}
 
 
-	public ArrayList<StyleDTO> getMenStyleList(){
+	public ArrayList<StyleDTO> getMensStyleList(){
 		return mensStyleList;
 	}
 }

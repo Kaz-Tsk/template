@@ -11,7 +11,7 @@ import com.internousdev.template.util.DBConnector;
 
 public class GoStyleDAO {
 
-	public ArrayList<StyleDTO> styleList = new ArrayList<StyleDTO>();
+
 
 
 
@@ -20,7 +20,7 @@ public class GoStyleDAO {
 		DBConnector dbConnector = new DBConnector();
 
 		Connection connection =  dbConnector.getConnection();
-
+		ArrayList<StyleDTO> styleList = new ArrayList<StyleDTO>();
 		String sql = "SELECT  style_id,style_name,style_sex,style_img FROM style_data where style_sex=? order by style_id asc";
 
 		try{

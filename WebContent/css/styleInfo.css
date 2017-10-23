@@ -1,0 +1,21 @@
+.head-space{
+
+	padding: 25px;
+}
+
+.style-Img{
+
+	float:left;
+	height:400px;
+	width:400px;
+}
+
+.style-Img > img{
+	height:400px;
+	width:400px;
+}
+
+.style-data{
+
+	float:left;
+}
