@@ -6,26 +6,20 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/master.css">
+<script  type="text/javascript" src="js/reservedate.js"></script>
 <meta charset="UTF-8">
-<!-- jQueryUIの読み込み -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
-<!-- jQueryのcssの読み込み-->
-<link rel="stylesheet"
-	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css">
+<!-- jquery datepicker読み込み -->
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery.ui.datepicker-ja.js"></script>
+<script type="text/javascript" src="js/jquery.holiday.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.9.2.custom.css" >
 
-<!-- datepicker -->
-<script>
-  $(function() {
-    $("#datepicker").datepicker();
-    $("#datepicker").datepicker("option", "showOn", 'both');
-    $("#datepicker").datepicker("option", "buttonImageOnly", true);
-    $("#datepicker").datepicker("option", "buttonImage", 'img/cal_icon.png');
-  });
+<!-- datepicker script -->
+<script type="text/javascript" charset="utf-8">
+jQuery(function(){
+	$("#datepicker").datepicker().holiday();
+});
 </script>
 <title>reserve</title>
 </head>
@@ -36,12 +30,11 @@
 	<!-- ヘッダー ------------------------------>
 	<jsp:include page="header.jsp" />
 		<!--予約日時-->
-		<s:form action="GoReserveConfirmAction">
+		<s:form  action="GoReserveConfirmAction">
 			<div class="reserve-date">
 				<p>予約日時を選択してください</p>
-				<input type="text" name="reserveDate" id="datepicker">
-				<select name="reseveHour">
-					<option value="">
+				<input type="text" name="reserveDate" onkeyup="resrveDate()" id="datepicker">
+				<select name="reseveTime">
 				</select>
 
 			</div>
