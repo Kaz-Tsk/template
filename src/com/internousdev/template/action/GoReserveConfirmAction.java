@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GoReserveConfirmAction extends ActionSupport {
 
-	private String[] menuId = null;
+	private String[] menuId ;
 
 	int[] menuId2 =  Stream.of(menuId).mapToInt(Integer::parseInt).toArray();
 
