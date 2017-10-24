@@ -17,19 +17,22 @@ public class ReserveConfirmDAO {
 
 	private Connection connection =  dbConnector.getConnection();
 
-	private int menuId;
+
 
 	/**
 	 * メニューを取得するメソッド
 	 *
 	 * @return menuList
 	 */
-	public  ArrayList<MenuDTO> selectReserveConfirm(int menuIdList){
-		String sql = "SELECT * FROM menu where=?";
+	public  ArrayList<MenuDTO> selectReserveConfirm(int[] menuId2){
+		int menuId = menuId2.length;
+		String sql = "SELECT * FROM menu where menuId  in ("+createInSQL(menuId)+")";
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, menuId);
+			for( int i=0; i < menuId; i++){
+			preparedStatement.setInt(i+1,menuId2[i]);
+			}
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
 					MenuDTO menuDTO = new MenuDTO();
@@ -48,5 +51,16 @@ public class ReserveConfirmDAO {
 			}
 		}
 		return reserveConfirmList;
+	}
+
+	private static String createInSQL(int menuId){
+		StringBuilder builder = new StringBuilder();
+		for(int i = 0; i < menuId;){
+			builder.append("?");
+			if(++i < menuId){
+			builder.append(",");
+			}
+			}
+		return builder.toString();
 	}
 }

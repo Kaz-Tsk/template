@@ -1,6 +1,7 @@
 package com.internousdev.template.action;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 import com.internousdev.template.dao.ReserveConfirmDAO;
 import com.internousdev.template.dto.MenuDTO;
@@ -8,28 +9,33 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GoReserveConfirmAction extends ActionSupport {
 
-	private int menuId;
+	private String[] menuId = null;
+
+	int[] menuId2 =  Stream.of(menuId).mapToInt(Integer::parseInt).toArray();
 
 	private String reserveDate;
 
-	private String reserveHour;
+	private String reserveTime;
 
-	private String staffName;
+	private int staffId;
 
 	private String pay;
 	@SuppressWarnings("unused")
 	private int subPrice = 0;
 
+
+
 	ReserveConfirmDAO dao = new ReserveConfirmDAO();
 	MenuDTO dto = new MenuDTO();
 	ArrayList<MenuDTO> reserveConfirmList = new ArrayList<MenuDTO>();
 	public String execute(){
+		System.out.println("test"+menuId2);
 		String result = ERROR;
-		reserveConfirmList = dao.selectReserveConfirm(menuId);
+		reserveConfirmList = dao.selectReserveConfirm(menuId2);
 		if(reserveConfirmList.size()>1){
-			for(int i=0; i <= reserveConfirmList.size()-1; i++ ){
+			for(int i=0; i < reserveConfirmList.size(); i++ ){
 				subPrice += reserveConfirmList.get(i).getMenuPrice();
-				if(i<=reserveConfirmList.size()-1){
+				if(i<=reserveConfirmList.size()){
 					result =  SUCCESS;
 				}
 			}
@@ -41,30 +47,38 @@ public class GoReserveConfirmAction extends ActionSupport {
 		}
 		return result;
 	}
-	public int getMenuId() {
+
+
+
+	public String[] getMenuId() {
 		return menuId;
 	}
 
-	public void setMenuId(int menuId) {
+
+
+	public void setMenuId(String menuId[]) {
 		this.menuId = menuId;
 	}
+
+
+
 	public String getReserveDate() {
 		return reserveDate;
 	}
 	public void setReserveDate(String reserveDate) {
 		this.reserveDate = reserveDate;
 	}
-	public String getReserveHour() {
-		return reserveHour;
+	public String getReserveTime() {
+		return reserveTime;
 	}
-	public void setReserveHour(String reserveHour) {
-		this.reserveHour = reserveHour;
+	public void setReserveTime(String reserveTime) {
+		this.reserveTime = reserveTime;
 	}
-	public String getStaffName() {
-		return staffName;
+	public int getStaffId() {
+		return staffId;
 	}
-	public void setStaffName(String staffName) {
-		this.staffName = staffName;
+	public void setStaffId(int staffId) {
+		this.staffId = staffId;
 	}
 	public String getPay() {
 		return pay;
@@ -72,5 +86,13 @@ public class GoReserveConfirmAction extends ActionSupport {
 	public void setPay(String pay) {
 		this.pay = pay;
 	}
+	public int getSubPrice() {
+		return subPrice;
+	}
+	public void setSubPrice(int subPrice) {
+		this.subPrice = subPrice;
+	}
+
+
 
 }
