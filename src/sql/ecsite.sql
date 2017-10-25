@@ -51,7 +51,8 @@ style_comment varchar(300),
 style_img varchar(100) default "img/noimg.png",
 staff_id int not null,
 insert_date datetime,
-delete_date datetime
+delete_date datetime,
+foreign key(staff_id) references ecsite.staff_data(staff_id) on delete cascade
 );
 
 drop table if exists salon_data;
@@ -73,6 +74,21 @@ salon_info varchar(300),
 insert_date date
 );
 
+drop table if exists reserve_date;
+
+create table reserve_date(
+reserve_id int not null primary key auto_increment,
+reserve_menu varchar(300),
+reserve_price int(100),
+reserve_staff varchar(50),
+user_id int not null,
+reserve_flg int default 0,
+reserve_date datetime,
+insert_date date
+
+);
+
+
 insert into menu(menu_name, menu_price,menu_time) values("CUT", 6480,60);
 
 insert into salon_data(salon_week,salon_hour,salon_address,salon_tel)values("月曜日","10:00","東京都武蔵野市吉祥寺本町0-0-0","0422-00-0000");
@@ -85,7 +101,7 @@ insert into salon_data(salon_week,salon_hour)values("日曜日","9:00");
 
 insert into staff_data(staff_name,staff_comment)values("田崎和幸","よろしくお願いします。");
 
-insert into style_data(style_name,style_comment)values("外国人風グラデーションカラー","外国人風のアッシュベースカラーがポイント");
-insert into style_data(style_name,style_sex,style_comment)values("外国人風グラデーションカラー","mens","外国人風のアッシュベースカラーがポイント");
+insert into style_data(style_name,style_comment,staff_id)values("外国人風グラデーションカラー","外国人風のアッシュベースカラーがポイント",1);
+insert into style_data(style_name,style_sex,style_comment,staff_id)values("外国人風グラデーションカラー","mens","外国人風のアッシュベースカラーがポイント",1);
 
 insert into salon_info(salon_info,insert_date)values("サロンHP新規オープンしました！",'2017-10-10');

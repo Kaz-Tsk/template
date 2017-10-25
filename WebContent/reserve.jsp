@@ -30,7 +30,7 @@
 		<jsp:include page="header.jsp" />
 		<s:form action="GoReserveConfirmAction">
 			<!--予約日時-->
-
+<h3 style="color:red;"><s:property value="errorMsg"/></h3>
 			<div class="reserve-date">
 				<p>予約日時を選択してください</p>
 				<input type="text" name="reserveDate" onchange="reservedate()"
@@ -66,6 +66,9 @@
 			<div class="stylist-choise">
 				<p>スタイリスト指名</p>
 				<table>
+					<tr>
+						<td><input type="radio" name="staffId"  value= "1"  checked = "checked">指名なし</td>
+					</tr>
 					<s:iterator value="staffList">
 						<tr>
 							<td><input type="radio" name="staffId"
@@ -73,17 +76,14 @@
 									value="staffName" /></td>
 						</tr>
 					</s:iterator>
-					<tr>
-						<td><input type="radio" name="staffId" value= "1" >指名なし</td>
-					</tr>
 				</table>
 			</div>
 			<!-- 支払い方法 -->
 			<div class="pay-select">
 				<p>支払い方法</p>
 				<ul>
-					<li><input type="radio" name="pay" value="credit">クレジット決済</li>
-					<li><input type="radio" name="pay" value="cash">現金</li>
+					<li><input type="radio" name="pay" value="クレジット" checked="checked">クレジット決済</li>
+					<li><input type="radio" name="pay" value="現金">現金</li>
 				</ul>
 			</div>
 			<input type="submit" value="予約する">
