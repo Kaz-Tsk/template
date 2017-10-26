@@ -10,6 +10,8 @@ public class MenuDTO {
 
 	private int menuTime;
 
+	private int reserveId;
+
 	public int getMenuId() {
 		return menuId;
 	}
@@ -40,5 +42,13 @@ public class MenuDTO {
 
 	public void setMenuTime(int menuTime){
 		this.menuTime = menuTime;
+	}
+
+	public int getReserveId() {
+		return reserveId;
+	}
+
+	public void setReserveId(int reserveId) {
+		this.reserveId = reserveId;
 	}
 }

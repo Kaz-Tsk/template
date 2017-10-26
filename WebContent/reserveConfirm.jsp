@@ -32,6 +32,12 @@
 				</tr>
 				</s:iterator>
 				<tr>
+					<td>施術時間</td>
+				</tr>
+				<tr>
+					<td><s:property value="menuTime"/></td>
+				</tr>
+				<tr>
 					<td>金額</td>
 				</tr>
 				<tr>
@@ -49,9 +55,10 @@
 				<tr>
 					<td><s:property value="pay"/></td>
 				</tr>
-
-				<input type="submit" value="">
 			</table>
+			<s:form action="GoReserveComplateAction">
+				<input type="submit" value="予約完了">
+			</s:form>
 		</div>
 	</div>
 </body>

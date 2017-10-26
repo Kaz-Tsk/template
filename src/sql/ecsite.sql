@@ -78,14 +78,16 @@ drop table if exists reserve_date;
 
 create table reserve_date(
 reserve_id int not null primary key auto_increment,
-reserve_menu varchar(300),
-reserve_price int(100),
-reserve_staff varchar(50),
+reserve_menu varchar(100),
+reserve_price int(10),
+reserve_time int(10),
+reserve_staff varchar(100),
+reserve_pay varchar(10),
 user_id int not null,
 reserve_flg int default 0,
-reserve_date datetime,
+reserve_start_date datetime,
+reserve_end_date datetime,
 insert_date date
-
 );
 
 

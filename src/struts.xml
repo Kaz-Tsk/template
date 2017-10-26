@@ -54,7 +54,11 @@
 		<result name="success">reserveConfirm.jsp</result>
 		<result name="error" type="chain">GoReserveAction</result>
 	</action>
-
+	<!-- GoReserveComplateAction -->
+	<action name="GoReserveComplateAction" class="com.internousdev.template.action.GoReserveComplateAction" method="execute">
+		<result name="success">reserveComplate.jsp</result>
+		<result name="error" type="chain">GoReserveAction</result>
+	</action>
 	<!-- GoMenuAction -->
 	<action name="GoMenuAction" class="com.internousdev.template.action.GoMenuAction" method="execute">
 		<result name="success">menu.jsp</result>

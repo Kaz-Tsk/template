@@ -14,12 +14,15 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoReserveConfirmAction extends ActionSupport implements SessionAware{
 
 
+	private String[] menuId=null;
 
 	private String reserveDate=null;
 
 	private String rD;
 
 	private String reserveTime;
+
+	private int menuTime = 0;
 
 	private int staffId;
 
@@ -38,52 +41,58 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	private Map<String,Object> session;
 
 	ReserveConfirmDAO dao = new ReserveConfirmDAO();
+
 	StaffDTO sdto = new StaffDTO();
+
 	MenuDTO dto = new MenuDTO();
+
 	ArrayList<MenuDTO> reserveConfirmList = new ArrayList<MenuDTO>();
 	public String execute(){
 		String result = ERROR;
-
-		if(reserveDate!=null && menuId!=null){
+		System.out.println(reserveTime);
+		if(!(reserveDate.equals("")) && menuId!=null){
+			//menuIdを配列で受け取る
 			int[] menuId2 =  Stream.of(menuId).mapToInt(Integer::parseInt).toArray();
+			//menu情報をDBから取得
 			reserveConfirmList = dao.selectReserveConfirm(menuId2);
+			//予約日と時間を文字列で連結
 			rD = reserveDate.substring(0,10)+" "+reserveTime;
-
+			//menuNameを連結して空白をはさんでひとつにまとめる
 			for(int a = 0; a < reserveConfirmList.size(); a++){
 				if( a != 0){
 					reserveMenu += " ";
-
-
 				}
 				reserveMenu += reserveConfirmList.get(a).getMenuName();
-
-
-
-
-																																		/*try {
-
-																																		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm");
-																																		Date drDate = sdFormat.parse(rD);
-																																		System.out.println("Date型 = " + drDate);
-
-
-																																	} catch (ParseException e) {
-																																		e.printStackTrace();
-																																	}*/
 			}
+			//時間を計算してmenuTimeに代入
+			for(int b=0; b < reserveConfirmList.size(); b++ ){
+				menuTime += reserveConfirmList.get(b).getMenuTime();
+			}
+
+			//合計金額を計算してsubpriceに代入
+			for(int i=0; i < reserveConfirmList.size(); i++ ){
+				subPrice += reserveConfirmList.get(i).getMenuPrice();
+			}
+			////staffIdが０のとき、staffNameに指名なしと記載する。それ以外はスタイリスト名を入れる
 			if(staffId==0){
 				staffName = "指名なし";
 			}else{
 				sdto = dao.staffNameSelect(staffId);
 				staffName = sdto.getStaffName();
 			}
-			for(int i=0; i < reserveConfirmList.size(); i++ ){
-				subPrice += reserveConfirmList.get(i).getMenuPrice();
+			//情報をインサート
+			if(dao.reserveCheck(rD, menuTime)<=5){
+				dao.reserveInsert(reserveMenu,subPrice,menuTime,staffName,pay,(int)session.get("Id"),reserveFlg,rD);
+				dto = dao.reserveIdGet((int)session.get("Id"), rD);
+				session.put("reserveId", dto.getReserveId());
+				System.out.println(session.get("reserveId"));
+				session.put("rD",rD);
+				session.put("menuTime",menuTime);
+				result = SUCCESS;
+			}else{
+				errorMsg="その予約時間帯は満席です。";
+				result = ERROR;
 			}
-
-
-			dao.reserveInsert(reserveMenu,subPrice,staffName,(int)session.get("Id"),reserveFlg,rD);
-			result = SUCCESS;
 		}else if(reserveDate.equals("")){
 			errorMsg="※予約日が選択されてません。";
 			return  ERROR;
@@ -129,6 +138,16 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 		this.staffId = staffId;
 	}
 
+	public int getMenuTime() {
+		return menuTime;
+	}
+
+
+	public void setMenuTime(int menuTime) {
+		this.menuTime = menuTime;
+	}
+
+
 	public String getPay() {
 		return pay;
 	}
@@ -173,7 +192,4 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-
-
 }
