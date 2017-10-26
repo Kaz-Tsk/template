@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GoReserveConfirmAction extends ActionSupport implements SessionAware{
 
-	private String[] menuId=null;
+
 
 	private String reserveDate=null;
 
