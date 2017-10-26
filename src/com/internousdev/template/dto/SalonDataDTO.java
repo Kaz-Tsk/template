@@ -1,7 +1,5 @@
 package com.internousdev.template.dto;
 
-import java.sql.Date;
-
 public class SalonDataDTO {
 
 	private int salonId;
@@ -14,9 +12,11 @@ public class SalonDataDTO {
 
 	private String salonTel;
 
-	private String salonInfo;
+	private int vol;
 
-	private Date insertDate;
+	private String day;
+
+	private String text;
 
 
 	public int getSalonId(){
@@ -59,19 +59,28 @@ public class SalonDataDTO {
 		this.salonTel = salonTel;
 	}
 
-	public String getSalonInfo(){
-		return salonInfo;
+	public int getVol() {
+		return vol;
 	}
 
-	public void setSalonInfo(String salonInfo){
-		this.salonInfo = salonInfo;
+	public void setVol(int vol) {
+		this.vol = vol;
 	}
 
-	public Date getInsertDate(){
-		return insertDate;
+	public String getDay() {
+		return day;
 	}
 
-	public void setInsertDate(Date insertDate){
-		this.insertDate = insertDate;
+	public void setDay(String day) {
+		this.day = day;
 	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
 }

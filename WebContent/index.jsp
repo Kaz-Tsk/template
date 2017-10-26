@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
@@ -21,22 +21,23 @@
 
 		<div class="salon-name">
 			<h1 class="salon-template">template</h1>
-			<h3 class="salon-concept">
-				The special quality skills...for all of beauty.
-			</h3>
+			<h3 class="salon-concept">The special quality skills...for all
+				of beauty.</h3>
 		</div>
 
 		<!--informationテーブル-->
 		<div class="information">
 			<p>salon information</p>
-			<table>
-				<s:iterator value="salonInfoList">
-					<tr>
-						<td><s:property value="insertDate" /></td>
-						<td><s:property value="salonInfo" /></td>
-					</tr>
-				</s:iterator>
-			</table>
+			<div class="info-table">
+				<table>
+					<s:iterator value="salonInfoList">
+						<tr>
+							<td><s:property value="day" /></td>
+							<td><s:property value="text" /></td>
+						</tr>
+					</s:iterator>
+				</table>
+			</div>
 		</div>
 		<!-- フッター -->
 		<jsp:include page="footer.jsp" />

@@ -32,11 +32,10 @@ public class ReserveComplateDAO {
 	public void reserveReset(int reserveId){
 		DBConnector dbConnector = new DBConnector();
 		Connection connection =  dbConnector.getConnection();
-		String sql="DELETE FROM reserve_date WHERE reserve_id = ? ";
+		String sql="DELETE FROM reserve_date WHERE reserve_id = ? and reserve_flg= 0 ";
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, reserveId);
-
 			preparedStatement.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();

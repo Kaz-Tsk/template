@@ -20,7 +20,7 @@ public class GoTopActionDAO {
 	private Connection connection =  dbConnector.getConnection();
 
 	public ArrayList<SalonDataDTO> infoSelect(){
-		String sql = "SELECT salon_info,insert_date FROM salon_info  order by insert_date desc limit 6";
+		String sql = "SELECT salon_info_date,salon_info_text FROM salon_info order by salon_vol" ;
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -28,8 +28,8 @@ public class GoTopActionDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
 					SalonDataDTO dto = new SalonDataDTO();
-					dto.setSalonInfo(resultSet.getString("salon_info"));
-					dto.setInsertDate(resultSet.getDate("insert_date"));
+					dto.setDay(resultSet.getString("salon_info_date"));
+					dto.setText(resultSet.getString("salon_info_text"));
 					salonInfoList.add(dto);
 			}
 		}catch(SQLException e){

@@ -17,8 +17,10 @@ history.forward();
 </head>
 <body>
 <div class="container">
-	<h1>予約が確定しました。</h1>
-	<h2>スタッフ一同ご来店心よりお待ちしております。</h2>
+	<div class="messsage-box">
+		<h1>予約が確定しました。</h1>
+		<h2>スタッフ一同ご来店心よりお待ちしております。</h2>
+	</div>
 
 </div>
 </body>

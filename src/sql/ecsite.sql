@@ -69,9 +69,9 @@ insert_date date
 drop table if exists salon_info;
 
 create table salon_info(
-salon_info_id int not null primary key auto_increment,
-salon_info varchar(300),
-insert_date date
+salon_vol int not null ,
+salon_info_text varchar(300),
+salon_info_date varchar(100)
 );
 
 drop table if exists reserve_date;
@@ -106,4 +106,3 @@ insert into staff_data(staff_name,staff_comment)values("田崎和幸","よろし
 insert into style_data(style_name,style_comment,staff_id)values("外国人風グラデーションカラー","外国人風のアッシュベースカラーがポイント",1);
 insert into style_data(style_name,style_sex,style_comment,staff_id)values("外国人風グラデーションカラー","mens","外国人風のアッシュベースカラーがポイント",1);
 
-insert into salon_info(salon_info,insert_date)values("サロンHP新規オープンしました！",'2017-10-10');
