@@ -14,24 +14,33 @@ public class AdminInfoInsertAction extends ActionSupport{
 
 	private String text;
 
-	private String insertErrorMsg;
-
-	private String insertSuccessMsg;
+	private String insertMsg;
 
 	AdminInfoDAO dao = new AdminInfoDAO();
 	ArrayList<SalonDataDTO> adminInfoList = new ArrayList<SalonDataDTO>();
 	public String execute() {
 		String result = ERROR;
 		adminInfoList = dao.adminInfoSelect();
-		for(int i = 0; i < adminInfoList.size(); i++) {
-			if(adminInfoList.get(i).getVol() == vol) {
-				insertErrorMsg = "volが重複しています。";
-				return result;
-			}else {
-				dao.insertInfo(vol, day, text);
-				insertSuccessMsg = "登録完了しました。";
-				result = SUCCESS;
+		System.out.println("test"+vol);
+		if (adminInfoList.size()==0) {
+			dao.insertInfo(vol, day, text);
+			insertMsg ="登録が完了しました。";
+
+			System.out.println("test2"+vol);
+
+			result = SUCCESS;
+		}else if (adminInfoList.size()>0) {
+			for (int i = 0; i < adminInfoList.size(); i++) {
+				if (adminInfoList.get(i).getVol()==vol) {
+					System.out.println("test3"+vol);
+					insertMsg = "volが重複しています。もう一度登録してください。";
+					return result;
+				}
 			}
+			System.out.println("test4"+vol);
+			dao.insertInfo(vol, day, text);
+			insertMsg = "登録が完了しました";
+			result =SUCCESS;
 		}
 		return result;
 	}
@@ -60,11 +69,8 @@ public class AdminInfoInsertAction extends ActionSupport{
 		this.text = text;
 	}
 
-	public String getInsertErrorMsg() {
-		return insertErrorMsg;
+	public String getInsertMsg() {
+		return insertMsg;
 	}
 
-	public String getInsertSuccessMsg() {
-		return insertSuccessMsg;
-	}
 }

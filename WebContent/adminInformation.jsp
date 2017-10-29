@@ -35,7 +35,7 @@
 			</table>
 		</div>
 		<div class="info-insert">
-		<s:property value="insertErrorMsg"/>
+		<s:property value="insertMsg"/>
 		<table>
 			<tr>
 				<th>情報の登録</th>
@@ -58,7 +58,7 @@
 			</s:form>
 		</table>
 	</div>
-	<%-- <div class="info-delete">
+	<div class="info-delete">
 		<table>
 			<tr>
 				<th>情報の編集</th>
@@ -81,7 +81,7 @@
 			</s:form>
 		</table>
 	</div>
-	<div class="info-delete">
+	<%-- <div class="info-delete">
 		<table>
 			<tr>
 				<th>情報の削除</th>

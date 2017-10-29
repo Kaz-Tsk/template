@@ -69,7 +69,7 @@ insert_date date
 drop table if exists salon_info;
 
 create table salon_info(
-salon_vol int not null ,
+salon_vol int  ,
 salon_info_text varchar(300),
 salon_info_date varchar(100)
 );
