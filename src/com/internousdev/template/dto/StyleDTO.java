@@ -2,7 +2,7 @@ package com.internousdev.template.dto;
 
 public class StyleDTO {
 
-	private int styleId;
+	private int styleVol;
 
 	private String styleName;
 
@@ -16,12 +16,15 @@ public class StyleDTO {
 
 	private String staffImg;
 
-	public int getStyleId(){
-		return styleId;
+
+
+	public int getStyleVol() {
+		return styleVol;
 	}
 
-	public void setStyleId(int styleId){
-		this.styleId = styleId;
+
+	public void setStyleVol(int styleVol) {
+		this.styleVol = styleVol;
 	}
 
 

@@ -44,14 +44,12 @@ delete_date datetime
 drop table if exists style_data;
 
 create table style_data(
-style_id int not null primary key auto_increment,
+style_vol int not null,
 style_name varchar(50),
 style_sex varchar(10) default "ladies",
 style_comment varchar(300),
 style_img varchar(100) default "img/noimg.png",
 staff_id int not null,
-insert_date datetime,
-delete_date datetime,
 foreign key(staff_id) references ecsite.staff_data(staff_id) on delete cascade
 );
 
@@ -103,6 +101,6 @@ insert into salon_data(salon_week,salon_hour)values("日曜日","9:00");
 
 insert into staff_data(staff_name,staff_comment)values("田崎和幸","よろしくお願いします。");
 
-insert into style_data(style_name,style_comment,staff_id)values("外国人風グラデーションカラー","外国人風のアッシュベースカラーがポイント",1);
-insert into style_data(style_name,style_sex,style_comment,staff_id)values("外国人風グラデーションカラー","mens","外国人風のアッシュベースカラーがポイント",1);
+insert into style_data(style_volstyle_name,style_comment,staff_id)values(1,"外国人風グラデーションカラー","外国人風のアッシュベースカラーがポイント",1);
+insert into style_data(style_vol,style_sex,style_comment,staff_id)values(2,"外国人風グラデーションカラー","mens","外国人風のアッシュベースカラーがポイント",1);
 
