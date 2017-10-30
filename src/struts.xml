@@ -128,5 +128,66 @@
 	<action name="GoAdminStyleEditAction" class="com.internousdev.template.action.GoAdminStyleEditAction" method="execute">
 		<result name="success">adminStyleEdit.jsp</result>
 	</action>
+
+	<!-- AdminStyleEditAction -->
+	<action name="AdminStyleEditAction" class="com.internousdev.template.action.AdminStyleEditAction" method="execute">
+		<result name="success" type="chain">GoAdminStyleEditAction</result>
+	</action>
+
+	<!-- AdminStyleDeleteAction -->
+	<action name="AdminStyleDeleteAction" class="com.internousdev.template.action.AdminStyleDeleteAction" method="execute">
+		<result name="success" type="chain">GoAdminStyleAction</result>
+		<result name="error" type="chain">GoAdminStyleAction</result>
+	</action>
+
+	<!-- GoAdminStaffAction -->
+	<action name="GoAdminStaffAction" class="com.internousdev.template.action.GoAdminStaffAction" method="execute">
+		<result name="success">adminStaff.jsp</result>
+	</action>
+
+	<!-- AdminStaffInsertAction -->
+	<action name="AdminStaffInsertAction" class="com.internousdev.template.action.AdminStaffInsertAction" method="execute">
+		<result name="success" type="chain">GoAdminStaffAction</result>
+		<result name="error" type="chain">GoAdminStaffAction</result>
+	</action>
+
+	<!-- GoAdminStaffEditAction -->
+	<action name="GoAdminStaffEditAction" class="com.internousdev.template.action.GoAdminStaffEditAction" method="execute">
+		<result name="success">adminStaffEdit.jsp</result>
+	</action>
+
+	<!-- AdminStaffEditAction -->
+	<action name="AdminStaffEditAction" class="com.internousdev.template.action.AdminStaffEditAction" method="execute">
+		<result name="success" type="chain">GoAdminStaffEditAction</result>
+	</action>
+
+	<!-- AdminStaffDeleteAction -->
+	<action name="AdminStaffDeleteAction" class="com.internousdev.template.action.AdminStaffDeleteAction" method="execute">
+		<result name="success" type="chain">GoAdminStaffAction</result>
+		<result name="error" type="chain">GoAdminStaffAction</result>
+	</action>
+
+	<!-- GoAdminMenuAction -->
+	<action name="GoAdminMenuAction" class="com.internousdev.template.action.GoAdminMenuAction" method="execute">
+		<result name="success">adminMenu.jsp</result>
+	</action>
+
+	<!-- AdminMenuInsertAction -->
+	<action name="AdminMenuInsertAction" class="com.internousdev.template.action.AdminMenuInsertAction" method="execute">
+		<result name="success" type="chain">GoAdminMenuAction</result>
+		<result name="error" type="chain">GoAdminMenuAction</result>
+	</action>
+
+	<!-- AdminMenuEditAction -->
+	<action name="AdminMenuEditAction" class="com.internousdev.template.action.AdminMenuEditAction" method="execute">
+		<result name="success" type="chain">GoAdminMenuAction</result>
+		<result name="error" type="chain">GoAdminMenuAction</result>
+	</action>
+
+	<!-- AdminMenuDeleteAction -->
+	<action name="AdminMenuDeleteAction" class="com.internousdev.template.action.AdminMenuDeleteAction" method="execute">
+		<result name="success" type="chain">GoAdminMenuAction</result>
+		<result name="error" type="chain">GoAdminMenuAction</result>
+	</action>
 	</package>
 </struts>

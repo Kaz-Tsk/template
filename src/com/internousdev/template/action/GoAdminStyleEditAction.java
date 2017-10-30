@@ -8,10 +8,9 @@ import com.internousdev.template.dto.StaffDTO;
 import com.internousdev.template.dto.StyleDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GoAdminStyleEditAction extends ActionSupport{
+public class GoAdminStyleEditAction extends ActionSupport {
 
 	private int styleVol;
-
 
 	ArrayList<StyleDTO> styleList = new ArrayList<StyleDTO>();
 	ArrayList<StaffDTO> staffList = new ArrayList<StaffDTO>();
@@ -19,6 +18,7 @@ public class GoAdminStyleEditAction extends ActionSupport{
 	GoStaffDAO staffDao = new GoStaffDAO();
 
 	public String execute() {
+
 		styleList = dao.styleEditSelect(styleVol);
 		staffList = staffDao.staffSelect();
 		return SUCCESS;

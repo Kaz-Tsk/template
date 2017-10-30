@@ -90,6 +90,20 @@
 					</s:form>
 				</table>
 			</div>
+			<div class="style-delete">
+			<p>スタイルを削除する</p>
+			<s:property value="deleteMsg"/>
+				<table>
+				<s:form action="AdminStyleDeleteAction">
+				<tr>
+					<td><input type="number" name="styleVol"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="削除する"></td>
+				</tr>
+				</s:form>
+				</table>
+			</div>
 			<script>
 			$('.slider').slick({
 				  dots: false,

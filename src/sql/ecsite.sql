@@ -22,23 +22,19 @@ updated_date datetime
 drop table if exists menu;
 
 create table menu(
-menu_id int not null primary key auto_increment,
+menu_id int ,
 menu_name varchar(50),
-menu_price decimal not null,
-menu_time int,
-insert_date datetime,
-update_date datetime
+menu_price int not null,
+menu_time int
 );
 
 drop table if exists staff_data;
 
 create table staff_data(
-staff_id int not null primary key auto_increment,
+staff_id int  ,
 staff_name varchar(50),
 staff_comment varchar(300),
-staff_img varchar(100) default "img/noimg.png",
-insert_date datetime,
-delete_date datetime
+staff_img varchar(100) default "img/noimg.png"
 );
 
 drop table if exists style_data;

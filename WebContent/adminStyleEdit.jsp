@@ -9,6 +9,7 @@
 </head>
 <body>
 <div class="container">
+	<p>編集中のスタイル</p>
 	<s:iterator value="styleList">
 	<img src="<s:property value="styleImg"/>">
 	<p><s:property value="styleName"/></p>
@@ -16,6 +17,7 @@
 	<p><s:property value="styleComment"/></p>
 	<p><s:property value="staffName"/></p>
 	</s:iterator>
+	<p><s:property value="editMsg"/></p>
 	<s:form action="AdminStyleEditAction" enctype="multipart/form-data">
 	<table>
 	<s:iterator value="styleList">
@@ -38,9 +40,8 @@
 	<td><input type="radio" name="staffId" value="<s:property value="staffId"/>"><s:property value="StaffName"/></td>
 	</s:iterator>
 	</tr>
-	<s:hidden name="styleVol" value="<s:property value=styleVol/>"/>
 	<tr>
-	<td><input type="submit" value="編集完了"></td>
+	<td><input type="hidden" name="styleVol" value="<s:property value="styleVol"/>"><input type="submit" value="編集完了"></td>
 	</tr>
 	</table>
 	</s:form>
