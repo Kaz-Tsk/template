@@ -9,30 +9,28 @@
 </head>
 <body>
 <div class="container">
-	<s:form action="AdiminEditAction">
+	<s:iterator value="styleList">
+	<img src="<s:property value="styleImg"/>">
+	<p><s:property value="styleName"/></p>
+	<p><s:property value="styleSex"/></p>
+	<p><s:property value="styleComment"/></p>
+	<p><s:property value="staffName"/></p>
+	</s:iterator>
+	<s:form action="AdminStyleEditAction" enctype="multipart/form-data">
 	<table>
-	<s:iterator >
+	<s:iterator value="styleList">
 	<tr>
 		<td>スタイル名</td>
-		<td><input type="text" name="styleName"></td>
-	</tr>
-	<tr>
-		<td>性別</td>
-		<td>
-		<ul>
-		<li><input type="radio" name="StyleSex" value="ladies" checked="checked">女性</li>
-		<li><input type="radio" name="StyleSex" value="mens">男性</li>
-		</ul>
-		</td>
+		<td><input type="text" name="styleName" value="<s:property value="styleName"/>"></td>
 	</tr>
 	<tr>
 	<td>スタイルコメント</td>
-	<td><textarea name="styleComment"></textarea></td>
+	<td><textarea name="styleComment"><s:property value="styleComment"/></textarea></td>
 	</tr>
 	</s:iterator>
 	<tr>
 	<td>スタイル写真</td>
-	<td></td>
+	<td><input type="file" name="StyleFile" accept="image/*"></td>
 	</tr>
 	<tr>
 	<td>担当スタッフ</td>
@@ -40,7 +38,7 @@
 	<td><input type="radio" name="staffId" value="<s:property value="staffId"/>"><s:property value="StaffName"/></td>
 	</s:iterator>
 	</tr>
-	<s:hidden name="styleVol" value=""/>
+	<s:hidden name="styleVol" value="<s:property value=styleVol/>"/>
 	<tr>
 	<td><input type="submit" value="編集完了"></td>
 	</tr>

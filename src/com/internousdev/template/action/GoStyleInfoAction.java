@@ -8,14 +8,14 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GoStyleInfoAction extends ActionSupport {
 
-	private int styleId;
+	private int styleVol;
 
 
 	GoStyleInfoDAO dao = new GoStyleInfoDAO();
 	StyleDTO dto = new StyleDTO();
 	ArrayList<StyleDTO> styleList = new  ArrayList<StyleDTO>();
 	public String execute(){
-		styleList = dao.styleSelect(styleId);
+		styleList = dao.styleSelect(styleVol);
 		return  SUCCESS;
 	}
 
@@ -23,11 +23,11 @@ public class GoStyleInfoAction extends ActionSupport {
 		return styleList;
 	}
 
-	public int getStyleId(){
-		return styleId;
+	public int getStyleVol(){
+		return styleVol;
 	}
 
-	public void setStyleId(int styleId){
-		this.styleId = styleId;
+	public void setStyleVol(int styleVol){
+		this.styleVol = styleVol;
 	}
 }

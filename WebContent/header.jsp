@@ -9,7 +9,7 @@
 <title>header</title>
 </head>
 <body>
-<!-- ログイン前ヘッダー -->
+<!-- ヘッダー -->
 	<header>
 		<s:if test="#session.userFlg==2">
 			<div class="navi">

@@ -17,13 +17,13 @@ public class GoStyleInfoDAO {
 
 	private Connection connection =  dbConnector.getConnection();
 
-	public ArrayList<StyleDTO> styleSelect(int styleId){
-		String sql = "SELECT style_name,style_comment,style_img,staff_name,staff_img FROM  style_data left join staff_data on style_data.staff_id = staff_data.staff_id where style_Id=?";
+	public ArrayList<StyleDTO> styleSelect(int styleVol){
+		String sql = "SELECT style_name,style_comment,style_img,staff_name,staff_img FROM  style_data left join staff_data on style_data.staff_id = staff_data.staff_id where style_vol=?";
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-			preparedStatement.setInt(1, styleId);
+			preparedStatement.setInt(1, styleVol);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
 					StyleDTO dto = new StyleDTO();

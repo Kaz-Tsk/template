@@ -8,11 +8,11 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class GoAdminInfoAction extends ActionSupport{
 
-	private int vol;
+	private int infoVol;
 
-	private String day;
+	private String infoDay;
 
-	private String text;
+	private String infoText;
 
 	private String insertMsg;
 
@@ -22,33 +22,33 @@ public class GoAdminInfoAction extends ActionSupport{
 	public String execute(){
 		adminInfoList = dao.adminInfoSelect();
 		for(int i=0; i < adminInfoList.size() ;i++) {
-			System.out.println("volの値"+i+":"+adminInfoList.get(i).getVol());
+			System.out.println("volの値"+i+":"+adminInfoList.get(i).getInfoVol());
 		}
 		return SUCCESS;
 	}
 
-	public int getVol() {
-		return vol;
+	public int getInfoVol() {
+		return infoVol;
 	}
 
-	public void setVol(int vol) {
-		this.vol = vol;
+	public void setInfoVol(int infoVol) {
+		this.infoVol = infoVol;
 	}
 
-	public String getDay() {
-		return day;
+	public String getInfoDay() {
+		return infoDay;
 	}
 
-	public void setDay(String day) {
-		this.day = day;
+	public void setInfoDay(String infoDay) {
+		this.infoDay = infoDay;
 	}
 
-	public String getText() {
-		return text;
+	public String getInfoText() {
+		return infoText;
 	}
 
-	public void setText(String text) {
-		this.text = text;
+	public void setText(String infoText) {
+		this.infoText = infoText;
 	}
 
 	public String getInsertMsg() {

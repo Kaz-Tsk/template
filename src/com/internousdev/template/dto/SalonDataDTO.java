@@ -12,11 +12,11 @@ public class SalonDataDTO {
 
 	private String salonTel;
 
-	private int vol;
+	private int infoVol;
 
-	private String day;
+	private String infoDay;
 
-	private String text;
+	private String infoText;
 
 
 	public int getSalonId(){
@@ -59,28 +59,28 @@ public class SalonDataDTO {
 		this.salonTel = salonTel;
 	}
 
-	public int getVol() {
-		return vol;
+	public int getInfoVol() {
+		return infoVol;
 	}
 
-	public void setVol(int vol) {
-		this.vol = vol;
+	public void setInfoVol(int infoVol) {
+		this.infoVol = infoVol;
 	}
 
-	public String getDay() {
-		return day;
+	public String getInfoDay() {
+		return infoDay;
 	}
 
-	public void setDay(String day) {
-		this.day = day;
+	public void setInfoDay(String infoDay) {
+		this.infoDay = infoDay;
 	}
 
-	public String getText() {
-		return text;
+	public String getInfoText() {
+		return infoText;
 	}
 
-	public void setText(String text) {
-		this.text = text;
+	public void setInfoText(String infoText) {
+		this.infoText = infoText;
 	}
 
 }

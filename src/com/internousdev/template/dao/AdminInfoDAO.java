@@ -24,9 +24,9 @@ public class AdminInfoDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
 				SalonDataDTO dto = new SalonDataDTO();
-				dto.setDay(resultSet.getString("salon_vol"));
-				dto.setDay(resultSet.getString("salon_info_date"));
-				dto.setText(resultSet.getString("salon_info_text"));
+				dto.setInfoVol(resultSet.getInt("salon_vol"));
+				dto.setInfoDay(resultSet.getString("salon_info_date"));
+				dto.setInfoText(resultSet.getString("salon_info_text"));
 				adminInfoList.add(dto);
 			}
 		}catch(SQLException e){
@@ -46,16 +46,16 @@ public class AdminInfoDAO {
 
 
 
-	public void insertInfo(int vol,String day, String text) {
+	public void insertInfo(int infoVol,String infoDay, String infoText) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection =  dbConnector.getConnection();
 		String sql ="INSERT INTO salon_info (salon_vol,salon_info_text,salon_info_date) VALUES (?,?,?)";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, vol);
-			preparedStatement.setString(2, day);
-			preparedStatement.setString(3, text);
+			preparedStatement.setInt(1, infoVol);
+			preparedStatement.setString(2, infoText);
+			preparedStatement.setString(3, infoDay);
 			preparedStatement.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -68,16 +68,16 @@ public class AdminInfoDAO {
 		}
 	}
 
-	public void editInfo(int vol,String day,String text) {
+	public void editInfo(int infoVol,String infoDay,String infoText) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection =  dbConnector.getConnection();
 		String sql ="UPDATE salon_info SET salon_info_text=?,salon_info_date=? WHERE salon_vol=?";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, text);
-			preparedStatement.setString(2, day);
-			preparedStatement.setInt(3, vol);
+			preparedStatement.setString(1, infoText);
+			preparedStatement.setString(2, infoDay);
+			preparedStatement.setInt(3, infoVol);
 			preparedStatement.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -91,14 +91,14 @@ public class AdminInfoDAO {
 
 	}
 
-	public void deleteInfo(int vol) {
+	public void deleteInfo(int infoVol) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection =  dbConnector.getConnection();
 		String sql = "DELETE FROM salon_info WHERE salon_vol = ?";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, vol);
+			preparedStatement.setInt(1, infoVol);
 			preparedStatement.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();

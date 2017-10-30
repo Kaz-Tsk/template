@@ -32,8 +32,8 @@
 				<table>
 					<s:iterator value="salonInfoList">
 						<tr>
-							<td><s:property value="day" /></td>
-							<td><s:property value="text" /></td>
+							<td><s:property value="infoDay" /></td>
+							<td><s:property value="infoText" /></td>
 						</tr>
 					</s:iterator>
 				</table>

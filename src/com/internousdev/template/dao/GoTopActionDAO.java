@@ -28,8 +28,8 @@ public class GoTopActionDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
 					SalonDataDTO dto = new SalonDataDTO();
-					dto.setDay(resultSet.getString("salon_info_date"));
-					dto.setText(resultSet.getString("salon_info_text"));
+					dto.setInfoDay(resultSet.getString("salon_info_date"));
+					dto.setInfoText(resultSet.getString("salon_info_text"));
 					salonInfoList.add(dto);
 			}
 		}catch(SQLException e){

@@ -8,11 +8,11 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class AdminInfoInsertAction extends ActionSupport{
 
-	private int vol;
+	private int infoVol;
 
-	private String day;
+	private String infoDay;
 
-	private String text;
+	private String infoText;
 
 	private String insertMsg;
 
@@ -21,52 +21,46 @@ public class AdminInfoInsertAction extends ActionSupport{
 	public String execute() {
 		String result = ERROR;
 		adminInfoList = dao.adminInfoSelect();
-		System.out.println("test"+vol);
 		if (adminInfoList.size()==0) {
-			dao.insertInfo(vol, day, text);
+			dao.insertInfo(infoVol, infoDay, infoText);
 			insertMsg ="登録が完了しました。";
-
-			System.out.println("test2"+vol);
-
 			result = SUCCESS;
 		}else if (adminInfoList.size()>0) {
 			for (int i = 0; i < adminInfoList.size(); i++) {
-				if (adminInfoList.get(i).getVol()==vol) {
-					System.out.println("test3"+vol);
-					insertMsg = "volが重複しています。もう一度登録してください。";
+				if (adminInfoList.get(i).getInfoVol()==infoVol) {
+					insertMsg = "※volが重複しています。もう一度登録してください。";
 					return result;
 				}
 			}
-			System.out.println("test4"+vol);
-			dao.insertInfo(vol, day, text);
+			dao.insertInfo(infoVol, infoDay, infoText);
 			insertMsg = "登録が完了しました";
 			result =SUCCESS;
 		}
 		return result;
 	}
 
-	public int getVol() {
-		return vol;
+	public int getInfoVol() {
+		return infoVol;
 	}
 
-	public void setVol(int vol) {
-		this.vol = vol;
+	public void setInfoVol(int infoVol) {
+		this.infoVol = infoVol;
 	}
 
-	public String getDay() {
-		return day;
+	public String getInfoDay() {
+		return infoDay;
 	}
 
-	public void setDay(String day) {
-		this.day = day;
+	public void setInfoDay(String infoDay) {
+		this.infoDay = infoDay;
 	}
 
-	public String getText() {
-		return text;
+	public String getInfoText() {
+		return infoText;
 	}
 
-	public void setText(String text) {
-		this.text = text;
+	public void setInfoText(String infoText) {
+		this.infoText = infoText;
 	}
 
 	public String getInsertMsg() {

@@ -75,14 +75,19 @@
 		<result name="success">style.jsp</result>
 	</action>
 
-	<!-- GoStyleAction -->
+	<!-- GoAdminTopAction -->
+	<action name="GoAdminTopAction" class="com.internousdev.template.action.GoAdminTopAction" method="execute">
+		<result name="success">adminTop.jsp</result>
+	</action>
+
+	<!-- GoStyleInfoAction -->
 	<action name="GoStyleInfoAction" class="com.internousdev.template.action.GoStyleInfoAction" method="execute">
 		<result name="success">styleInfo.jsp</result>
 	</action>
 
 	<!-- GoInformationAction -->
 	<action name="GoInformationAction" class="com.internousdev.template.action.GoInformationAction" method="execute">
-		<result name="success">information.jsp</result>
+		<result name="success" type="chain">GoInformationAction</result>
 	</action>
 
 	<!-- GoAdminInfoAction -->
@@ -96,5 +101,32 @@
 		<result name="error" type="chain">GoAdminInfoAction</result>
 	</action>
 
+	<!-- AdminInfoEditAction -->
+	<action name="AdminInfoEditAction" class="com.internousdev.template.action.AdminInfoEditAction" method="execute">
+		<result name="success" type="chain">GoAdminInfoAction</result>
+		<result name="error" type="chain">GoAdminInfoAction</result>
+	</action>
+
+	<!-- AdminInfoDeleteAction -->
+	<action name="AdminInfoDeleteAction" class="com.internousdev.template.action.AdminInfoDeleteAction" method="execute">
+		<result name="success" type="chain">GoAdminInfoAction</result>
+		<result name="error" type="chain">GoAdminInfoAction</result>
+	</action>
+
+	<!-- GoAdminStyleAction -->
+	<action name="GoAdminStyleAction" class="com.internousdev.template.action.GoAdminStyleAction" method="execute">
+		<result name="success">adminStyle.jsp</result>
+	</action>
+
+	<!-- AdminStyleInsertAction -->
+	<action name="AdminStyleInsertAction" class="com.internousdev.template.action.AdminStyleInsertAction" method="execute">
+		<result name="success" type="chain">GoAdminStyleAction</result>
+		<result name="error" type="chain">GoAdminStyleAction</result>
+	</action>
+
+	<!-- GoAdminStyleEditAction -->
+	<action name="GoAdminStyleEditAction" class="com.internousdev.template.action.GoAdminStyleEditAction" method="execute">
+		<result name="success">adminStyleEdit.jsp</result>
+	</action>
 	</package>
 </struts>

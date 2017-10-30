@@ -101,6 +101,4 @@ insert into salon_data(salon_week,salon_hour)values("日曜日","9:00");
 
 insert into staff_data(staff_name,staff_comment)values("田崎和幸","よろしくお願いします。");
 
-insert into style_data(style_volstyle_name,style_comment,staff_id)values(1,"外国人風グラデーションカラー","外国人風のアッシュベースカラーがポイント",1);
-insert into style_data(style_vol,style_sex,style_comment,staff_id)values(2,"外国人風グラデーションカラー","mens","外国人風のアッシュベースカラーがポイント",1);
 

@@ -12,11 +12,10 @@
 	<jsp:include page="header.jsp" />
 	<div class="head-space"></div>
 	<ul>
-		<li><a href="GoAdminInfoAction">information管理</a></li>
-		<li>スタイル管理</li>
+		<li><a href="GoAdminInfoAction">お知らせ管理</a></li>
+		<li><a href="GoAdminStyleAction">スタイル管理</a></li>
 		<li>メニュー管理</li>
 		<li>スタッフ管理</li>
-		<li>店舗情報管理</li>
 		<li>予約情報管理</li>
 	</ul>
 
