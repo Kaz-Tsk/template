@@ -16,7 +16,7 @@
 		<li><a href="GoAdminStyleAction">スタイル管理</a></li>
 		<li><a href="GoAdminStaffAction">スタッフ管理</a></li>
 		<li><a href="GoAdminMenuAction">メニュー管理</a></li>
-		<li>予約情報管理</li>
+		<li><a href="GoAdminReserveAction">予約情報管理</a></li>
 	</ul>
 
 </div>

@@ -49,7 +49,6 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	ArrayList<MenuDTO> reserveConfirmList = new ArrayList<MenuDTO>();
 	public String execute(){
 		String result = ERROR;
-		System.out.println(reserveTime);
 		if(!(reserveDate.equals("")) && menuId!=null){
 			//menuIdを配列で受け取る
 			int[] menuId2 =  Stream.of(menuId).mapToInt(Integer::parseInt).toArray();
@@ -85,7 +84,6 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 				dao.reserveInsert(reserveMenu,subPrice,menuTime,staffName,pay,(int)session.get("Id"),reserveFlg,rD);
 				dto = dao.reserveIdGet((int)session.get("Id"), rD);
 				session.put("reserveId", dto.getReserveId());
-				System.out.println(session.get("reserveId"));
 				session.put("rD",rD);
 				session.put("menuTime",menuTime);
 				result = SUCCESS;

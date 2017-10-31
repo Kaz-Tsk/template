@@ -22,7 +22,7 @@ public class GoAdminInfoAction extends ActionSupport{
 	public String execute(){
 		adminInfoList = dao.adminInfoSelect();
 		for(int i=0; i < adminInfoList.size() ;i++) {
-			System.out.println("volの値"+i+":"+adminInfoList.get(i).getInfoVol());
+
 		}
 		return SUCCESS;
 	}

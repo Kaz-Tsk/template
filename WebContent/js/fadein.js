@@ -11,5 +11,5 @@ $(document).ready(function() {
 	});
 
 $(document).ready(function() {
-	$('.information > table').fadeIn(5000);
+	$('.info-table > table').fadeIn(5000);
 	});

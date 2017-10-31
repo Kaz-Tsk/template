@@ -33,9 +33,9 @@
 				<s:iterator value="ladiesStyleList">
 					<div>
 						<a
-							href="<s:url action="GoStyleInfoAction"><s:param name="styleId" value="%{StyleId}"/></s:url>">
+							href="<s:url action="GoStyleInfoAction"><s:param name="styleVol" value="%{StyleVol}"/></s:url>">
 							<img class="img" src="<s:property value="StyleImg"/>"> <s:hidden
-								value="styleId" />
+								value="styleVol" />
 						</a>
 					</div>
 				</s:iterator>

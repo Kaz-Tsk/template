@@ -12,37 +12,37 @@
 <!-- ヘッダー -->
 	<header>
 		<s:if test="#session.userFlg==2">
-			<div class="navi">
-				<div class="navi-box"><a href="LogOutAction">ログアウト</a></div>
-				<div class="navi-box"><a href="GoAdiminReserveAction">予約管理</a></div>
-				<div class="navi-box"><a href="GoAdminMenuAction"></a>メニュー管理</div>
-				<div class="navi-box"><a href="GoAdiminStaffAction"></a>スタッフ管理</div>
-				<div class="navi-box"><a href="GoAdminStyleAction">スタイル管理</a></div>
-				<div class="navi-box"><a href="GoAdiminInfoAction">お知らせ管理</a></div>
-				<div class="navi-box"><a class="logo" href="GoAdminTopAction"><img src="img/logo.png"></a></div>
-			</div>
+		<ul id="navi">
+			<li class="admin logo"><a href="<s:url action="GoAdminTopAction"/>"><img src="img/logo.png"></a></li>
+			<li class="admin"><a href="<s:url action="GoAdminInfoAction"/>">SalonInfo管理</a></li>
+			<li class="admin"><a href="<s:url action="GoAdminStyleAction"/>">HairStyle管理</a></li>
+			<li class="admin"><a href="<s:url action="GoAdminStaffAction"/>">Staff管理</a></li>
+			<li class="admin"><a href="<s:url action="GoAdminMenuAction"/>">Menu管理</a></li>
+			<li class="admin"><a href="<s:url action="GoAdminReserveAction"/>">Reserve管理</a></li>
+			<li class="admin"><a href="<s:url action="LogOutAction"/>">Logout</a></li>
+		</ul>
 		</s:if>
 
 		<s:elseif test="#session.userFlg==1">
-			<div class="navi">
-				<div class="navi-box"><a href="LogOutAction">logout</a></div>
-				<div class="navi-box"><a href="GoReserveAction">reserve</a></div>
-				<div class="navi-box"><a href="GoInformationAction">information</a></div>
-				<div class="navi-box"><a href="GoMenuAction">menu</a></div>
-				<div class="navi-box"><a href="GoStaffAction">staff</a></div>
-				<div class="navi-box"><a href="GoStyleAction">style</a></div>
-				<div class="navi-box"><a class="logo" href="GoTopAction"><img src="img/logo.png"></a></div>
-			</div>
+		<ul id="navi">
+			<li class="login logo"><a href="<s:url action="GoTopAction"/>"><img src="img/logo.png"></a></li>
+			<li class="login"><a href="<s:url action="GoStyleAction"/>">Style</a></li>
+			<li class="login"><a href="<s:url action="GoStaffAction"/>">Staff</a></li>
+			<li class="login"><a href="<s:url action="GoMenuAction"/>">Menu</a></li>
+			<li class="login"><a href="<s:url action="GoInformationAction"/>">Information</a></li>
+			<li class="login"><a href="<s:url action="GoReserveAction"/>">Reserve</a></li>
+			<li class="login"><a href="<s:url action="LogOutAction"/>">Logout</a></li>
+		</ul>
 		</s:elseif>
 		<s:else>
-			<div class="navi">
-				<div class="navi-box"><a href="login.jsp">login</a></div>
-				<div class="navi-box"><a href="GoInformationAction">information</a></div>
-				<div class="navi-box"><a href="GoMenuAction">menu</a></div>
-				<div class="navi-box"><a href="GoStaffAction">staff</a></div>
-				<div class="navi-box"><a href="GoStyleAction">style</a></div>
-				<div class="navi-box"><a class="logo" href="GoTopAction"><img src="img/logo.png"></a></div>
-			</div>
+		<ul id="navi">
+			<li class="default logo"><a href="<s:url action="GoTopAction"/>"><img src="img/logo.png"></a></li>
+			<li class="default"><a href="<s:url action="GoStyleAction"/>">Style</a></li>
+			<li class="default"><a href="<s:url action="GoStaffAction"/>">Staff</a></li>
+			<li class="default"><a href="<s:url action="GoMenuAction"/>">Menu</a></li>
+			<li class="default"><a href="<s:url action="GoInformationAction"/>">Information</a></li>
+			<li class="default"><a href="login.jsp">Login</a></li>
+		</ul>
 		</s:else>
 </header>
 </body>

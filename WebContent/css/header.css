@@ -1,34 +1,56 @@
-.navi-box > a:link { color:#fff;text-decoration:none; }
-.navi-box > a:visited { color:#fff; text-decoration:none; }
-.navi-box > a:hover { color:#fff; text-decoration:none;}
-.navi-box > a:active { color:#fff; text-decoration:none; }
-.navi-box > a {width:100%; height:80px;display:block;padding-top:16%;}
+header  a:link { color:#fff;text-decoration:none; }
+header  a:visited { color:#fff; text-decoration:none; }
+header  a:hover { color:#fff; text-decoration:none;}
+header  a:active { color:#fff; text-decoration:none; }
+header a{display:block;}
+
+ul{
+	list-style:none;
+	margin: 0;
+	padding:0;
+}
+
+#navi{
+	 margin:0;
+    padding:0;
+    width:100%;
+    height:80px;
+    overflow:hidden;
+    background-color:rgba(0,0,0,0.6);
+}
+
+.default{
+	float:left;
+	width:16.52%;
+	line-height:75px;
+	padding-top:5px;
+	text-align:center;
+}
+
+.default:hover{background-color:rgba(255,255,255,0.5);
+	transition: background-color 1s;}
+
+.login{
+	float:left;
+	width:14.16%;
+	line-height:75px;
+	padding-top:5px;
+	text-align:center;
+
+}
+
+.login:hover{background-color:rgba(255,255,255,0.5);
+	transition: background-color 1s;}
+
+.admin{
+	float:left;
+	width:14.141414%;
+	line-height:75px;
+	padding-top:5px;
+	text-align:center;
+}
 
 .logo{
-	padding-top:16px !important;
-	padding-left:15px !important;
-}
-.navi{
-margin-top:0px;
-width:100%;
-height:80px;
-}
-.navi-box{
-	position:relative;
-	float:right;
-	width:14.28%;
-	height:80px;
-	font-size:22px;
-	text-align:center;
-	background-color:rgba(0,0,0,0.4);
-	transition: background-color 2s;
-  	-webkit-transition: background-color 1.2s;
-}
-
-.navi-box:hover{
-	background-color:rgba(255,255,255,0.2);
-}
-
-.before{
-	width:16.6666% !important;
+	padding-top:15px;
+	padding-left:10px;
 }
