@@ -18,7 +18,6 @@ public class GoTopAction extends ActionSupport {
 	ArrayList<SalonDataDTO> salonInfoList = new  ArrayList<SalonDataDTO>();
 	public String execute(){
 		salonInfoList = dao.infoSelect();
-		System.out.println(salonInfoList.size());
 		return  SUCCESS;
 
 	}

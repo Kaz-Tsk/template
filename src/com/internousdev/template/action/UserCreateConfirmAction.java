@@ -1,6 +1,5 @@
 package com.internousdev.template.action;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -9,7 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  *
- * @author internous
+ * @author
  *
  */
 public class UserCreateConfirmAction extends ActionSupport implements SessionAware {
@@ -26,7 +25,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 	public String address;
 
-	public Map<String,Object> createUserSession = new HashMap<String, Object>();
+	public Map<String,Object> createUserSession;
 
 	public String result;
 

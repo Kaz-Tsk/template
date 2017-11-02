@@ -23,6 +23,7 @@
 			<s:submit value="ログイン" />
 		</s:form>
 		<br />
+		<p>新規登録は<a href="userCreate.jsp">こちら</a>から</p>
 
 		<!-- footer -->
 		<jsp:include page="footer.jsp" />

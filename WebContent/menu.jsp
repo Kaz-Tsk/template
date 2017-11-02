@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/master.css">
+<link rel="stylesheet" type="text/css" href="css/menu.css">
 <title>Menu</title>
 </head>
 <body>
@@ -16,7 +17,8 @@
 		<!-- ヘッダー ------------------------------>
 		<jsp:include page="header.jsp" />
 		<div class="menuList">
-			<p>menu</p>
+		<div class="head-space"></div>
+			<h2>menu</h2>
 			<table>
 				<s:iterator value="menuList">
 					<tr>

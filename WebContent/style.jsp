@@ -62,7 +62,6 @@
 			$('.slider').slick({
 				  dots: false,
 				  arrows:false,
-				  pauseOnHover:true,
 				  autoplay: true,
 				  autoplaySpeed: 0,
 				  cssEase:'linear',

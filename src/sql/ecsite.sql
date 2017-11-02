@@ -68,7 +68,7 @@ salon_info_date varchar(100)
 drop table if exists reserve_date;
 
 create table reserve_date(
-reserve_id int ,
+reserve_id int not null primary key auto_increment,
 reserve_menu varchar(100),
 reserve_price int(10),
 reserve_time int(10),

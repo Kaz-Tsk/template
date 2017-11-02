@@ -47,11 +47,11 @@
 			</tr>
 			<s:form action="AdminInfoInsertAction">
 			<tr>
-				<td>vol:<input type="text" name="infoVol" required="required" placeholder="半角数字で記入"></td>
+				<td>vol:<input type="number" name="infoVol" required="required" placeholder="半角数字で記入"></td>
 			</tr>
 			<tr>
 				<td>
-					<input type="text" name="infoDay" class="datepicker" required="required" placeholder="公開日を指定してください">
+					<input type="text" name="infoDay" class="datepicker" required="required" readonly placeholder="公開日を指定してください">
 				</td>
 			</tr>
 			<tr>

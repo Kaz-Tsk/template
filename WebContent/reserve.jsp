@@ -34,7 +34,7 @@
 			<div class="reserve-date">
 				<p>予約日時を選択してください</p>
 				<input type="text" name="reserveDate" onchange="reservedate()"
-					id="datepicker" placeholder="予約日を選択してください">
+					id="datepicker" readonly placeholder="予約日を選択してください">
 					<select name="reserveTime" id="reserveTime">
 				</select>
 			</div>
