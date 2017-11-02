@@ -15,6 +15,7 @@ e_mail varchar(50),
 address varchar(100),
 user_flg int not null default 1,
 login_flg int not null default 0
+insert_date date
 );
 
 drop table if exists menu;

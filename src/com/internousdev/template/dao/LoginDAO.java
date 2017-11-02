@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.internousdev.template.dto.LoginDTO;
+import com.internousdev.template.dto.UserDTO;
 import com.internousdev.template.util.DBConnector;
 
 public class LoginDAO {
@@ -14,7 +14,7 @@ public class LoginDAO {
 
 	private Connection connection = dbConnector.getConnection();
 
-	private LoginDTO loginDTO = new LoginDTO();
+	private UserDTO loginDTO = new UserDTO();
 
 	/**
 	 * ログインユーザ情報取得メソッド
@@ -23,9 +23,9 @@ public class LoginDAO {
 	 * @param loginPassword
 	 * @return LoginDTO
 	 */
-	public LoginDTO getLoginUserInfo(String loginUserId, String loginPassword) {
+	public UserDTO getLoginUserInfo(String loginUserId, String loginPassword) {
 
-		String sql = "SELECT * FROM user_data where login_id = ? AND login_pass = ?";
+		String sql = "SELECT * FROM user_data WHERE login_id = ? AND login_pass = ?";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -79,7 +79,7 @@ public class LoginDAO {
 
 	}
 
-	public LoginDTO getLoginDTO() {
+	public UserDTO getLoginDTO() {
 		return loginDTO;
 	}
 }

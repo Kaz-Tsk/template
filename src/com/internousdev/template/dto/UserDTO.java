@@ -1,6 +1,8 @@
 package com.internousdev.template.dto;
 
-public class LoginDTO {
+import java.util.Date;
+
+public class UserDTO {
 
 	private int id;
 
@@ -9,6 +11,14 @@ public class LoginDTO {
 	private String loginPassword;
 
 	private String userName;
+
+	private String telNumber;
+
+	private String eMail;
+
+	private String address;
+
+	private Date insertDate;
 
 	private int loginFlg;
 
@@ -44,6 +54,38 @@ public class LoginDTO {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getTelNumber() {
+		return telNumber;
+	}
+
+	public void setTelNumber(String telNumber) {
+		this.telNumber = telNumber;
+	}
+
+	public String getEMail() {
+		return eMail;
+	}
+
+	public void setEMail(String eMail) {
+		this.eMail = eMail;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Date getInsertDate() {
+		return insertDate;
+	}
+
+	public void setInsertDate(Date insertDate) {
+		this.insertDate = insertDate;
 	}
 
 	public int getLoginFlg() {

@@ -17,15 +17,15 @@
 		<result name="error">login.jsp</result>
 	</action>
 
-	<!-- UserCreateAction -->
-	<action name="UserCreateAction" class="com.internousdev.template.action.UserCreateAction" method="execute">
+	<!-- GoUserCreateAction -->
+	<action name="GoUserCreateAction" class="com.internousdev.template.action.GoUserCreateAction" method="execute">
 		<result name="success">userCreate.jsp</result>
 	</action>
 
 	<!-- UserCreateConfirmAction -->
 	<action name="UserCreateConfirmAction" class="com.internousdev.template.action.UserCreateConfirmAction" method="execute">
 		<result name="success">userCreateConfirm.jsp</result>
-		<result name="error">userCreate.jsp</result>
+		<result name="error" type="chain">GoUserCreateAction</result>
 	</action>
 
 	<!-- UserCreateComplateAction -->
@@ -46,6 +46,18 @@
 	<!-- GoAdminTopAction -->
 	<action name="GoMainTopAction" class="com.internousdev.template.action.GoAdminTopAction" method="execute">
 		<result name="success">adminTop.jsp</result>
+	</action>
+
+	<!-- GoMyPageAction -->
+	<action name="GoMyPageAction" class="com.internousdev.template.action.GoMyPageAction" method="execute">
+		<result name="success">myPage.jsp</result>
+		<result name="error">main.jsp</result>
+	</action>
+
+	<!-- GoReserveHistoryAction -->
+	<action name="GoReserveHistoryAction" class="com.internousdev.template.action.GoReserveHistoryAction" method="execute">
+		<result name="success">reserveHistory.jsp</result>
+		<result name="error">main.jsp</result>
 	</action>
 
 

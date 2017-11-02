@@ -5,69 +5,27 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.template.dao.UserCreateComplateDAO;
+import com.internousdev.template.dao.UserCreateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserCreateComplateAction extends ActionSupport implements SessionAware{
 
-	public String loginUserId;
-
-	public String loginPassword;
-
-	public String userName;
-
-	public String telNumber;
-
-	public String eMail;
-
-	public String address;
-
-	public Map<String,Object> createUserSession;
-
-	public String result;
-
-	public SessionAware session = new UserCreateConfirmAction();
-
-	public UserCreateComplateDAO userCreateComplateDAO = new UserCreateComplateDAO();
+	private Map<String,Object> session;
+	private UserCreateDAO dao = new UserCreateDAO();
 
 	public String execute() throws SQLException {
-
-		userCreateComplateDAO.cerateUser(createUserSession.get("loginUserId").toString(),
-				createUserSession.get("loginPassword").toString(),
-				createUserSession.get("userName").toString(),createUserSession.get("telNumber").toString(),
-				createUserSession.get("eMail").toString(),createUserSession.get("address").toString());
-
-		result = SUCCESS;
-
+		String result = SUCCESS;
+		dao.cerateUser((String)session.get("loginUserId"), (String)session.get("loginPassword"), (String)session.get("userName"),
+					  (String)session.get("telNumber"), (String)session.get("eMail"), (String)session.get("address"));
+		session.clear();
 		return result ;
 	}
 
-	public String getLoginUserId() {
-		return loginUserId;
-	}
-
-	public void setLoginUserId(String loginUserId) {
-		this.loginUserId = loginUserId;
-	}
-
-	public String getLoginPassword() {
-		return loginPassword;
-	}
-
-	public void setLoginPassword(String loginPassword) {
-		this.loginPassword = loginPassword;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
 	@Override
-	public void setSession(Map<String, Object> createUserSession) {
-		this.createUserSession = createUserSession;
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+
 	}
+
+
 }

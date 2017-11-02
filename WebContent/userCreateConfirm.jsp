@@ -82,7 +82,7 @@
 							<label>ログインID:</label>
 						</td>
 						<td>
-							<s:property value="loginUserId" escape="false" />
+							<s:property value="loginUserId"/>
 						</td>
 					</tr>
 					<tr id="box">
@@ -90,7 +90,7 @@
 							<label>ログインPASS:</label>
 						</td>
 						<td>
-							<s:property value="loginPassword" escape="false" />
+							<s:property value="loginPassword"/>
 						</td>
 					</tr>
 					<tr id="box">
@@ -98,7 +98,7 @@
 							<label>ユーザー名:</label>
 						</td>
 						<td>
-							<s:property value="userName" escape="false" />
+							<s:property value="userName"/>
 						</td>
 					</tr>
 					<tr id="box">
@@ -106,7 +106,7 @@
 							<label>電話番号:</label>
 						</td>
 						<td>
-							<s:property value="telNumber" escape="false" />
+							<s:property value="telNumber"/>
 						</td>
 					</tr>
 					<tr id="box">
@@ -114,7 +114,7 @@
 							<label>メールアドレス:</label>
 						</td>
 						<td>
-							<s:property value="eMail" escape="false" />
+							<s:property value="eMail"/>
 						</td>
 					</tr>
 					<tr id="box">
@@ -122,12 +122,12 @@
 							<label>住所:</label>
 						</td>
 						<td>
-							<s:property value="address" escape="false" />
+							<s:property value="address"/>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<s:submit value="登録完了" />
+							<s:submit value="登録完了"/>
 						</td>
 					</tr>
 				</s:form>

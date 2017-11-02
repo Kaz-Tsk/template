@@ -5,7 +5,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.template.dao.LoginDAO;
-import com.internousdev.template.dto.LoginDTO;
+import com.internousdev.template.dto.UserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -49,7 +49,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	/**
 	 * ログイン情報格納DTO
 	 */
-	private LoginDTO loginDTO = new LoginDTO();
+	private UserDTO loginDTO = new UserDTO();
 
 	/**
 	 *

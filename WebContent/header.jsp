@@ -30,6 +30,7 @@
 			<li class="login"><a href="<s:url action="GoStaffAction"/>">Staff</a></li>
 			<li class="login"><a href="<s:url action="GoMenuAction"/>">Menu</a></li>
 			<li class="login"><a href="<s:url action="GoInformationAction"/>">Information</a></li>
+			<li class="login"><a href="<s:url action="GoMyPageAction"/>">Mypage</a></li>
 			<li class="login"><a href="<s:url action="GoReserveAction"/>">Reserve</a></li>
 			<li class="login"><a href="<s:url action="LogOutAction"/>">Logout</a></li>
 		</ul>
