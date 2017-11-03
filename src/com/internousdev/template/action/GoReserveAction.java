@@ -18,16 +18,38 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class GoReserveAction extends ActionSupport implements SessionAware{
+
 	/**
 	 * セッション情報
 	 * @param session
 	 */
 	private Map<String,Object> session;
+
 	//インスタンス化
+	/**
+	 * メニュー情報リスト
+	 * @param menuList
+	 */
 	private ArrayList<MenuDTO> menuList = new ArrayList<MenuDTO>();
+
+	/**
+	 * スタッフ情報リスト
+	 * @param staffList
+	 */
 	private ArrayList<StaffDTO> staffList = new ArrayList<StaffDTO>();
+
+	/**
+	 * メニュー情報を取得するDAO
+	 * @param menuDAO
+	 */
 	private MenuDAO menuDAO = new MenuDAO();
+
+	/**
+	 * スタッフ情報を取得するDAO
+	 * @param staffDAO
+	 */
 	private GoStaffDAO staffDAO = new GoStaffDAO();
+
 	/**
 	 * 予約時に使うメニューやスタッフの情報を取得して遷移するメソッド
 	 * @return result SUCCESS
@@ -53,6 +75,7 @@ public class GoReserveAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+
 	/**
 	 *
 	 * @return menuList
@@ -60,6 +83,7 @@ public class GoReserveAction extends ActionSupport implements SessionAware{
 	public ArrayList<MenuDTO> getMenuList(){
 		return menuList;
 	}
+
 	/**
 	 *
 	 * @return staffList

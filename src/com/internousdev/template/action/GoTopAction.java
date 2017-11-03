@@ -14,8 +14,18 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoTopAction extends ActionSupport {
 
 	//インスタンス化
+	/**
+	 * インフォメーション情報を取得するDAO
+	 * @param dao
+	 */
 	private GoTopActionDAO dao = new GoTopActionDAO();
+
+	/**
+	 * インフォメーション情報リスト
+	 * @param salonInfoList
+	 */
 	private ArrayList<SalonDataDTO> salonInfoList = new  ArrayList<SalonDataDTO>();
+
 	/**
 	 * インフォメーション情報を取得して遷移するメソッド
 	 * @return SUCCESS
@@ -24,6 +34,7 @@ public class GoTopAction extends ActionSupport {
 		salonInfoList = dao.infoSelect();
 		return  SUCCESS;
 	}
+
 	// getter
 	/**
 	 *

@@ -11,19 +11,32 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class AdminStyleDeleteAction extends ActionSupport{
+
 	/**
 	 * スタイルVol
 	 * @param styleVol
 	 */
 	private int styleVol;
+
 	/**
 	 * 実行後メッセージ
 	 * @param deleteMsg
 	 */
 	private String deleteMsg;
+
 	//インスタンス化
+	/**
+	 * スタイル情報リスト
+	 * @param styleList
+	 */
 	private ArrayList<StyleDTO> styleList = new ArrayList<StyleDTO>();
+
+	/**
+	 * スタッフ情報を処理するDAO
+	 * @param dao
+	 */
 	private AdminStyleDAO dao = new AdminStyleDAO();
+
 	/**
 	 * ヘアスタイル情報を削除するメソッド
 	 * @return result 該当する情報があればSUCCESS なければERROR
@@ -48,6 +61,7 @@ public class AdminStyleDeleteAction extends ActionSupport{
 		}
 		return result;
 	}
+
 	//以下、setter getter
 	/**
 	 *
@@ -56,6 +70,7 @@ public class AdminStyleDeleteAction extends ActionSupport{
 	public int getStyleVol() {
 		return styleVol;
 	}
+
 	/**
 	 *
 	 * @param styleVol
@@ -63,6 +78,7 @@ public class AdminStyleDeleteAction extends ActionSupport{
 	public void setStyleVol(int styleVol) {
 		this.styleVol = styleVol;
 	}
+
 	/**
 	 *
 	 * @return deleteMsg

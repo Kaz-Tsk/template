@@ -13,15 +13,37 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  */
 public class GoAdminStyleEditAction extends ActionSupport {
+
 	/**
 	 * スタイルVol
 	 */
 	private int styleVol;
+
 	//インスタンス化
+	/**
+	 * スタイル情報リスト
+	 * @param styleList
+	 */
 	private ArrayList<StyleDTO> styleList = new ArrayList<StyleDTO>();
+
+	/**
+	 *スタッフ情報リスト
+	 *@param staffList
+	 */
 	private ArrayList<StaffDTO> staffList = new ArrayList<StaffDTO>();
+
+	/**
+	 * スタイル情報を取得するDAO
+	 * @param dao
+	 */
 	private AdminStyleDAO dao =new AdminStyleDAO();
+
+	/**
+	 * スタッフ情報を取得するDAO
+	 * @param staffDao
+	 */
 	private GoStaffDAO staffDao = new GoStaffDAO();
+
 	/**
 	 * スタイル情報を取得して編集ページへ遷移するメソッド
 	 * @return SUCCESS
@@ -31,6 +53,7 @@ public class GoAdminStyleEditAction extends ActionSupport {
 		staffList = staffDao.staffSelect();
 		return SUCCESS;
 	}
+
 	//以下、getter setter
 	/**
 	 *
@@ -39,6 +62,7 @@ public class GoAdminStyleEditAction extends ActionSupport {
 	public int getStyleVol() {
 		return styleVol;
 	}
+
 	/**
 	 *
 	 * @param styleVol
@@ -46,6 +70,7 @@ public class GoAdminStyleEditAction extends ActionSupport {
 	public void setStyleVol(int styleVol) {
 		this.styleVol = styleVol;
 	}
+
 	/**
 	 *
 	 * @return styleList
@@ -53,6 +78,7 @@ public class GoAdminStyleEditAction extends ActionSupport {
 	public ArrayList<StyleDTO> getStyleList() {
 		return styleList;
 	}
+
 	/**
 	 *
 	 * @return staffList

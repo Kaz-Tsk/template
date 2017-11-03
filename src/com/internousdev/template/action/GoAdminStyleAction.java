@@ -13,17 +13,44 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class GoAdminStyleAction extends ActionSupport{
+
 	/**
 	 * スタイルの性別
 	 * @param styleSex
 	 */
 	private String styleSex;
+
 	//インスタンス化
+	/**
+	 * スタッフ情報を取得するDAO
+	 * @param staffDao
+	 */
 	private GoStaffDAO staffDao = new GoStaffDAO();
+
+	/**
+	 * スタイル情報を取得するDAO
+	 * @param styleDAO
+	 */
 	private GoStyleDAO styleDAO = new GoStyleDAO();
+
+	/**
+	 * 女性のスタイルの情報リスト
+	 * @param ladiesStyleList
+	 */
 	private ArrayList<StyleDTO> ladiesStyleList = new  ArrayList<StyleDTO>();
+
+	/**
+	 * 男性のスタイルの情報リスト
+	 * @param mensStyleList
+	 */
 	private ArrayList<StyleDTO> mensStyleList = new  ArrayList<StyleDTO>();
+
+	/**
+	 * スタッフ情報リスト
+	 * @param staffList
+	 */
 	private ArrayList<StaffDTO> staffList = new ArrayList<StaffDTO>();
+
 	/**
 	 * ヘアスタイル情報とスタッフ情報を取得してページ遷移をするメソッド
 	 * @return SUCCESS
@@ -39,6 +66,8 @@ public class GoAdminStyleAction extends ActionSupport{
 		staffList = staffDao.staffSelect();
 		return SUCCESS;
 	}
+
+
 	//以下getter
 	/**
 	 *
@@ -47,6 +76,7 @@ public class GoAdminStyleAction extends ActionSupport{
 	public ArrayList<StyleDTO> getLadiesStyleList() {
 		return ladiesStyleList;
 	}
+
 	/**
 	 *
 	 * @return mensStyleList
@@ -54,6 +84,7 @@ public class GoAdminStyleAction extends ActionSupport{
 	public ArrayList<StyleDTO> getMensStyleList() {
 		return mensStyleList;
 	}
+
 	/**
 	 *
 	 * @return staffList

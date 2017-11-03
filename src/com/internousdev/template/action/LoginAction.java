@@ -31,21 +31,18 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	 * ログインパスワード
 	 * @param loginPassword
 	 */
-
 	public String loginPassword;
 
 	/**
 	 * 処理結果を格納
 	 * @param result
 	 */
-
 	public String result;
 
 	/**
 	 * ログイン情報
 	 * @param session
 	 */
-
 	public Map<String, Object> session;
 
 	//インスタンス化
@@ -53,7 +50,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	 * ログイン情報取得DAO
 	 * @param loginDAO
 	 */
-
 	public LoginDAO loginDAO = new LoginDAO();
 
 	/**
@@ -96,6 +92,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public String getLoginUserId() {
 		return loginUserId;
 	}
+
 	/**
 	 *
 	 * @param loginUserId
@@ -103,6 +100,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public void setLoginUserId(String loginUserId) {
 		this.loginUserId = loginUserId;
 	}
+
 	/**
 	 *
 	 * @return loginPassword
@@ -110,6 +108,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public String getLoginPassword() {
 		return loginPassword;
 	}
+
 	/**
 	 *
 	 * @param loginPassword
@@ -117,6 +116,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public void setLoginPassword(String loginPassword) {
 		this.loginPassword = loginPassword;
 	}
+
 	/**
 	 *
 	 * @param session

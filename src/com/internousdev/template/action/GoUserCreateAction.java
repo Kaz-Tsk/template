@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class GoUserCreateAction extends ActionSupport {
+
 	/**
 	 * ユーザー登録画面へ遷移するメソッド
 	 * @return SUCCESS

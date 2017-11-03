@@ -14,39 +14,56 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class GoMyPageAction  extends ActionSupport implements SessionAware{
+
 	/**
 	 *ユーザー名
 	 *@param userName
 	 */
 	private String userName;
+
 	/**
 	 * 電話番号
 	 * @param telNumber
 	 */
 	private String telNumber;
+
 	/**
 	 * メールアドレス
 	 * @param eMail
 	 */
 	private String eMail;
+
 	/**
 	 * 住所
 	 * @param address
 	 */
 	private String address;
+
 	/**
 	 * 登録日
 	 * @insertDate
 	 */
 	private Date insertDate;
+
 	/**
 	 *セッション
 	 *@param session
 	 */
 	private Map<String,Object> session;
+
 	//インスタンス化
+	/**
+	 * ユーザー情報を格納するDTO
+	 * @param dto
+	 */
 	private UserDTO dto = new UserDTO();
+
+	/**
+	 * ユーザー情報を取得するDAO
+	 * @param dao
+	 */
 	private MyPageDAO dao = new MyPageDAO();
+
 	/**
 	 * ユーザー情報を取得してページ遷移をするメソッド
 	 * @return result ID情報が取得できていればSUCCESS できなければERROR
@@ -65,6 +82,7 @@ public class GoMyPageAction  extends ActionSupport implements SessionAware{
 		}
 		return result;
 	}
+
 	//以下、setter getter
 	/**
 	 *
@@ -73,6 +91,7 @@ public class GoMyPageAction  extends ActionSupport implements SessionAware{
 	public String getUserName() {
 		return userName;
 	}
+
 	/**
 	 *
 	 * @param userName
@@ -80,6 +99,7 @@ public class GoMyPageAction  extends ActionSupport implements SessionAware{
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
 	/**
 	 *
 	 * @return telNumber
@@ -87,6 +107,7 @@ public class GoMyPageAction  extends ActionSupport implements SessionAware{
 	public String getTelNumber() {
 		return telNumber;
 	}
+
 	/**
 	 *
 	 * @param telNumber
@@ -94,6 +115,7 @@ public class GoMyPageAction  extends ActionSupport implements SessionAware{
 	public void setTelNumber(String telNumber) {
 		this.telNumber = telNumber;
 	}
+
 	/**
 	 *
 	 * @return eMail
@@ -101,6 +123,7 @@ public class GoMyPageAction  extends ActionSupport implements SessionAware{
 	public String geteMail() {
 		return eMail;
 	}
+
 	/**
 	 *
 	 * @param eMail
@@ -108,6 +131,7 @@ public class GoMyPageAction  extends ActionSupport implements SessionAware{
 	public void seteMail(String eMail) {
 		this.eMail = eMail;
 	}
+
 	/**
 	 *
 	 * @return address
@@ -115,6 +139,7 @@ public class GoMyPageAction  extends ActionSupport implements SessionAware{
 	public String getAddress() {
 		return address;
 	}
+
 	/**
 	 *
 	 * @param address
@@ -122,6 +147,7 @@ public class GoMyPageAction  extends ActionSupport implements SessionAware{
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	/**
 	 *
 	 * @return insertDate
@@ -129,6 +155,7 @@ public class GoMyPageAction  extends ActionSupport implements SessionAware{
 	public Date getInsertDate() {
 		return insertDate;
 	}
+
 	/**
 	 *
 	 * @param insertDate
@@ -136,6 +163,7 @@ public class GoMyPageAction  extends ActionSupport implements SessionAware{
 	public void setInsertDate(Date insertDate) {
 		this.insertDate = insertDate;
 	}
+
 	/**
 	 *
 	 * @param session

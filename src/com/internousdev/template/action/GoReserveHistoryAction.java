@@ -14,18 +14,31 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class GoReserveHistoryAction extends ActionSupport implements SessionAware{
+
 	/**
 	 * 実行時のメッセージ
 	 */
 	private String message;
+
 	/**
 	 * セッション情報
 	 * @param session
 	 */
 	private Map<String, Object> session;
+
 	//インスタンス化
+	/**
+	 * 予約履歴情報を取得するためのDAO
+	 * @param dao
+	 */
 	private MyPageDAO dao =new MyPageDAO();
+
+	/**
+	 * 予約履歴リスト
+	 * @param reserveHistoryList
+	 */
 	private ArrayList<ReserveDTO> reserveHistoryList = new ArrayList<ReserveDTO>();
+
 	/**
 	 * 予約履歴を引き出して遷移するメソッド
 	 * @result ユーザー確認ができていればSUCCESS できていなければERROR
@@ -45,6 +58,7 @@ public class GoReserveHistoryAction extends ActionSupport implements SessionAwar
 		}
 		return result;
 	}
+
 	//以下、setter getter
 	/**
 	 *
@@ -53,6 +67,7 @@ public class GoReserveHistoryAction extends ActionSupport implements SessionAwar
 	public String getMessage() {
 		return message;
 	}
+
 	/**
 	 *
 	 * @return reserveHistoryList
@@ -60,6 +75,7 @@ public class GoReserveHistoryAction extends ActionSupport implements SessionAwar
 	public ArrayList<ReserveDTO> getReserveHistoryList() {
 		return reserveHistoryList;
 	}
+
 	/**
 	 *
 	 * @param session

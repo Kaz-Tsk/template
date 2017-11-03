@@ -11,14 +11,26 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class GoStyleInfoAction extends ActionSupport {
+
 	/**
 	 * スタイルvol
 	 * @param styleVol
 	 */
 	private int styleVol;
+
 	//インスタンス化
+	/**
+	 * スタイル詳細情報を取得するDAO
+	 * @param dao
+	 */
 	private GoStyleInfoDAO dao = new GoStyleInfoDAO();
+
+	/**
+	 * スタイル詳細情報リスト
+	 * @param styleList
+	 */
 	private ArrayList<StyleDTO> styleList = new  ArrayList<StyleDTO>();
+
 	/**
 	 * スタイル詳細を取得して遷移するメソッド
 	 * @return SUCCESS
@@ -27,6 +39,8 @@ public class GoStyleInfoAction extends ActionSupport {
 		styleList = dao.styleSelect(styleVol);
 		return  SUCCESS;
 	}
+
+
 	//以下、setter getter
 	/**
 	 *
@@ -35,6 +49,7 @@ public class GoStyleInfoAction extends ActionSupport {
 	public ArrayList<StyleDTO> getStyleList(){
 		return styleList;
 	}
+
 	/**
 	 *
 	 * @return styleVol
@@ -42,6 +57,7 @@ public class GoStyleInfoAction extends ActionSupport {
 	public int getStyleVol(){
 		return styleVol;
 	}
+
 	/**
 	 *
 	 * @param styleVol

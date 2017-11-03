@@ -12,9 +12,20 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  */
 public class GoAdminReserveAction extends ActionSupport{
+
 	//インスタンス化
+	/**
+	 * 予約情報を取得するDAO
+	 * @param dao
+	 */
 	private AdminReserveDAO dao = new AdminReserveDAO();
+
+	/**
+	 * 予約情報リスト
+	 * @param reserveList
+	 */
 	private ArrayList<ReserveDTO> reserveList = new ArrayList<ReserveDTO>();
+
 	/**
 	 * 予約情報を取得してページ遷移するメソッド
 	 * @return SUCCESS
@@ -23,6 +34,7 @@ public class GoAdminReserveAction extends ActionSupport{
 		reserveList = dao.reserveSelect();
 		return SUCCESS;
 	}
+
 	//getter
 	/**
 	 *

@@ -11,24 +11,38 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class GoAdminInfoAction extends ActionSupport{
+
 	/**
 	 * インフォメーションVol
 	 * @param infoVol
 	 */
 	private int infoVol;
+
 	/**
 	 * 公開日
 	 * @param infoDay
 	 */
 	private String infoDay;
+
 	/**
 	 * インフォメーションテキスト
 	 *@param infoText
 	 */
 	private String infoText;
+
 	//インスタンス化
+	/**
+	 *インフォメーション情報リスト
+	 *@param adminInfoList
+	 */
 	private ArrayList<SalonDataDTO> adminInfoList = new ArrayList<SalonDataDTO>();
+
+	/**
+	 * インフォメーション情報処理のDAO
+	 * @param dao
+	 */
 	private AdminInfoDAO dao = new AdminInfoDAO();
+
 	/**
 	 * インフォメーション情報を取得して遷移するメソッド
 	 * @return result SUCCESS
@@ -38,6 +52,7 @@ public class GoAdminInfoAction extends ActionSupport{
 		adminInfoList = dao.adminInfoSelect();
 		return SUCCESS;
 	}
+
 	//以下、getter setter
 	/**
 	 *
@@ -46,6 +61,7 @@ public class GoAdminInfoAction extends ActionSupport{
 	public int getInfoVol() {
 		return infoVol;
 	}
+
 	/**
 	 *
 	 * @param infoVol
@@ -53,6 +69,7 @@ public class GoAdminInfoAction extends ActionSupport{
 	public void setInfoVol(int infoVol) {
 		this.infoVol = infoVol;
 	}
+
 	/**
 	 *
 	 * @return infoDay
@@ -60,6 +77,7 @@ public class GoAdminInfoAction extends ActionSupport{
 	public String getInfoDay() {
 		return infoDay;
 	}
+
 	/**
 	 *
 	 * @param infoDay
@@ -67,6 +85,7 @@ public class GoAdminInfoAction extends ActionSupport{
 	public void setInfoDay(String infoDay) {
 		this.infoDay = infoDay;
 	}
+
 	/**
 	 *
 	 * @return infoText
@@ -74,6 +93,7 @@ public class GoAdminInfoAction extends ActionSupport{
 	public String getInfoText() {
 		return infoText;
 	}
+
 	/**
 	 *
 	 * @param infoText
@@ -81,6 +101,7 @@ public class GoAdminInfoAction extends ActionSupport{
 	public void setText(String infoText) {
 		this.infoText = infoText;
 	}
+
 	/**
 	 *
 	 * @return adminInfoList

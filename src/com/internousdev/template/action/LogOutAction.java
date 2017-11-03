@@ -24,7 +24,7 @@ public class LogOutAction extends ActionSupport implements SessionAware {
 	 * ログアウト処理のDAO
 	 * @param dao
 	 */
-	LogOutDAO dao = new LogOutDAO();
+	private LogOutDAO dao = new LogOutDAO();
 
 	/**
 	 * ログアウト実行メソッド

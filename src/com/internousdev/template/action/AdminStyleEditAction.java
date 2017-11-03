@@ -18,54 +18,74 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class AdminStyleEditAction extends ActionSupport implements ServletRequestAware{
+
 	/**
 	 * スタイルVol
 	 * @param styleVol
 	 */
 	private int styleVol;
+
 	/**
 	 * スタイル名
 	 * @param styleName
 	 */
 	private String styleName;
+
 	/**
 	 * スタイル紹介文
 	 * @param styleComment
 	 */
 	private String styleComment;
+
 	/**
 	 * 担当スタッフID
 	 * @param staffId
 	 */
 	private int staffId;
+
 	/**
 	 *実行後メッセージ
 	 *@param editMsg
 	 */
 	private String editMsg;
+
 	/**
 	 * 画像ファイル
 	 * @param styleFile
 	 */
 	private File styleFile;
+
 	/**
 	 * リクエスト
 	 *@param request
 	 */
 	private HttpServletRequest request;
+
 	/**
 	 * ファイル名
 	 * @param styleFileFileName
 	 */
 	private String styleFileFileName;
+
 	/**
 	 * 画像ファイル形式
 	 *@param styleFileContentType
 	 */
 	public String styleFileContentType;
+
 	//インスタンス化
+	/**
+	 * スタイル情報リスト
+	 * @param styleList
+	 */
 	private ArrayList<StyleDTO> styleList = new ArrayList<StyleDTO>();
+
+	/**
+	 * スタイル情報を処理するDAO
+	 * @param dao
+	 */
 	private AdminStyleDAO dao = new AdminStyleDAO();
+
 	/**
 	 * スタイルを編集するメソッド
 	 * @return result 該当する情報があればSUCCESS なければERROR
@@ -111,6 +131,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 		editMsg = "編集が完了しました。";
 		return SUCCESS;
 	}
+
 	//以下、setter getter
 	/**
 	 *
@@ -119,6 +140,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public int getStyleVol() {
 		return styleVol;
 	}
+
 	/**
 	 *
 	 * @param styleVol
@@ -126,6 +148,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public void setStyleVol(int styleVol) {
 		this.styleVol = styleVol;
 	}
+
 	/**
 	 *
 	 * @return styleName
@@ -133,6 +156,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public String getStyleName() {
 		return styleName;
 	}
+
 	/**
 	 *
 	 * @param styleName
@@ -140,6 +164,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public void setStyleName(String styleName) {
 		this.styleName = styleName;
 	}
+
 	/**
 	 *
 	 * @return styleComment
@@ -147,6 +172,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public String getStyleComment() {
 		return styleComment;
 	}
+
 	/**
 	 *
 	 * @param styleComment
@@ -154,6 +180,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public void setStyleComment(String styleComment) {
 		this.styleComment = styleComment;
 	}
+
 	/**
 	 *
 	 * @return staffId
@@ -161,6 +188,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public int getStaffId() {
 		return staffId;
 	}
+
 	/**
 	 *
 	 * @param staffId
@@ -168,6 +196,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public void setStaffId(int staffId) {
 		this.staffId = staffId;
 	}
+
 	/**
 	 *
 	 * @return editMsg
@@ -175,6 +204,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public String getEditMsg() {
 		return editMsg;
 	}
+
 	/**
 	 *
 	 * @return styleFile
@@ -182,6 +212,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public File getStyleFile() {
 		return styleFile;
 	}
+
 	/**
 	 *
 	 * @param styleFile
@@ -189,6 +220,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public void setStyleFile(File styleFile) {
 		this.styleFile = styleFile;
 	}
+
 	/**
 	 *
 	 * @return request
@@ -196,6 +228,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public HttpServletRequest getRequest() {
 		return request;
 	}
+
 	/**
 	 *
 	 * @return styleFileFileName
@@ -203,6 +236,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public String getStyleFileFileName() {
 		return styleFileFileName;
 	}
+
 	/**
 	 *
 	 * @param styleFileFileName
@@ -210,6 +244,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public void setStyleFileFileName(String styleFileFileName) {
 		this.styleFileFileName = styleFileFileName;
 	}
+
 	/**
 	 *
 	 * @return styleFileContentType
@@ -217,6 +252,7 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public String getStyleFileContentType() {
 		return styleFileContentType;
 	}
+
 	/**
 	 *
 	 * @param styleFileContentType
@@ -224,11 +260,11 @@ public class AdminStyleEditAction extends ActionSupport implements ServletReques
 	public void setStyleFileContentType(String styleFileContentType) {
 		this.styleFileContentType = styleFileContentType;
 	}
+
 	/**
 	 * @param request
 	 */
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
-
 	}
 }

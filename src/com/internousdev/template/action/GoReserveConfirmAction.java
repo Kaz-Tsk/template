@@ -16,76 +16,110 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class GoReserveConfirmAction extends ActionSupport implements SessionAware{
+
 	/*
 	 * メニューID
 	 * @param menuId
 	 */
 	private String[] menuId=null;
+
 	/**
 	 * 予約日
 	 * @param reserveDate
 	 */
 	private String reserveDate=null;
+
 	/**
 	 * 変換した予約日
 	 * @param rD
 	 */
 	private String rD;
+
 	/**
 	 * 予約時間
 	 * @param reserveTime
 	 */
 	private String reserveTime;
+
 	/**
 	 * 施術時間
 	 * @param menuTime
 	 */
 	private int menuTime = 0;
+
 	/**
 	 * 担当スタイリストID
 	 * @param staffId
 	 */
 	private int staffId;
+
 	/**
 	 * 支払い方法
 	 * @param pay
 	 */
 	private String pay;
+
 	/**
 	 * 施術料金の合計金額
 	 * @param subPrice
 	 */
 	private int subPrice = 0;
+
 	/**
 	 *スタッフ名
 	 *@staffName
 	 */
 	private String staffName;
+
 	/**
 	 * 実行時のメッセージ
 	 * @param errorMsg
 	 */
 	private String errorMsg;
+
 	/**
 	 * 予約フラグ
 	 * @param reserveFlg
 	 */
 	private int reserveFlg=0;
+
 	/**
 	 * 予約メニュー
 	 * @param reserveMenu
 	 */
 	private String reserveMenu = "";
+
 	/**
 	 * セッション情報
 	 * @param session
 	 */
 	private Map<String,Object> session;
+
 	//インスタンス化
+	/**
+	 * 仮予約を登録するためのDAO
+	 * @param dao
+	 */
 	private ReserveConfirmDAO dao = new ReserveConfirmDAO();
+
+	/**
+	 * staff情報を格納するDTO
+	 * @param sdto
+	 */
 	private StaffDTO sdto = new StaffDTO();
+
+	/**
+	 * メニュー情報を格納するためのDTO
+	 * @param dto
+	 */
 	private MenuDTO dto = new MenuDTO();
+
+	/**
+	 * 仮予約情報リスト
+	 * @param reserveConfirmList
+	 */
 	private ArrayList<MenuDTO> reserveConfirmList = new ArrayList<MenuDTO>();
+
 	/**
 	 * 予約時間が空いてるかチェック、仮予約して遷移するメソッド
 	 * @return result 予約可能であれば仮予約してSUCCESS 予約不可であればERROR
@@ -147,6 +181,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 		}
 		return result;
 	}
+
 	//以下、setter getter
 	/**
 	 *
@@ -155,6 +190,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public String[] getMenuId() {
 		return menuId;
 	}
+
 	/**
 	 *
 	 * @param menuId
@@ -162,6 +198,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public void setMenuId(String menuId[]) {
 		this.menuId = menuId;
 	}
+
 	/**
 	 *
 	 * @return reserveDate
@@ -169,6 +206,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public String getReserveDate() {
 		return reserveDate;
 	}
+
 	/**
 	 *
 	 * @param reserveDate
@@ -176,6 +214,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public void setReserveDate(String reserveDate) {
 		this. reserveDate =  reserveDate;
 	}
+
 	/**
 	 *
 	 * @return reserveTime
@@ -183,6 +222,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public String getReserveTime() {
 		return reserveTime;
 	}
+
 	/**
 	 *
 	 * @param reserveTime
@@ -190,6 +230,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public void setReserveTime(String reserveTime) {
 		this.reserveTime = reserveTime;
 	}
+
 	/**
 	 *
 	 * @return staffId
@@ -197,6 +238,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public int getStaffId() {
 		return staffId;
 	}
+
 	/**
 	 *
 	 * @param staffId
@@ -204,6 +246,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public void setStaffId(int staffId) {
 		this.staffId = staffId;
 	}
+
 	/**
 	 *
 	 * @return menuTime
@@ -211,6 +254,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public int getMenuTime() {
 		return menuTime;
 	}
+
 	/**
 	 *
 	 * @param menuTime
@@ -218,6 +262,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public void setMenuTime(int menuTime) {
 		this.menuTime = menuTime;
 	}
+
 	/**
 	 *
 	 * @return pay
@@ -225,6 +270,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public String getPay() {
 		return pay;
 	}
+
 	/**
 	 *
 	 * @param pay
@@ -232,6 +278,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public void setPay(String pay) {
 		this.pay = pay;
 	}
+
 	/**
 	 *
 	 * @return subPrice
@@ -239,6 +286,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public int getSubPrice() {
 		return subPrice;
 	}
+
 	/**
 	 *
 	 * @param subPrice
@@ -246,6 +294,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public void setSubPrice(int subPrice) {
 		this.subPrice = subPrice;
 	}
+
 	/**
 	 *
 	 * @return staffName
@@ -253,6 +302,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public String getStaffName() {
 		return staffName;
 	}
+
 	/**
 	 *
 	 * @param staffName
@@ -260,6 +310,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public void setStaffName(String staffName) {
 		this.staffName = staffName;
 	}
+
 	/**
 	 *
 	 * @return errorMsg
@@ -267,6 +318,7 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 	public String getErrorMsg() {
 		return errorMsg;
 	}
+
 	/**
 	 *
 	 * @param session

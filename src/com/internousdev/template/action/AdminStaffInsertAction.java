@@ -19,49 +19,68 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class AdminStaffInsertAction extends ActionSupport implements ServletRequestAware{
+
 	/**
 	 * スタッフID
 	 * @param staffId
 	 */
 	private int staffId;
+
 	/**
 	 * スタッフ名
 	 * @param staffName
 	 */
 	private String staffName;
+
 	/**
 	 * スタッフ紹介文
 	 * @param staffComment
 	 */
 	private String staffComment;
+
 	/**
 	 * 実行後メッセージ
 	 * @param insertMsg
 	 */
 	private String insertMsg;
+
 	/**
 	 * スタッフ画像
 	 * @param staffFile
 	 */
 	private File staffFile;
+
 	/**
 	 * リクエスト
 	 * @param request
 	 */
 	private HttpServletRequest request;
+
 	/**
 	 * 画像ファイル名
 	 * @param staffFileFileName
 	 */
 	private String staffFileFileName;
+
 	/**
 	 * 画像ファイル形式
 	 * @param staffFileContentType
 	 */
 	private String staffFileContentType;
+
 	//インスタンス化
+	/**
+	 * スタッフ情報を処理するDAO
+	 * @param dao
+	 */
 	private AdminStaffDAO dao = new AdminStaffDAO();
+
+	/**
+	 * スタッフ情報リスト
+	 * @param staffList
+	 */
 	private ArrayList<StaffDTO> staffList = new ArrayList<StaffDTO>();
+
 	/**
 	 *スタッフ情報を新規登録するメソッド
 	 *@return result  画像がなければnoImgに差し替えてSUCCESS, IDが重複していたらERROR;
@@ -72,7 +91,6 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 			if(staffFile == null || staffFile.length() == 0){
 				staffFileFileName = "img/noimg.png";
 			}else{
-
 				try{
 					//	imgが重複するため下記パスに変更	String basePath = request.getServletContext().getRealPath("/");
 					String basePath = "/Users/apple/git/template/WebContent/";
@@ -122,6 +140,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 		insertMsg = "登録が完了しました。";
 		return SUCCESS;
 	}
+
 	//以下、setter getter
 	/**
 	 *
@@ -130,6 +149,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public int getStaffId() {
 		return staffId;
 	}
+
 	/**
 	 *
 	 * @param staffId
@@ -137,6 +157,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public void setStaffId(int staffId) {
 		this.staffId = staffId;
 	}
+
 	/**
 	 *
 	 * @return staffName
@@ -144,6 +165,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public String getStaffName() {
 		return staffName;
 	}
+
 	/**
 	 *
 	 * @param staffName
@@ -151,6 +173,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public void setStaffName(String staffName) {
 		this.staffName = staffName;
 	}
+
 	/**
 	 *
 	 * @return staffComment
@@ -158,6 +181,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public String getStaffComment() {
 		return staffComment;
 	}
+
 	/**
 	 *
 	 * @param staffComment
@@ -165,6 +189,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public void setStaffComment(String staffComment) {
 		this.staffComment = staffComment;
 	}
+
 	/**
 	 *
 	 * @return insertMsg
@@ -172,6 +197,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public String getInsertMsg() {
 		return insertMsg;
 	}
+
 	/**
 	 *
 	 * @return staffFile
@@ -179,6 +205,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public File getStaffFile() {
 		return staffFile;
 	}
+
 	/**
 	 *
 	 * @param staffFile
@@ -186,6 +213,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public void setStaffFile(File staffFile) {
 		this.staffFile = staffFile;
 	}
+
 	/**
 	 *
 	 * @return request
@@ -193,6 +221,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public HttpServletRequest getRequest() {
 		return request;
 	}
+
 	/**
 	 *
 	 * @param request
@@ -200,6 +229,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
 	}
+
 	/**
 	 *
 	 * @return stafFileFileName
@@ -207,6 +237,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public String getStaffFileFileName() {
 		return staffFileFileName;
 	}
+
 	/**
 	 *
 	 * @param staffFileFileName
@@ -214,6 +245,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public void setStaffFileFileName(String staffFileFileName) {
 		this.staffFileFileName = staffFileFileName;
 	}
+
 	/**
 	 *
 	 * @return staffFileContentType
@@ -221,6 +253,7 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 	public String getStaffFileContentType() {
 		return staffFileContentType;
 	}
+
 	/**
 	 *
 	 * @param staffFileContentType

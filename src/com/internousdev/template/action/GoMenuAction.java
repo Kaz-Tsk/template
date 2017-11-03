@@ -12,8 +12,18 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoMenuAction extends ActionSupport{
 
 	//インスタンス化
+	/**
+	 * メニュー情報リスト
+	 * @param menuList
+	 */
 	private ArrayList<MenuDTO> menuList = new ArrayList<MenuDTO>();
+
+	/**
+	 * メニュー情報を取得するDAO
+	 * @param menuDAO
+	 */
 	private MenuDAO menuDAO = new MenuDAO();
+
 	/**
 	 * menu情報を取得してページ遷移するメソッド
 	 *@return result SUCCESS

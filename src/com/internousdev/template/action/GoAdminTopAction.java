@@ -6,6 +6,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class GoAdminTopAction extends ActionSupport{
+
 	/**
 	 * 管理ページトップへ遷移するメソッド
 	 * @return SUCCESS

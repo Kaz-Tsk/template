@@ -17,59 +17,79 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class AdminStyleInsertAction extends ActionSupport implements ServletRequestAware{
+
 	/**
 	 * スタイルVol
 	 * @param styleVol
 	 */
 	private int styleVol;
+
 	/**
 	 * スタイル名
 	 * @param styleName
 	 */
 	private String styleName;
+
 	/**
 	 * スタイルの性別
 	 * @param styleSex
 	 */
 	private String styleSex;
+
 	/**
 	 * スタイルの紹介文
 	 * @param styleComment
 	 */
 	private String styleComment;
+
 	/**
 	 * 担当スタッフID
 	 * @param staffId
 	 */
 	private int staffId;
+
 	/**
 	 * 実行後メッセージ
 	 * @param insertMsg
 	 */
 	private String insertMsg;
+
 	/**
 	 * 画像ファイル
 	 * @param styleFile
 	 */
 	private File styleFile;
+
 	/**
 	 * リクエスト
 	 * @param request
 	 */
 	private HttpServletRequest request;
+
 	/**
 	 * 画像ファイル名
 	 * @param styleFileFileName
 	 */
 	private String styleFileFileName;
+
 	/**
 	 * 画像ファイル名
 	 *@param styleFileContetType
 	 */
 	public String styleFileContentType;
+
 	//インスタンス化
+	/**
+	 * スタイル情報を処理するDAO
+	 */
 	private AdminStyleDAO dao = new AdminStyleDAO();
+
+	/**
+	 * スタイル情報リスト
+	 * @param styleList
+	 */
 	private ArrayList<StyleDTO> styleList = new ArrayList<StyleDTO>();
+
 	/**
 	 * ヘアスタイルを陰気登録するメソッド
 	 * @return result スタイルVolが重複していなければSUCCESS していればERROR
@@ -102,7 +122,6 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 				}
 			}
 			dao.InsertStyle(styleVol, styleName, styleSex, styleComment, staffId, styleFileFileName);
-
 			insertMsg = "登録が完了しました。";
 			return SUCCESS;
 		}else if(styleList.size()!=0) {
@@ -133,6 +152,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 		insertMsg = "登録が完了しました。";
 		return SUCCESS;
 	}
+
 	//以下、setter getter
 	/**
 	 *
@@ -141,6 +161,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public int getStyleVol() {
 		return styleVol;
 	}
+
 	/**
 	 *
 	 * @param styleVol
@@ -148,6 +169,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public void setStyleVol(int styleVol) {
 		this.styleVol = styleVol;
 	}
+
 	/**
 	 *
 	 * @return styleName
@@ -155,6 +177,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public String getStyleName() {
 		return styleName;
 	}
+
 	/**
 	 *
 	 * @param styleName
@@ -162,6 +185,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public void setStyleName(String styleName) {
 		this.styleName = styleName;
 	}
+
 	/**
 	 *
 	 * @return styleSex
@@ -169,6 +193,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public String getStyleSex() {
 		return styleSex;
 	}
+
 	/**
 	 *
 	 * @param styleSex
@@ -176,6 +201,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public void setStyleSex(String styleSex) {
 		this.styleSex = styleSex;
 	}
+
 	/**
 	 *
 	 * @return styleComment
@@ -183,6 +209,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public String getStyleComment() {
 		return styleComment;
 	}
+
 	/**
 	 *
 	 * @param styleComment
@@ -190,6 +217,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public void setStyleComment(String styleComment) {
 		this.styleComment = styleComment;
 	}
+
 	/**
 	 *
 	 * @return staffId
@@ -197,6 +225,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public int getStaffId() {
 		return staffId;
 	}
+
 	/**
 	 *
 	 * @param staffId
@@ -204,6 +233,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public void setStaffId(int staffId) {
 		this.staffId = staffId;
 	}
+
 	/**
 	 *
 	 * @return insertMsg
@@ -211,6 +241,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public String getInsertMsg() {
 		return insertMsg;
 	}
+
 	/**
 	 *
 	 * @return styleFile
@@ -218,6 +249,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public File getStyleFile() {
 		return styleFile;
 	}
+
 	/**
 	 *
 	 * @param styleFile
@@ -225,6 +257,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public void setStyleFile(File styleFile) {
 		this.styleFile = styleFile;
 	}
+
 	/**
 	 *
 	 * @return request
@@ -232,6 +265,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public HttpServletRequest getRequest() {
 		return request;
 	}
+
 	/**
 	 *
 	 * @return styleFileFileName
@@ -239,6 +273,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public String getStyleFileFileName() {
 		return styleFileFileName;
 	}
+
 	/**
 	 *
 	 * @param styleFileFileName
@@ -246,6 +281,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public void setStyleFileFileName(String styleFileFileName) {
 		this.styleFileFileName = styleFileFileName;
 	}
+
 	/**
 	 *
 	 * @return styleContentType
@@ -253,6 +289,7 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public String getStyleFileContentType() {
 		return styleFileContentType;
 	}
+
 	/**
 	 *
 	 * @param styleFileContentType
@@ -260,13 +297,13 @@ public class AdminStyleInsertAction extends ActionSupport implements ServletRequ
 	public void setStyleFileContentType(String styleFileContentType) {
 		this.styleFileContentType = styleFileContentType;
 	}
+
 	/**
 	 * @param request
 	 */
 	@Override
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
-
 	}
 }
 

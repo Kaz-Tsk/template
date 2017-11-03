@@ -13,8 +13,18 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoAdminStaffAction extends ActionSupport{
 
 	//インスタンス化
+	/**
+	 * スタッフ情報取得のDAO
+	 * @param dao
+	 */
 	private GoStaffDAO dao = new GoStaffDAO();
+
+	/**
+	 * スタッフ情報リスト
+	 * @param staffList
+	 */
 	private ArrayList<StaffDTO> staffList = new ArrayList<StaffDTO>();
+
 	/**
 	 * スタッフ情報を取得してページ遷移するメソッド
 	 * @return result SUCCESS
@@ -24,6 +34,7 @@ public class GoAdminStaffAction extends ActionSupport{
 		String result = SUCCESS;
 		return result;
 	}
+
 	//getter
 	/**
 	 *

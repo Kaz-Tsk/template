@@ -13,19 +13,32 @@ import com.opensymphony.xwork2.ActionSupport;
  * @version 1.0
  */
 public class GoReserveComplateAction extends ActionSupport implements SessionAware{
+
 	/**
 	 * 実行時のメッセージ
 	 * @param errorMsg
 	 */
 	private String errorMsg;
+
 	/**
 	 * セッション情報
 	 * @param session
 	 */
 	private Map<String,Object> session;
+
 	//インスタンス化
+	/**
+	 * 予約を照合するためのDAO
+	 * @param checkDao
+	 */
 	private ReserveConfirmDAO checkDao = new ReserveConfirmDAO();
+
+	/**
+	 * 予約を登録させるためのDAO
+	 * @param compDao
+	 */
 	private ReserveComplateDAO compDao = new ReserveComplateDAO();
+
 	/**
 	 * 予約状況をチェックして大丈夫であれば予約完了にするメソッド
 	 * @return result 予約状況をチェックして空きがあればSUCCESS なければERROR
@@ -43,6 +56,7 @@ public class GoReserveComplateAction extends ActionSupport implements SessionAwa
 		}
 		return result;
 	}
+
 	//以下、setter getter
 	/**
 	 *
@@ -51,6 +65,7 @@ public class GoReserveComplateAction extends ActionSupport implements SessionAwa
 	public String getErrorMsg() {
 		return errorMsg;
 	}
+
 	/**
 	 * @param session
 	 */

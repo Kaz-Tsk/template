@@ -40,6 +40,7 @@ public class UserCreateComplateAction extends ActionSupport implements SessionAw
 		session.clear();
 		return result ;
 	}
+
 	//setter
 	/**
 	 *
@@ -48,6 +49,5 @@ public class UserCreateComplateAction extends ActionSupport implements SessionAw
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
-
 	}
 }
