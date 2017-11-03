@@ -9,10 +9,17 @@ import java.util.ArrayList;
 import com.internousdev.template.dto.ReserveDTO;
 import com.internousdev.template.dto.UserDTO;
 import com.internousdev.template.util.DBConnector;
-
+/**
+ * マイページに必要な情報を取得するDAO
+ * @author Kazuyuki Tasaki
+ * @version 1.0
+ */
 public class MyPageDAO {
-
-
+	/**
+	 * ユーザー情報を取得するメソッド
+	 * @param id
+	 * @return dto
+	 */
 	public UserDTO myPageSelect(int id) {
 		UserDTO dto = new UserDTO();
 		DBConnector dbConnector = new DBConnector();
@@ -41,8 +48,13 @@ public class MyPageDAO {
 			}
 		}
 		return dto;
-		}
+	}
 
+	/**
+	 * 予約履歴を取得するメソッド
+	 * @param Id
+	 * @return reserveHistoryList
+	 */
 	public ArrayList<ReserveDTO> reserveHistorySelect(int Id) {
 		ArrayList<ReserveDTO> reserveHistoryList = new ArrayList<ReserveDTO>();
 		DBConnector dbConnector = new DBConnector();
@@ -72,6 +84,5 @@ public class MyPageDAO {
 			}
 		}
 		return reserveHistoryList;
-		}
-
+	}
 }

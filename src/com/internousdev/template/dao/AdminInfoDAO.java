@@ -8,10 +8,17 @@ import java.util.ArrayList;
 
 import com.internousdev.template.dto.SalonDataDTO;
 import com.internousdev.template.util.DBConnector;
-
+/**
+ * インフォメーション管理のDAO
+ * @author Kazuyuki Tasaki
+ *@version 1.0
+ */
 public class AdminInfoDAO {
 
-
+	/**
+	 *インフォメーション情報を取得するメソッド
+	 * @return adminInfoList
+	 */
 	public ArrayList<SalonDataDTO> adminInfoSelect(){
 		ArrayList<SalonDataDTO> adminInfoList = new ArrayList<SalonDataDTO>();
 		DBConnector dbConnector = new DBConnector();
@@ -41,11 +48,12 @@ public class AdminInfoDAO {
 		return adminInfoList;
 	}
 
-
-
-
-
-
+	/**
+	 * インフォメーション情報を新規登録するメソッド
+	 * @param infoVol
+	 * @param infoDay
+	 * @param infoText
+	 */
 	public void insertInfo(int infoVol,String infoDay, String infoText) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection =  dbConnector.getConnection();
@@ -68,6 +76,12 @@ public class AdminInfoDAO {
 		}
 	}
 
+	/**
+	 * インフォメーション情報を編集登録するメソッド
+	 * @param infoVol
+	 * @param infoDay
+	 * @param infoText
+	 */
 	public void editInfo(int infoVol,String infoDay,String infoText) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection =  dbConnector.getConnection();
@@ -91,6 +105,10 @@ public class AdminInfoDAO {
 
 	}
 
+	/**
+	 * インフォメーション情報を削除するメソッド
+	 * @param infoVol
+	 */
 	public void deleteInfo(int infoVol) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection =  dbConnector.getConnection();

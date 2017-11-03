@@ -9,28 +9,27 @@ import java.util.ArrayList;
 import com.internousdev.template.dto.MenuDTO;
 import com.internousdev.template.dto.StaffDTO;
 import com.internousdev.template.util.DBConnector;
-
+/**
+ * 予約確認処理をするDAO
+ * @author Kazuyuki Tasaki
+ * @version 1.0
+ */
 public class ReserveConfirmDAO {
 
-	public ArrayList<MenuDTO> reserveConfirmList = new ArrayList<MenuDTO>();
-
-	private DBConnector dbConnector = new DBConnector();
-
-	private Connection connection =  dbConnector.getConnection();
-
-
-
 	/**
-	 * メニューを取得するメソッド
-	 *
-	 * @return menuList
+	 * 仮予約のメニュー情報を取得するメソッド
+	 * @return reserveConfirmList
 	 */
 	public  ArrayList<MenuDTO> selectReserveConfirm(int[] menuId2){
+		ArrayList<MenuDTO> reserveConfirmList = new ArrayList<MenuDTO>();
+		DBConnector dbConnector = new DBConnector();
+		Connection connection =  dbConnector.getConnection();
 		int menuId = menuId2.length;
 		String sql = "SELECT * FROM menu where menu_Id  in ("+createInSQL(menuId)+")";
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			//配列で取得したmenuIdをセットする
 			for( int i=0; i < menuId; i++){
 				preparedStatement.setInt(i+1,menuId2[i]);
 			}
@@ -54,6 +53,11 @@ public class ReserveConfirmDAO {
 		return reserveConfirmList;
 	}
 
+	/**
+	 * 可変するmenuIdの情報に合わせて?を連動させるメソッド
+	 * @param menuId
+	 * @return builder
+	 */
 	private static String createInSQL(int menuId){
 		StringBuilder builder = new StringBuilder();
 		for(int i = 0; i < menuId;){
@@ -158,7 +162,7 @@ public class ReserveConfirmDAO {
 		MenuDTO dto = new MenuDTO();
 		String sql = "SELECT reserve_id FROM reserve_date WHERE user_Id=? AND reserve_start_date=? ";
 		try{
-		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1,Id);
 			preparedStatement.setString(2, rD);
 			ResultSet resultSet = preparedStatement.executeQuery();

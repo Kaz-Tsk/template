@@ -8,10 +8,17 @@ import java.util.ArrayList;
 
 import com.internousdev.template.dto.ReserveDTO;
 import com.internousdev.template.util.DBConnector;
-
+/**
+ * 予約情報を管理するDAO
+ * @author Kazuyuki Tasaki
+ * @version 1.0
+ */
 public class AdminReserveDAO {
 
-
+	/**
+	 * 予約情報を取得するメソッド
+	 * @return reserveList
+	 */
 	public ArrayList<ReserveDTO> reserveSelect (){
 		DBConnector dbConnector = new DBConnector();
 		Connection connection =  dbConnector.getConnection();
@@ -22,19 +29,18 @@ public class AdminReserveDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
-					ReserveDTO dto = new ReserveDTO();
-					dto.setReserveId(resultSet.getInt("reserve_id"));
-					dto.setReserveMenu(resultSet.getString("reserve_menu"));
-					dto.setReservePrice(resultSet.getInt("reserve_price"));
-					dto.setReserveTime(resultSet.getInt("reserve_time"));
-					dto.setReserveStaff(resultSet.getString("reserve_staff"));
-					dto.setReservePay(resultSet.getString("reserve_pay"));
-					dto.setReserveUserName(resultSet.getString("user_name"));
-					dto.setReserveStartDate(resultSet.getString("reserve_start_date"));
-					dto.setReserveEndDate(resultSet.getDate("reserve_end_date"));
-					dto.setReserveInsertDate(resultSet.getDate("reserve_date.insert_date"));
-					reserveList.add(dto);
-
+				ReserveDTO dto = new ReserveDTO();
+				dto.setReserveId(resultSet.getInt("reserve_id"));
+				dto.setReserveMenu(resultSet.getString("reserve_menu"));
+				dto.setReservePrice(resultSet.getInt("reserve_price"));
+				dto.setReserveTime(resultSet.getInt("reserve_time"));
+				dto.setReserveStaff(resultSet.getString("reserve_staff"));
+				dto.setReservePay(resultSet.getString("reserve_pay"));
+				dto.setReserveUserName(resultSet.getString("user_name"));
+				dto.setReserveStartDate(resultSet.getString("reserve_start_date"));
+				dto.setReserveEndDate(resultSet.getDate("reserve_end_date"));
+				dto.setReserveInsertDate(resultSet.getDate("reserve_date.insert_date"));
+				reserveList.add(dto);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -48,7 +54,10 @@ public class AdminReserveDAO {
 		return reserveList;
 	}
 
-
+	/**
+	 * 予約情報を削除するメソッド
+	 * @param reserveId
+	 */
 	public void deleteReserve(int reserveId) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection =  dbConnector.getConnection();
@@ -67,6 +76,5 @@ public class AdminReserveDAO {
 				e.printStackTrace();
 			}
 		}
-
 	}
 }

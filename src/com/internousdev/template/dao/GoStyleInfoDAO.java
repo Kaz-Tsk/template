@@ -8,33 +8,35 @@ import java.util.ArrayList;
 
 import com.internousdev.template.dto.StyleDTO;
 import com.internousdev.template.util.DBConnector;
-
+/**
+ * スタイル詳細情報を取得するDAO
+ * @author Kazuyuki Tasaki
+ * @version 1.0
+ */
 public class GoStyleInfoDAO {
 
-	public ArrayList<StyleDTO> styleList = new ArrayList<StyleDTO>();
-
-	private DBConnector dbConnector = new DBConnector();
-
-	private Connection connection =  dbConnector.getConnection();
-
+	/**
+	 * スタイル詳細情報を取得するメソッド
+	 * @param styleVol
+	 * @return styleList
+	 */
 	public ArrayList<StyleDTO> styleSelect(int styleVol){
-		String sql = "SELECT style_name,style_comment,style_img,staff_name,staff_img FROM  style_data left join staff_data on style_data.staff_id = staff_data.staff_id where style_vol=?";
+		ArrayList<StyleDTO> styleList = new ArrayList<StyleDTO>();
+		DBConnector dbConnector = new DBConnector();
+		Connection connection =  dbConnector.getConnection();String sql = "SELECT style_name,style_comment,style_img,staff_name,staff_img FROM  style_data left join staff_data on style_data.staff_id = staff_data.staff_id where style_vol=?";
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
 			preparedStatement.setInt(1, styleVol);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
-					StyleDTO dto = new StyleDTO();
-					dto.setStyleName(resultSet.getString("style_name"));
-					dto.setStyleComment(resultSet.getString("style_comment"));
-					dto.setStyleImg(resultSet.getString("style_img"));
-					dto.setStaffName(resultSet.getString("staff_name"));
-					dto.setStaffImg(resultSet.getString("staff_img"));
-
-					styleList.add(dto);
-
+				StyleDTO dto = new StyleDTO();
+				dto.setStyleName(resultSet.getString("style_name"));
+				dto.setStyleComment(resultSet.getString("style_comment"));
+				dto.setStyleImg(resultSet.getString("style_img"));
+				dto.setStaffName(resultSet.getString("staff_name"));
+				dto.setStaffImg(resultSet.getString("staff_img"));
+				styleList.add(dto);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -47,5 +49,4 @@ public class GoStyleInfoDAO {
 		}
 		return styleList;
 	}
-
 }

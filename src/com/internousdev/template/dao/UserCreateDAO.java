@@ -8,9 +8,23 @@ import java.util.ArrayList;
 
 import com.internousdev.template.dto.UserDTO;
 import com.internousdev.template.util.DBConnector;
-
+/**
+ * ユーザーの新規登録を行うDAO
+ * @author Kazuyuki Tasaki
+ * @version 1.0
+ */
 public class UserCreateDAO {
 
+	/**
+	 * ユーザーを新規登録するメソッド
+	 * @param loginUserId
+	 * @param loginPassword
+	 * @param userName
+	 * @param telNumber
+	 * @param eMail
+	 * @param address
+	 * @throws SQLException
+	 */
 	public void cerateUser(String loginUserId, String loginPassword, String userName,String telNumber,String eMail,String address) throws SQLException {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
@@ -24,9 +38,7 @@ public class UserCreateDAO {
 			preparedStatement.setString(4, telNumber);
 			preparedStatement.setString(5, eMail);
 			preparedStatement.setString(6, address);
-
 			preparedStatement.execute();
-
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -34,7 +46,10 @@ public class UserCreateDAO {
 		}
 	}
 
-
+	/**
+	 * ユーザーが重複していないか確認するための情報を取得するメソッド
+	 * @return userCheckeList
+	 */
 	public ArrayList<UserDTO> userCreateCheck(){
 		ArrayList<UserDTO> userCheckList = new ArrayList<UserDTO>();
 		DBConnector dbConnector = new DBConnector();
@@ -61,6 +76,5 @@ public class UserCreateDAO {
 			}
 		}
 		return userCheckList;
-		}
-
+	}
 }
