@@ -17,17 +17,22 @@
 		<!-- ヘッダー ------------------------------>
 		<jsp:include page="header.jsp" />
 		<div class="menuList">
-		<div class="head-space"></div>
+			<div class="head-space"></div>
 			<h2>menu</h2>
-			<table>
-				<s:iterator value="menuList">
+			<div class="menu-table">
+				<table>
 					<tr>
-						<td><s:property value="menuName" /></td>
-						<td><s:property value="menuPrice" />円</td>
-						<td><s:property value="menuTime" />分</td>
+						<td colspan="3" style="text-align: center;">All in Tax</td>
 					</tr>
-				</s:iterator>
-			</table>
+					<s:iterator value="menuList">
+						<tr>
+							<td><s:property value="menuName" /></td>
+							<td><s:property value="menuPrice" />円</td>
+							<td><s:property value="menuTime" />分</td>
+						</tr>
+					</s:iterator>
+				</table>
+			</div>
 		</div>
 		<!-- フッター -->
 		<jsp:include page="footer.jsp" />

@@ -5,39 +5,33 @@ import com.internousdev.template.dao.MenuDAO;
 import com.internousdev.template.dto.MenuDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * menu表を表示するアクション
- *
+ * menu表に遷移するアクション
  * @author Kazuyuki Tasaki
- *@return result
+ * @version 1.0
  */
 public class GoMenuAction extends ActionSupport{
 
-
-
-	/**
-	 * 予約メニューを選ぶアクション
-	 *
-	 * @author Kazuyuki Tasaki
-	 *@return result
-	 */
+	//インスタンス化
 	private ArrayList<MenuDTO> menuList = new ArrayList<MenuDTO>();
-
-	MenuDTO menuDTO = new MenuDTO();
-
-	MenuDAO menuDAO = new MenuDAO();
-
-
+	private MenuDAO menuDAO = new MenuDAO();
+	/**
+	 * menu情報を取得してページ遷移するメソッド
+	 *@return result SUCCESS
+	 */
 	public String execute(){
 		String result = ERROR;
 		menuList = menuDAO.selectMenu();
 		if(menuList.size()!=0){
 			result = SUCCESS;
-
 		}
 		return result;
 	}
 
-
+	//getter
+	/**
+	 *
+	 * @return menuList
+	 */
 	public ArrayList<MenuDTO> getMenuList(){
 		return menuList;
 	}

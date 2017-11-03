@@ -9,19 +9,26 @@ import com.opensymphony.xwork2.ActionSupport;
 /**
  * index.jspに遷移するアクション
  * @author Kazuyuki Tasaki
- *@return result
+ * @version 1.0
  */
 public class GoTopAction extends ActionSupport {
 
-	GoTopActionDAO dao = new GoTopActionDAO();
-	SalonDataDTO dto = new SalonDataDTO();
-	ArrayList<SalonDataDTO> salonInfoList = new  ArrayList<SalonDataDTO>();
+	//インスタンス化
+	private GoTopActionDAO dao = new GoTopActionDAO();
+	private ArrayList<SalonDataDTO> salonInfoList = new  ArrayList<SalonDataDTO>();
+	/**
+	 * インフォメーション情報を取得して遷移するメソッド
+	 * @return SUCCESS
+	 */
 	public String execute(){
 		salonInfoList = dao.infoSelect();
 		return  SUCCESS;
-
 	}
-
+	// getter
+	/**
+	 *
+	 * @return salonInfoList
+	 */
 	public ArrayList<SalonDataDTO> getSalonInfoList(){
 		return salonInfoList;
 	}

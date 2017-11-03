@@ -14,3 +14,8 @@ table{
 	border-radius:5px;
 	text-align:justify;
 }
+
+.menu-table{
+	height:300px;
+	overflow:scroll;
+}

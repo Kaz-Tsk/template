@@ -1,0 +1,16 @@
+.head-space{
+	padding:40px;
+}
+
+.login-box{
+	text-align:center;
+}
+
+.login-box h3{
+	display:inline-block;
+
+}
+
+#LoginAction{
+text-align: -webkit-center;
+}

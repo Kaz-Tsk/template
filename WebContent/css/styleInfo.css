@@ -6,16 +6,38 @@
 .style-Img{
 
 	float:left;
-	height:400px;
-	width:400px;
+	height:350px;
+	width:350px;
+
 }
 
 .style-Img > img{
-	height:400px;
-	width:400px;
+	height:350px;
+	width:350px;
+}
+
+.style-data > table{
+	float:left;
+	height:350px;
+	font-size:20px;
+	margin-left:80px;
+}
+
+.tag{
+	width:150px;
 }
 
 .style-data{
+	display: grid;
+	text-align: -webkit-center;
+}
 
-	float:left;
+.style{
+	margin-top:20px;
+	margin-bottom:20px;
+	margin-right:100px;
+	margin-left:100px;
+	padding:10px;
+	border-radius:5px;
+	background-color:rgba(255,255,255,0.3);
 }

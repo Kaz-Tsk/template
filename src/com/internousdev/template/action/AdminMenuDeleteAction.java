@@ -6,21 +6,53 @@ import com.internousdev.template.dao.AdminMenuDAO;
 import com.internousdev.template.dao.MenuDAO;
 import com.internousdev.template.dto.MenuDTO;
 import com.opensymphony.xwork2.ActionSupport;
-
+/**
+ * メニュー情報を削除するアクション
+ * @author Kazuyuki Tasaki
+ *@version 1.0
+ */
 public class AdminMenuDeleteAction extends ActionSupport{
 
-
+	/**
+	 * メニューID
+	 * @param menuId
+	 */
 	private int menuId;
 
+	/**
+	 * 実行後メッセージ
+	 * @param deleteMsg
+	 */
 	private String deleteMsg;
 
-	MenuDAO dao = new MenuDAO();
-	AdminMenuDAO menuDao = new AdminMenuDAO();
-	ArrayList<MenuDTO> menuList = new ArrayList<MenuDTO>();
+	//インスタンス化
+	/**
+	 * メニュー情報取得のDAO
+	 * @param dao
+	 */
+	private MenuDAO dao = new MenuDAO();
 
+	/**
+	 * メニュー処理のDAO
+	 * @param menuDAO
+	 */
+	private AdminMenuDAO menuDao = new AdminMenuDAO();
+
+	/**
+	 * メニュー情報リスト
+	 * @param menuList
+	 */
+	private ArrayList<MenuDTO> menuList = new ArrayList<MenuDTO>();
+
+	/**
+	 * メニューを削除するメソッド
+	 * @return result 該当するメニューがあればSUCCESS なければERROR
+	 */
 	public String execute() {
 		String result = ERROR;
+		//DBからメニュー情報を取得
 		menuList = dao.selectMenu();
+		//該当するメニューIDがあるか確認
 		if(menuList.size()==0) {
 			deleteMsg ="該当するメニューがありません。";
 			return ERROR;
@@ -37,20 +69,28 @@ public class AdminMenuDeleteAction extends ActionSupport{
 		return result;
 	}
 
+	//以下、setter getter
+	/**
+	 *
+	 * @return menuId
+	 */
 	public int getMenuId() {
 		return menuId;
 	}
 
+	/**
+	 *
+	 * @param menuId
+	 */
 	public void setMenuId(int menuId) {
 		this.menuId = menuId;
 	}
 
+	/**
+	 *
+	 * @return deleteMsg
+	 */
 	public String getDeleteMsg() {
 		return deleteMsg;
 	}
-
-	public void setDeleteMsg(String deleteMsg) {
-		this.deleteMsg = deleteMsg;
-	}
-
 }
