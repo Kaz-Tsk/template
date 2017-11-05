@@ -1,6 +1,6 @@
 package com.internousdev.template.action;
 
-import java.util.ArrayList;
+
 
 import com.internousdev.template.dao.GoStyleInfoDAO;
 import com.internousdev.template.dto.StyleDTO;
@@ -18,6 +18,30 @@ public class GoStyleInfoAction extends ActionSupport {
 	 */
 	private int styleVol;
 
+	/**
+	 *スタイル名
+	 *@param staffName
+	 */
+	private String styleName;
+
+	/**
+	 * スタイル紹介文
+	 * @param styleComment
+	 */
+	private String styleComment;
+
+	/**
+	 * 担当スタイリスト名
+	 * @param staffName
+	 */
+	private String staffName;
+
+	/**
+	 * スタイル画像
+	 * @param styleImg
+	 */
+	private String styleImg;
+
 	//インスタンス化
 	/**
 	 * スタイル詳細情報を取得するDAO
@@ -26,29 +50,26 @@ public class GoStyleInfoAction extends ActionSupport {
 	private GoStyleInfoDAO dao = new GoStyleInfoDAO();
 
 	/**
-	 * スタイル詳細情報リスト
-	 * @param styleList
+	 * スタイル詳細dto
+	 * @param dto
 	 */
-	private ArrayList<StyleDTO> styleList = new  ArrayList<StyleDTO>();
+	private StyleDTO dto = new StyleDTO();
 
 	/**
 	 * スタイル詳細を取得して遷移するメソッド
 	 * @return SUCCESS
 	 */
 	public String execute(){
-		styleList = dao.styleSelect(styleVol);
+		dto = dao.styleSelect(styleVol);
+		styleName = dto.getStyleName();
+		styleComment = dto.getStyleComment();
+		staffName = dto.getStaffName();
+		styleImg = dto.getStyleImg();
 		return  SUCCESS;
 	}
 
 
 	//以下、setter getter
-	/**
-	 *
-	 * @return styleList
-	 */
-	public ArrayList<StyleDTO> getStyleList(){
-		return styleList;
-	}
 
 	/**
 	 *
@@ -64,5 +85,69 @@ public class GoStyleInfoAction extends ActionSupport {
 	 */
 	public void setStyleVol(int styleVol){
 		this.styleVol = styleVol;
+	}
+
+	/**
+	 *
+	 * @return styleName
+	 */
+	public String getStyleName() {
+		return styleName;
+	}
+
+	/**
+	 *
+	 * @param styleName
+	 */
+	public void setStyleName(String styleName) {
+		this.styleName = styleName;
+	}
+
+	/**
+	 *
+	 * @return styleComment
+	 */
+	public String getStyleComment() {
+		return styleComment;
+	}
+
+	/**
+	 *
+	 * @param styleComment
+	 */
+	public void setStyleComment(String styleComment) {
+		this.styleComment = styleComment;
+	}
+
+	/**
+	 *
+	 * @return staffName
+	 */
+	public String getStaffName() {
+		return staffName;
+	}
+
+	/**
+	 *
+	 * @param staffName
+	 */
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
+	}
+
+	/**
+	 *
+	 * @return styleImg
+	 */
+	public String getStyleImg() {
+		return styleImg;
+	}
+
+	/**
+	 *
+	 * @param styleImg
+	 */
+	public void setStyleImg(String styleImg) {
+		this.styleImg = styleImg;
 	}
 }

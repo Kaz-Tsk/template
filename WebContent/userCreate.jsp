@@ -5,131 +5,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="Content-Style-Type" content="text/css" />
-	<meta http-equiv="Content-Script-Type" content="text/javascript" />
-	<meta http-equiv="imagetoolbar" content="no" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta charset="utf-8">
-	<title>UserCreate画面</title>
-	<style type="text/css">
-		/* ========TAG LAYOUT======== */
-		body {
-		   margin:0;
-		   padding:0;
-		   line-height:1.6;
-		   letter-spacing:1px;
-		   font-family:Verdana, Helvetica, sans-serif;
-		   font-size:12px;
-		   color:#333;
-		   background:#fff;
-		}
+<link rel="stylesheet" type="text/css" href="css/master.css">
+<link rel="stylesheet" type="text/css" href="css/userCreate.css">
+<meta charset="utf-8">
+<script type="text/javascript">
+	window.onunload = function() {};
+	history.forward();
+</script>
+<title>UserCreate画面</title>
 
-		table {
-			text-align:center;
-			margin:0 auto;
-		}
-
-		/* ========ID LAYOUT======== */
-		#top {
-		   width:780px;
-		   margin:30px auto;
-		   border:1px solid #333;
-		}
-
-		#header {
-		   width: 100%;
-		   height: 80px;
-		   background-color: black;
-		}
-
-		#main {
-		   width: 100%;
-		   height: 500px;
-		   text-align: center;
-		}
-
-		#footer {
-			width: 100%;
-			height: 80px;
-			background-color: black;
-			clear:both;
-		}
-	</style>
 </head>
 <body>
-	<!-- ヘッダー ------------------------------>
+	<div id="container">
+		<!-- ヘッダー ------------------------------>
 		<jsp:include page="header.jsp" />
-
-	<div id="main">
-		<div id="top">
-			<p>UserCreate</p>
-		</div>
-		<div>
-			<s:if test="errorMassage != ''">
-				<s:property value="errorMassage" escape="false" />
-			</s:if>
+		<div class="create-box">
+			<h2 style="text-align: center;">user create</h2>
+			<p style="color: red;">
+				<s:property value="errorMessage" />
+			</p>
 			<table>
-			<s:form action="UserCreateConfirmAction">
-				<tr>
-					<td>
-						<label>ログインID:</label>
-					</td>
-					<td>
-						<input type="text" name="loginUserId" required="required"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>ログインPASS:</label>
-					</td>
-					<td>
-						<input type="text" name="loginPassword" required="required"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>ユーザー名:</label>
-					</td>
-					<td>
-						<input type="text" name="userName"  required="required"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>電話番号:</label>
-					</td>
-					<td>
-						<input type="text" name="telNumber" required="required"  />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>メールアドレス:</label>
-					</td>
-					<td>
-						<input type="text" name="eMail" required="required"  />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label>住所:</label>
-					</td>
-					<td>
-						<input type="text" name="address" required="required"  />
-					</td>
-				</tr>
-				<s:submit value="登録"/>
-			</s:form>
+				<s:form action="UserCreateConfirmAction">
+					<tr>
+						<td><label>ログインID:</label></td>
+						<td><input type="text" name="loginUserId" required="required" />
+						</td>
+					</tr>
+					<tr>
+						<td><label>ログインPASS:</label></td>
+						<td><input type="text" name="loginPassword"
+							required="required" /></td>
+					</tr>
+					<tr>
+						<td><label>ユーザー名:</label></td>
+						<td><input type="text" name="userName" required="required" /></td>
+					</tr>
+					<tr>
+						<td><label>電話番号:</label></td>
+						<td><input type="number" name="telNumber" required="required" />
+						</td>
+					</tr>
+					<tr>
+						<td><label>メールアドレス:</label></td>
+						<td><input type="text" name="eMail" required="required" /></td>
+					</tr>
+					<tr>
+						<td><label>住所:</label></td>
+						<td><input type="text" name="address" required="required" />
+						</td>
+					</tr>
+					<s:submit value="登録" />
+				</s:form>
 			</table>
-
 		</div>
+		<!-- フッター -->
+		<jsp:include page="footer.jsp" />
 	</div>
-		<div id="footer">
-	 	<div id="pr">
-		</div>
 	</div>
 </body>
 </html>

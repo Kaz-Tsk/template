@@ -87,7 +87,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		userCheckList = dao.userCreateCheck();
 		for(int i = 0; i < userCheckList.size(); i++) {
 			if(userCheckList.get(i).getEMail().equals(eMail)||userCheckList.get(i).getTelNumber().equals(telNumber)) {
-				errorMessage = "すでに登録済みのユーザー情報が含まれています。";
+				errorMessage = "※すでに登録済みのユーザー情報が含まれています。";
 				return result;
 			}
 		}

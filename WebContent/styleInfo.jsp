@@ -15,7 +15,6 @@
 		<!-- ヘッダー ------------------------------>
 		<jsp:include page="header.jsp" />
 		<div class="head-space"></div>
-		<s:iterator value="styleList">
 			<div class="style">
 				<div class="style-Img">
 					<img src="<s:property value="styleImg"/>">
@@ -38,7 +37,6 @@
 					</table>
 				</div>
 			</div>
-		</s:iterator>
 		<!-- フッター -->
 		<jsp:include page="footer.jsp" />
 	</div>

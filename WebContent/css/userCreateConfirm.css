@@ -1,0 +1,9 @@
+.confirm-box {
+    margin: 0 auto;
+    display: table;
+    margin-top: 100px;
+}
+
+table{
+	table-layout:fixed;
+}

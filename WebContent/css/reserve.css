@@ -1,0 +1,82 @@
+.reserve-container{
+	text-align:center;
+}
+
+.menu-head{
+	margin:0px auto 0 auto;
+	width:390px;
+	padding:10px 5px 0 5px;
+	background-color:rgba(255,255,255,0.3);
+	border-radius: 10px 10px 0 0 / 10px 10px 0 0;
+-webkit-border-radius: 10px 10px 0 0 / 10px 10px 0 0;
+-moz-border-radius: 10px 10px 0 0 / 10px 10px 0 0;
+}
+
+.menu-head table{
+	margin:0;
+	width:400px;
+
+}
+
+.menu-box{
+	height:150px;
+	overflow:scroll;
+	width:400px;
+	margin: 0 auto;
+	box-sizing:border-box;
+	border: solid 3px rgba(255,255,255,0.3);
+}
+
+.menu-box table{
+	margin:0;
+	width:400px;
+	background-color:rgba(255,255,255,0.3);
+
+}
+
+/* .menu-box:hover{
+	border:solid 3px black;
+
+} */
+
+.under-box{
+	display:flex;
+	justify-content:space-around;
+	width:400px;
+	margin: 0 auto;
+	padding-bottom:10px;
+	background-color:rgba(255,255,255,0.3);
+	border-radius: 0 0 10px 10px / 0 0 10px 10px;
+-webkit-border-radius:0 0 10px 10px / 0 0 10px 10px;
+-moz-border-radius: 0 0 10px 10px/0 0 10px 10px ;
+}
+
+.left{
+	text-align:left;
+}
+
+.right{
+	text-align:right;
+}
+
+.menu-table{
+	margin:0 auto;
+}
+
+.stylist-box{
+	text-align:center;
+}
+
+.staff-box{
+	overflow:scroll;
+	height:70px;
+}
+
+.staff-box table{
+	margin: 0 auto;
+
+}
+p{
+	margin:0;
+	font-weight:bold;
+}

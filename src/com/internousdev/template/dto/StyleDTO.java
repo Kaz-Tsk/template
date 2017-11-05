@@ -42,11 +42,6 @@ public class StyleDTO {
 	 */
 	private String staffName;
 
-	/**
-	 * 担当スタッフ画像
-	 */
-	private String staffImg;
-
 	//以下、setter getter
 	public int getStyleVol() {
 		return styleVol;
@@ -138,20 +133,5 @@ public class StyleDTO {
 		this.staffName = staffName;
 	}
 
-	/**
-	 *
-	 * @return staffImg
-	 */
-	public String getStaffImg() {
-		return staffImg;
-	}
-
-	/**
-	 *
-	 * @param staffImg
-	 */
-	public void setStaffImg(String staffImg) {
-		this.staffImg = staffImg;
-	}
 }
 
