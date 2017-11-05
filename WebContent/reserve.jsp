@@ -28,15 +28,14 @@
 </head>
 <body>
 	<div id="container">
-
 		<!-- header -->
 		<jsp:include page="header.jsp" />
 		<div class="reserve-container">
 			<s:form action="GoReserveConfirmAction">
-			<h3 style="margin-top:50px">Reserve</h3>
+				<h3 style="margin-top: 50px">Reserve</h3>
 				<!-- 予約日時 -->
 				<div class="menu-head">
-				<h3 style="color: red;margin:0">
+					<h3 style="color: red; margin: 0">
 						<s:property value="errorMsg" />
 					</h3>
 					<p>予約日時</p>
@@ -48,55 +47,57 @@
 						<tr>
 							<th>施術メニュー</th>
 							<th>施術料金</th>
-							<th style="padding-right:5px;">施術時間</th>
+							<th style="padding-right: 5px;">施術時間</th>
 							<th></th>
 						</tr>
 					</table>
 				</div>
+				<!-- メニュー -->
 				<div class="menu-box">
 					<table>
 						<s:iterator value="menuList">
 							<tr>
-								<td class="left" style="padding-left:10px;"><s:property value="menuName" /></td>
-								<td class="right" style="padding-right:40px;"><fmt:formatNumber value="${menuPrice}"
-										pattern="###,###,###" />円</td>
+								<td class="left" style="padding-left: 10px;"><s:property
+										value="menuName" /></td>
+								<td class="right" style="padding-right: 40px;"><fmt:formatNumber
+										value="${menuPrice}" pattern="###,###,###" />円</td>
 								<td class="right"><s:property value="menuTime" />分</td>
-								<td style="padding-right:10px;"> <input type="checkbox" name="menuId"
-									value="<s:property value="menuId"/>"></td>
+								<td style="padding-right: 10px;"><input type="checkbox"
+									name="menuId" value="<s:property value="menuId"/>"></td>
 							</tr>
 						</s:iterator>
 					</table>
 				</div>
 				<!-- stylist指名 -->
 				<div class="under-box">
-				<div class="stylist-box">
-					<p>スタイリスト指名</p>
-					<div class="staff-box">
-						<table>
-							<tr>
-								<td>指名なし<input type="radio" name="staffId" value="0"
-									checked="checked"></td>
-							</tr>
-							<s:iterator value="staffList">
+					<div class="stylist-box">
+						<p>スタイリスト指名</p>
+						<div class="staff-box">
+							<table>
 								<tr>
-									<td><s:property value="staffName" /><input type="radio"
-										name="staffId" value="<s:property value="staffId"/>">
-									</td>
+									<td>指名なし<input type="radio" name="staffId" value="0"
+										checked="checked"></td>
 								</tr>
-							</s:iterator>
-						</table>
+								<s:iterator value="staffList">
+									<tr>
+										<td><s:property value="staffName" /><input type="radio"
+											name="staffId" value="<s:property value="staffId"/>">
+										</td>
+									</tr>
+								</s:iterator>
+							</table>
+						</div>
 					</div>
-				</div>
-				<!-- 支払い方法 -->
-				<div class="pay-box">
-					<p>支払い方法</p>
-					<ul>
-						<li>クレジット決済<input type="radio" name="pay" value="クレジット"
-							checked="checked"></li>
-						<li>現金<input type="radio" name="pay" value="現金"></li>
-					</ul>
+					<!-- 支払い方法 -->
+					<div class="pay-box">
+						<p>支払い方法</p>
+						<ul>
+							<li>クレジット決済<input type="radio" name="pay" value="クレジット"
+								checked="checked"></li>
+							<li>現金<input type="radio" name="pay" value="現金"></li>
+						</ul>
 
-				</div>
+					</div>
 				</div>
 				<input type="submit" value="予約する">
 			</s:form>
