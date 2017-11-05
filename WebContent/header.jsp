@@ -9,7 +9,6 @@
 <title>header</title>
 </head>
 <body>
-<!-- ヘッダー -->
 	<header>
 		<s:if test="#session.userFlg==2">
 		<ul id="navi">

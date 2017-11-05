@@ -6,25 +6,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/master.css">
+<link rel="stylesheet" type="text/css" href="css/reserveConfirm.css">
 <title>reserveConfirm</title>
 </head>
 <body>
-<!-- ヘッダー ------------------------------>
-	<jsp:include page="header.jsp" />
-	<div class="container">
-		<div class="reserve-confirm">
-			<p>以下の内容で予約を確定してよろしいですか？</p>
-			<table>
 
+	<div id="container">
+	<!-- ヘッダー -->
+	<jsp:include page="header.jsp" />
+		<div class="reserve-confirm">
+			<h3>以下の内容で予約を確定してよろしいですか？</h3>
+			<table>
 				<tr>
-					<td>予約日時</td>
+					<td class="field">予約日時</td>
 				</tr>
 				<tr>
-					<td><s:property value="reserveDate"/></td>
-					<td><s:property value="reserveTime"/></td>
+					<td><s:property value="reserveDate"/><s:property value="reserveTime"/></td>
 				</tr>
 				<tr>
-					<td>メニュー</td>
+					<td class="field">メニュー</td>
 				</tr>
 				<s:iterator value="reserveConfirmList">
 				<tr>
@@ -32,25 +33,25 @@
 				</tr>
 				</s:iterator>
 				<tr>
-					<td>施術時間</td>
+					<td class="field">施術時間</td>
 				</tr>
 				<tr>
-					<td><s:property value="menuTime"/></td>
+					<td><s:property value="menuTime"/>分</td>
 				</tr>
 				<tr>
-					<td>金額</td>
+					<td class="field">金額</td>
 				</tr>
 				<tr>
-					<td><s:property value="subPrice"/></td>
+					<td><fmt:formatNumber value="${subPrice}" pattern="###,###,###" />円</td>
 				</tr>
 				<tr>
-					<td>スタイリスト指名</td>
+					<td class="field">スタイリスト指名</td>
 				</tr>
 				<tr>
 					<td><s:property value="staffName"/></td>
 				</tr>
 				<tr>
-					<td>支払い方法</td>
+					<td class="field">支払い方法</td>
 				</tr>
 				<tr>
 					<td><s:property value="pay"/></td>
@@ -59,7 +60,10 @@
 			<s:form action="GoReserveComplateAction">
 				<input type="submit" value="予約完了">
 			</s:form>
+			<input type="button" onClick="location.href='<s:url action="GoReserveAction"/>'" value="変更する">
 		</div>
+		<!-- フッター -->
+		<jsp:include page="footer.jsp" />
 	</div>
 </body>
 </html>

@@ -7,6 +7,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.template.dao.GoStaffDAO;
 import com.internousdev.template.dao.MenuDAO;
+import com.internousdev.template.dao.ReserveComplateDAO;
 import com.internousdev.template.dto.MenuDTO;
 import com.internousdev.template.dto.StaffDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -51,11 +52,22 @@ public class GoReserveAction extends ActionSupport implements SessionAware{
 	private GoStaffDAO staffDAO = new GoStaffDAO();
 
 	/**
+	 * 予約処理に関するDAO
+	 * @param ReserveComplateDAO
+	 */
+	private ReserveComplateDAO reserveComplateDAO = new ReserveComplateDAO();
+
+	/**
 	 * 予約時に使うメニューやスタッフの情報を取得して遷移するメソッド
 	 * @return result SUCCESS
 	 */
 	public String execute(){
 		String result = ERROR;
+		//もし仮予約の情報があれば削除する
+		if(session.get("reserveId") != null) {
+			reserveComplateDAO.reserveReset((int)session.get("reserveId"));
+		}
+		//セッションを保った状態であれば予約に必要な情報を取得したのち予約画面に遷移
 		if(session.containsKey("Id")){
 			menuList = menuDAO.selectMenu();
 			staffList = staffDAO.staffSelect();
