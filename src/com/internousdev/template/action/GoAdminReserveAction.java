@@ -1,9 +1,5 @@
 package com.internousdev.template.action;
 
-import java.util.ArrayList;
-
-import com.internousdev.template.dao.AdminReserveDAO;
-import com.internousdev.template.dto.ReserveDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 予約管理ページへ遷移するアクション
@@ -13,34 +9,13 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class GoAdminReserveAction extends ActionSupport{
 
-	//インスタンス化
-	/**
-	 * 予約情報を取得するDAO
-	 * @param dao
-	 */
-	private AdminReserveDAO dao = new AdminReserveDAO();
 
 	/**
-	 * 予約情報リスト
-	 * @param reserveList
-	 */
-	private ArrayList<ReserveDTO> reserveList = new ArrayList<ReserveDTO>();
-
-	/**
-	 * 予約情報を取得してページ遷移するメソッド
+	 * 予約管理ページに遷移するメソッド
 	 * @return SUCCESS
 	 */
 	public String execute() {
-		reserveList = dao.reserveSelect();
 		return SUCCESS;
 	}
 
-	//getter
-	/**
-	 *
-	 * @return reserveList
-	 */
-	public ArrayList<ReserveDTO> getReserveList() {
-		return reserveList;
-	}
 }

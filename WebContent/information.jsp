@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div id="container">
-		<!-- ヘッダー ------------------------------>
+		<!-- header -->
 		<jsp:include page="header.jsp" />
 		<div class="salon-date">
 		<div class="head-space"></div>
@@ -43,7 +43,7 @@
 				</p>
 			</s:iterator>
 		</div>
-		<!-- フッター -->
+		<!-- footer -->
 		<jsp:include page="footer.jsp" />
 	</div>
 </body>

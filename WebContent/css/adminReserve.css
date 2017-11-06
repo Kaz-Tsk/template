@@ -1,0 +1,67 @@
+.reserve-list{
+	font-size:10px;
+}
+
+table{
+	height:300px;
+	width:800px;
+	margin:0 auto;
+}
+
+thead{
+	border:solid 1px black;
+	display:block;
+	width:800px;
+}
+
+tbody{
+	border:solid 1px black;
+	display:block;
+	height:250px;
+	width:800px;
+	overflow:scroll;
+}
+
+td,th{
+	table-layout:fixed;
+}
+
+.id{
+	width:30px;
+}
+
+.menu{
+	width:100px;
+}
+
+.price{
+	width:70px;
+}
+
+.time{
+	width:50px;
+}
+
+.staff{
+	width:50px;
+}
+
+.pay{
+	width:50px;
+}
+
+.user{
+	width:100px;
+}
+
+.reserve-in{
+	width:150px;
+}
+
+reserve-out{
+	width:100px;
+}
+
+reserve-day{
+	width:100px;
+}
