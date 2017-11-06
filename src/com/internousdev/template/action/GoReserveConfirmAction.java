@@ -321,6 +321,22 @@ public class GoReserveConfirmAction extends ActionSupport implements SessionAwar
 
 	/**
 	 *
+	 * @return reserveMenu
+	 */
+	public String getReserveMenu() {
+		return reserveMenu;
+	}
+
+	/**
+	 *
+	 * @param reserveMenu
+	 */
+	public void setReserveMenu(String reserveMenu) {
+		this.reserveMenu = reserveMenu;
+	}
+
+	/**
+	 *
 	 * @param session
 	 */
 	@Override

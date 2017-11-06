@@ -25,32 +25,32 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	 * ログインID
 	 * @param loginUserId
 	 */
-	public String loginUserId;
+	private String loginUserId;
 
 	/**
 	 * ログインパスワード
 	 * @param loginPassword
 	 */
-	public String loginPassword;
+	private String loginPassword;
 
 	/**
 	 * 処理結果を格納
 	 * @param result
 	 */
-	public String result;
+	private String result;
 
 	/**
 	 * ログイン情報
 	 * @param session
 	 */
-	public Map<String, Object> session;
+	private Map<String, Object> session;
 
 	//インスタンス化
 	/**
 	 * ログイン情報取得DAO
 	 * @param loginDAO
 	 */
-	public LoginDAO loginDAO = new LoginDAO();
+	private LoginDAO loginDAO = new LoginDAO();
 
 	/**
 	 * ログイン情報格納DTO

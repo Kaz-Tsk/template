@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- CSSの読み込み -->
+<link rel="stylesheet" type="text/css" href="css/adminMaster.css">
+<link rel="stylesheet" type="text/css" href="css/adminInfo.css">
 <!-- jquery datepicker読み込み -->
 <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
@@ -22,7 +25,10 @@
 <title>AdminInformation</title>
 </head>
 <body>
-<div class="container">
+<div id="container">
+<!-- header -->
+		<jsp:include page="header.jsp" />
+		<div class="admin-navi">
 		<div class="insert-display">
 			<table>
 				<tr>

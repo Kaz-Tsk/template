@@ -1,0 +1,12 @@
+.reserve-history{
+	width:600px;
+	margin:80px auto 0 auto;
+	text-align:center
+}
+
+table{
+	width:500px;
+	margin:0 auto;
+	background-color:rgba(255,255,255,0.3);
+	border-radius:10px;
+}

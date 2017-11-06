@@ -27,11 +27,9 @@
 				<tr>
 					<td class="field">メニュー</td>
 				</tr>
-				<s:iterator value="reserveConfirmList">
 				<tr>
-					<td><s:property value="menuName"/></td>
+					<td><s:property value="reserveMenu"/></td>
 				</tr>
-				</s:iterator>
 				<tr>
 					<td class="field">施術時間</td>
 				</tr>
