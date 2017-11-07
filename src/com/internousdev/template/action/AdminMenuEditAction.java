@@ -39,9 +39,9 @@ public class AdminMenuEditAction extends ActionSupport{
 
 	/**
 	 * 実行後メッセージ
-	 * @param editMsg
+	 * @param msg
 	 */
-	private String editMsg;
+	private String msg;
 
 	//インスタンス化
 	/**
@@ -70,19 +70,19 @@ public class AdminMenuEditAction extends ActionSupport{
 		//DBにメニューがあるかチェック
 		menuList = dao.selectMenu();
 		if(menuList.size()==0) {
-			editMsg = "該当するメニューがありません。";
+			msg = "該当するメニューがありません。";
 			return ERROR;
 		}else {
 			//該当するメニューがあれば実行、なければエラー
 			for(int i = 0; i < menuList.size(); i++) {
 				if(menuList.get(i).getMenuId() == menuId) {
 					menuDao.editMenu(menuName, menuPrice, menuTime, menuId);
-					editMsg = "メニューを編集しました。";
+					msg = "メニューを編集しました。";
 					return SUCCESS;
 				}
 			}
 		}
-		editMsg = "該当するメニューがありません。";
+		msg = "該当するメニューがありません。";
 		return result;
 	}
 
@@ -155,7 +155,7 @@ public class AdminMenuEditAction extends ActionSupport{
 	 *
 	 * @return editMsg
 	 */
-	public String getEditMsg() {
-		return editMsg;
+	public String getMsg() {
+		return msg;
 	}
 }

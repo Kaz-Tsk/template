@@ -39,9 +39,9 @@ public class AdminMenuInsertAction extends ActionSupport{
 
 	/**
 	 *実行後メッセージ
-	 *@param insertMsg
+	 *@param msg
 	 */
-	private String insertMsg;
+	private String msg;
 
 	//インスタンス化
 	/**
@@ -72,18 +72,18 @@ public class AdminMenuInsertAction extends ActionSupport{
 		menuList = dao.selectMenu();
 		if(menuList.size()==0) {
 			menuDao.InsertMenu(menuId, result, menuPrice, menuTime);
-			insertMsg = "メニューを登録しました。";
+			msg = "メニューを登録しました。";
 			return SUCCESS;
 		}else if(menuList.size() > 0) {
 			//メニューIDが重複していないかチェック
 			for(int i = 0; i < menuList.size(); i++) {
 				if(menuList.get(i).getMenuId()==menuId) {
-					insertMsg = "メニューIdが重複しています。";
+					msg = "メニューIdが重複しています。";
 					return ERROR;
 				}
 			}
 			menuDao.InsertMenu(menuId, result, menuPrice, menuTime);
-			insertMsg = "メニューを登録しました。";
+			msg = "メニューを登録しました。";
 			result = SUCCESS;
 		}
 		return result;
@@ -158,7 +158,7 @@ public class AdminMenuInsertAction extends ActionSupport{
 	 *
 	 * @return insertMsg
 	 */
-	public String getInsertMsg() {
-		return insertMsg;
+	public String getMsg() {
+		return msg;
 	}
 }

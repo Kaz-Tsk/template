@@ -15,16 +15,16 @@
 	<div id="container">
 		<!-- header -->
 		<jsp:include page="header.jsp" />
-		<div class="reserve-search">
-		<p>検索</p>
-		<s:property value="errorMsg"/>
-		<s:form action="AdminReserveSearchAction">
-			<input type="text" name="searchName" placeholder="ユーザー名">
-			<input type="month" name="searchDate">
-			<input type="submit" value="検索する">
-		</s:form>
-		</div>
 		<div class="reserve-list">
+			<div class="reserve-search">
+				<p style="margin: 0; font-size:15px;">検索</p>
+				<s:property value="msg" />
+				<s:form action="AdminReserveSearchAction">
+					<input type="text" name="searchName" placeholder="ユーザー名">
+					<input type="month" name="searchDate">
+					<input type="submit" value="検索する">
+				</s:form>
+			</div>
 			<table>
 				<thead>
 					<tr>
@@ -52,24 +52,16 @@
 							<td class="reserve-in"><s:property value="reserveStartDate" /></td>
 							<td class="reserve-out"><s:property value="reserveEndDate" /></td>
 							<td class="reserve-day"><s:property value="reserveInsertDate" /></td>
+							<td class="reserve-delete">
+								<s:form action="AdminReserveDeleteAction">
+									<button name="reserveId" value="<s:property value="reserveId"/>">削除</button>
+								</s:form>
+							</td>
 						</tr>
 					</s:iterator>
 				</tbody>
-
 			</table>
 		</div>
-		<div class="reserve-delete">
-			<s:property value="deleteMsg" />
-			<table>
-				<s:form action="AdminReserveDeleteAction">
-					<tr>
-						<td><input type="number" name="reserveId"></td>
-						<td><input type="submit" value="削除する"></td>
-					</tr>
-				</s:form>
-			</table>
-		</div>
-
 	</div>
 </body>
 </html>

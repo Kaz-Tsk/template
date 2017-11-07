@@ -21,9 +21,9 @@ public class AdminMenuDeleteAction extends ActionSupport{
 
 	/**
 	 * 実行後メッセージ
-	 * @param deleteMsg
+	 * @param msg
 	 */
-	private String deleteMsg;
+	private String msg;
 
 	//インスタンス化
 	/**
@@ -54,18 +54,18 @@ public class AdminMenuDeleteAction extends ActionSupport{
 		menuList = dao.selectMenu();
 		//該当するメニューIDがあるか確認
 		if(menuList.size()==0) {
-			deleteMsg ="該当するメニューがありません。";
+			msg ="該当するメニューがありません。";
 			return ERROR;
 		}else {
 			for(int i = 0; i < menuList.size(); i++) {
 				if(menuList.get(i).getMenuId() == menuId) {
 					menuDao.deleteMenu(menuId);
-					deleteMsg = "メニューを削除しました。";
+					msg = "メニューを削除しました。";
 					return SUCCESS;
 				}
 			}
 		}
-		deleteMsg = "該当するメニューがありません。";
+		msg = "該当するメニューがありません。";
 		return result;
 	}
 
@@ -88,9 +88,9 @@ public class AdminMenuDeleteAction extends ActionSupport{
 
 	/**
 	 *
-	 * @return deleteMsg
+	 * @return msg
 	 */
-	public String getDeleteMsg() {
-		return deleteMsg;
+	public String getMsg() {
+		return msg;
 	}
 }

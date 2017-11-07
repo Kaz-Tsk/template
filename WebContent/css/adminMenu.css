@@ -1,0 +1,15 @@
+.menu-list{
+	width:500px;
+	margin:20px auto 0 auto;
+}
+
+table{
+	width:500px;
+}
+
+.menuEdit{
+	width:500px;
+	margin:30px auto 0 auto;
+	justify-content:space-around;
+	display:flex;
+}

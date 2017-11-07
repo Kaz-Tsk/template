@@ -1,9 +1,6 @@
 package com.internousdev.template.action;
 
-import java.util.ArrayList;
-
 import com.internousdev.template.dao.AdminReserveDAO;
-import com.internousdev.template.dto.ReserveDTO;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 管理側から予約を削除するアクション
@@ -19,11 +16,10 @@ public class AdminReserveDeleteAction extends ActionSupport{
 	private int reserveId;
 
 	/**
-	 *実行後メッセージ
-	 *@param deleteMsg
+	 * メッセージ
+	 * @param msg
 	 */
-	private String deleteMsg;
-
+	private String msg;
 	//インスタンス化
 	/**
 	 * 予約処理のDAO
@@ -32,34 +28,14 @@ public class AdminReserveDeleteAction extends ActionSupport{
 	private AdminReserveDAO dao = new AdminReserveDAO();
 
 	/**
-	 * 予約情報リスト
-	 * @param reserveList
-	 */
-	private ArrayList<ReserveDTO> reserveList = new ArrayList<ReserveDTO>();
-
-	/**
 	 * 予約情報を削除するメソッド
-	 * @return result 該当する予約があればSUCCESS なければERROR
+	 * @return SUCCESS
 	 */
 	public String execute() {
-		String result = ERROR;
-		//DBから予約情報を取得
-		reserveList = dao.reserveSelect();
-		if(reserveList.size()==0) {
-			deleteMsg = "削除する予約がありません。";
-			return ERROR;
-		}else {
-			//該当する予約があるかをチェック
-			for(int i = 0; i < reserveList.size(); i++) {
-				if(reserveList.get(i).getReserveId()==reserveId) {
-					dao.deleteReserve(reserveId);
-					deleteMsg = "削除しました。";
-					return SUCCESS;
-				}
-			}
-		}
-		deleteMsg = "削除する予約がありません";
-		return result;
+		dao.deleteReserve(reserveId);
+		msg= "削除しました";
+		return SUCCESS;
+
 	}
 
 	//以下setter getter
@@ -81,9 +57,9 @@ public class AdminReserveDeleteAction extends ActionSupport{
 
 	/**
 	 *
-	 * @return deleteMsg
+	 * @return msg
 	 */
-	public String getDeleteMsg() {
-		return deleteMsg;
+	public String getMsg() {
+		return msg;
 	}
 }

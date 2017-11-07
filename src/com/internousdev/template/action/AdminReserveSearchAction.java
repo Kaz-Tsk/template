@@ -28,9 +28,9 @@ public class AdminReserveSearchAction extends ActionSupport{
 
 	/**
 	 * エラーメッセージ
-	 * @param errorMsg
+	 * @param msg
 	 */
-	private String errorMsg;
+	private String msg;
 
 	//インスタンス化
 	/**
@@ -60,7 +60,7 @@ public class AdminReserveSearchAction extends ActionSupport{
 			if(reserveList.size()!=0) {
 				result = SUCCESS;
 			}else {
-				errorMsg = "検索結果がありません";
+				msg = "検索結果がありません";
 			}
 			//検索に名前だけの場合
 		}else if(!(searchName.equals("")) && searchDate.equals("")) {
@@ -70,18 +70,17 @@ public class AdminReserveSearchAction extends ActionSupport{
 			if(reserveList.size()!=0) {
 				result = SUCCESS;
 			}else {
-				errorMsg = "検索結果がありません";
+				msg = "検索結果がありません";
 			}
 			//検索に照会年月だけの場合
 		}else if (searchName.equals("") && !(searchDate.equals(""))) {
 			//MySqlのlike演算子対策
 			searchDate = searchDate + "%";
-			System.out.println("test"+ searchDate);
 			reserveList = dao.searchDateSelect(searchDate);
 			if(reserveList.size()!=0) {
 				result = SUCCESS;
 			}else {
-				errorMsg = "検索結果がありません";
+				msg = "検索結果がありません";
 			}
 			//検索条件がない場合：全検索
 		} else {
@@ -100,10 +99,10 @@ public class AdminReserveSearchAction extends ActionSupport{
 	}
 
 	/**
-	 * @return errorMsg
+	 * @return msg
 	 */
-	public String getErrorMsg() {
-		return errorMsg;
+	public String getMsg() {
+		return msg;
 	}
 
 	public String getSearchName() {

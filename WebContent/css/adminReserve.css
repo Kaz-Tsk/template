@@ -1,5 +1,11 @@
 .reserve-list{
 	font-size:10px;
+	margin-top:50px;
+}
+
+.reserve-search{
+	width:800px;
+	margin:0 auto;
 }
 
 table{
