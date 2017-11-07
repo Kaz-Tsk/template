@@ -27,10 +27,10 @@
 				<tbody>
 					<s:iterator value="menuList">
 						<tr>
-							<td class="id"><s:property value="menuId" /></td>
-							<td class="name"><s:property value="menuName" /></td>
-							<td class="price"><s:property value="menuPrice" /></td>
-							<td class="time"><s:property value="menuTime" /></td>
+							<td class="id"><p style="margin:0;"><s:property value="menuId" /><p></td>
+							<td class="name"><p style="display:inline-block; text-align:left; margin:0;"><s:property value="menuName" /></p></td>
+							<td class="price"><p style="display:inline-block; text-align:right; margin:0;"><s:property value="menuPrice" />円</p></td>
+							<td class="time"><p style="display:inline-block; text-align:right; margin:0;"><s:property value="menuTime" />分</p></td>
 						</tr>
 					</s:iterator>
 				</tbody>
@@ -42,10 +42,10 @@
 				<s:form action="AdminMenuInsertAction">
 					<ul>
 						<li>新規登録</li>
-						<li>menuId<input type="number" name="menuId"></li>
-						<li>menuName<input type="text" name="menuName"></li>
-						<li>menuPrice<input type="number" name="menuPrice">円</li>
-						<li>menuTime(minute)<input type="number" name="menuTime">分</li>
+						<li>menuId<input type="number" name="menuId" required="required"></li>
+						<li>menuName<input type="text" name="menuName" required="required"></li>
+						<li>menuPrice<input type="number" name="menuPrice" required="required">円</li>
+						<li>menuTime(minute)<input type="number" name="menuTime" required="required">分</li>
 						<li><input type="submit" value="menu登録"></li>
 					</ul>
 				</s:form>
@@ -54,10 +54,10 @@
 				<s:form action="AdminMenuEditAction">
 					<ul>
 						<li>編集</li>
-						<li>menuId<input type="number" name="menuId"></li>
-						<li>menuName<input type="text" name="menuName"></li>
-						<li>menuPrice<input type="number" name="menuPrice">円</li>
-						<li>menuTime(minute)<input type="number" name="menuTime">分</li>
+						<li>menuId<input type="number" name="menuId" required="required"></li>
+						<li>menuName<input type="text" name="menuName" required="required"></li>
+						<li>menuPrice<input type="number" name="menuPrice" required="required">円</li>
+						<li>menuTime(minute)<input type="number" name="menuTime" required="required">分</li>
 						<li><input type="submit" value="menu登録"></li>
 					</ul>
 				</s:form>
@@ -66,7 +66,7 @@
 					<s:form action="AdminMenuDeleteAction">
 						<ul>
 							<li>削除</li>
-							<li>menuId<input type="number" name="menuId"></li>
+							<li>menuId<input type="number" name="menuId" required="required"></li>
 							<li><input type="submit" value="menu削除"></li>
 						</ul>
 					</s:form>

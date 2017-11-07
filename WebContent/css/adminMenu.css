@@ -4,7 +4,6 @@
 }
 
 table{
-	width:500px;
 }
 
 .menuEdit{
@@ -12,4 +11,40 @@ table{
 	margin:30px auto 0 auto;
 	justify-content:space-around;
 	display:flex;
+}
+
+thead{
+	display:block;
+	width:500px;
+}
+
+tbody{
+	display:block;
+	height:100px;
+	width:500px;
+	overflow:scroll;
+}
+
+.id{
+	width:30px;
+	text-align:center;
+	font-size:12px;
+}
+
+.name{
+	width:250px;
+	text-align:center;
+	font-size:12px;
+}
+
+.price{
+	width:160px;
+	text-align:center;
+	font-size:12px;
+}
+
+.time{
+	width:160px;
+	text-align:center;
+	font-size:12px;
 }
