@@ -21,12 +21,6 @@ import com.opensymphony.xwork2.ActionSupport;
 public class AdminStaffInsertAction extends ActionSupport implements ServletRequestAware{
 
 	/**
-	 * スタッフID
-	 * @param staffId
-	 */
-	private int staffId;
-
-	/**
 	 * スタッフ名
 	 * @param staffName
 	 */
@@ -110,16 +104,10 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 					e2.printStackTrace();
 				}
 			}
-			dao.InsertStaff(staffId, staffName, staffComment, staffFileFileName);
+			dao.InsertStaff(staffName, staffComment, staffFileFileName);
 			insertMsg = "登録が完了しました。";
 			return SUCCESS;
-		}else if(staffList.size()!=0) {
-			for(int i = 0; i < staffList.size(); i++) {
-				if(staffList.get(i).getStaffId()==staffId) {
-					insertMsg = "staffIdが重複しています。";
-					return ERROR;
-				}
-			}
+
 		}
 		if(staffFile == null || staffFile.length() == 0){
 			staffFileFileName = "img/noimage.png";
@@ -136,28 +124,12 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 				e2.printStackTrace();
 			}
 		}
-		dao.InsertStaff(staffId, staffName, staffComment, staffFileFileName);
+		dao.InsertStaff(staffName, staffComment, staffFileFileName);
 		insertMsg = "登録が完了しました。";
 		return SUCCESS;
 	}
 
 	//以下、setter getter
-	/**
-	 *
-	 * @return staffId
-	 */
-	public int getStaffId() {
-		return staffId;
-	}
-
-	/**
-	 *
-	 * @param staffId
-	 */
-	public void setStaffId(int staffId) {
-		this.staffId = staffId;
-	}
-
 	/**
 	 *
 	 * @return staffName

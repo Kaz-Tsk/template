@@ -7,23 +7,18 @@
 <meta charset="UTF-8">
 <!-- css読み込み -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
-
 <!-- jQuery読み込み -->
 <script src="js/jquery-3.2.1.min.js"></script>
 <!-- slick読み込み -->
 <link rel="stylesheet" href="css/slick.css">
 <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
 <script src="js/slick.min.js"></script>
-
-
 <title>style</title>
 </head>
-
 <body>
-
 	<!-- style-->
 	<div id="container">
-		<!-- ヘッダー ------------------------------>
+		<!-- header -->
 		<jsp:include page="header.jsp" />
 		<div class="head-space"></div>
 		<div class="style">
