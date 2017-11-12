@@ -1,3 +1,17 @@
 .staffList{
 	    margin-top: 40px;
 }
+
+.staff-insert{
+	text-align:center;
+}
+
+.staff-insert table{
+	margin:0 auto;
+	width:300px;
+	table-layout:fixed;
+}
+
+img{
+	width:150px!important;
+}

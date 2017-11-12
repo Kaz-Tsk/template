@@ -1,7 +1,5 @@
 package com.internousdev.template.action;
 
-import java.util.ArrayList;
-
 import com.internousdev.template.dao.AdminStaffDAO;
 import com.internousdev.template.dto.StaffDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -18,6 +16,24 @@ public class GoAdminStaffEditAction extends ActionSupport{
 	 */
 	private int staffId;
 
+	/**
+	 * スタッフ名
+	 * @param staffName
+	 */
+	private String staffName;
+
+	/**
+	 * スタッフコメント
+	 * @param staffComment
+	 */
+	private String staffComment;
+
+	/**
+	 * スタッフ画像
+	 * @param staffImg
+	 */
+	private String staffImg;
+
 	//インスタンス化
 	/**
 	 * スタッフ情報を取得するDAO
@@ -28,14 +44,18 @@ public class GoAdminStaffEditAction extends ActionSupport{
 	 * スタッフ情報リスト
 	 * @param staffList
 	 */
-	private ArrayList<StaffDTO> staffList = new ArrayList<StaffDTO>();
+	private StaffDTO dto = new StaffDTO();
 
 	/**
 	 * スタッフ情報を取得してページ遷移するメソッド
 	 * @return SUCCESS
 	 */
 	public String execute() {
-		staffList = dao.staffEditSelect(staffId);
+		dto = dao.staffEditSelect(staffId);
+		staffId = dto.getStaffId();
+		staffName = dto.getStaffName();
+		staffComment = dto.getStaffComment();
+		staffImg = dto.getStaffImg();
 		return SUCCESS;
 	}
 
@@ -58,9 +78,49 @@ public class GoAdminStaffEditAction extends ActionSupport{
 
 	/**
 	 *
-	 * @return staffList
+	 * @return staffName
 	 */
-	public ArrayList<StaffDTO> getStaffList() {
-		return staffList;
+	public String getStaffName() {
+		return staffName;
+	}
+
+	/**
+	 *
+	 * @param staffName
+	 */
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
+	}
+
+	/**
+	 *
+	 * @return staffComment
+	 */
+	public String getStaffComment() {
+		return staffComment;
+	}
+
+	/**
+	 *
+	 * @param staffComment
+	 */
+	public void setStaffComment(String staffComment) {
+		this.staffComment = staffComment;
+	}
+
+	/**
+	 *
+	 * @return staffImg
+	 */
+	public String getStaffImg() {
+		return staffImg;
+	}
+
+	/**
+	 *
+	 * @param staffImg
+	 */
+	public void setStaffImg(String staffImg) {
+		this.staffImg = staffImg;
 	}
 }

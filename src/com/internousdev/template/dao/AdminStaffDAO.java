@@ -47,20 +47,22 @@ public class AdminStaffDAO {
 
 	/**
 	 * スタッフ情報を新規登録するメソッド
+	 * @param staffId
 	 * @param staffName
 	 * @param staffComment
 	 * @param staffFileFileName
 	 */
-	public void InsertStaff(String staffName,String staffComment,String staffFileFileName){
+	public void InsertStaff(int staffId,String staffName,String staffComment,String staffFileFileName){
 		DBConnector dbConnector = new DBConnector();
 		Connection connection =  dbConnector.getConnection();
-		String sql = "INSERT INTO staff_data (staff_name,staff_comment,staff_img) VALUES(?, ?, ?)";
+		String sql = "INSERT INTO staff_data (staff_id,staff_name,staff_comment,staff_img) VALUES(?, ?, ?, ?)";
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1,staffName);
-			preparedStatement.setString(2,staffComment);
-			preparedStatement.setString(3,staffFileFileName);
+			preparedStatement.setInt(1,staffId);
+			preparedStatement.setString(2,staffName);
+			preparedStatement.setString(3,staffComment);
+			preparedStatement.setString(4,staffFileFileName);
 			preparedStatement.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -76,12 +78,12 @@ public class AdminStaffDAO {
 	/**
 	 * 編集するスタッフの情報を取得するメソッド
 	 * @param staffId
-	 * @return staffList
+	 * @return dto
 	 */
-	public ArrayList<StaffDTO> staffEditSelect(int staffId){
+	public StaffDTO staffEditSelect(int staffId){
 		DBConnector dbConnector = new DBConnector();
 		Connection connection =  dbConnector.getConnection();
-		ArrayList<StaffDTO> staffList = new ArrayList<StaffDTO>();
+		StaffDTO dto = new StaffDTO();
 		String sql = "SELECT  staff_id, staff_name, staff_comment, staff_img FROM staff_data WHERE staff_id=?";
 
 		try{
@@ -89,12 +91,10 @@ public class AdminStaffDAO {
 			preparedStatement.setInt(1, staffId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
-				StaffDTO dto = new StaffDTO();
 				dto.setStaffId(resultSet.getInt("staff_id"));
 				dto.setStaffName(resultSet.getString("staff_Name"));
 				dto.setStaffComment(resultSet.getString("staff_comment"));
 				dto.setStaffImg(resultSet.getString("staff_img"));
-				staffList.add(dto);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -105,7 +105,7 @@ public class AdminStaffDAO {
 				e.printStackTrace();
 			}
 		}
-		return staffList;
+		return dto;
 	}
 
 	/**

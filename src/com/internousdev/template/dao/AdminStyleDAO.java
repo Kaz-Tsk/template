@@ -115,12 +115,12 @@ public class AdminStyleDAO {
 	/**
 	 * 編集を行うヘアスタイルの情報を取得するメソッド
 	 * @param styleVol
-	 * @return styleList
+	 * @return dto
 	 */
-	public ArrayList<StyleDTO> styleEditSelect(int styleVol){
+	public StyleDTO styleEditSelect(int styleVol){
 		DBConnector dbConnector = new DBConnector();
 		Connection connection =  dbConnector.getConnection();
-		ArrayList<StyleDTO> styleList = new ArrayList<StyleDTO>();
+		StyleDTO dto = new StyleDTO();
 		String sql = "SELECT  style_vol,style_name,style_sex,style_comment,style_img,staff_name FROM style_data left join staff_data on style_data.staff_id = staff_data.staff_id where style_vol=?";
 
 		try{
@@ -128,14 +128,12 @@ public class AdminStyleDAO {
 			preparedStatement.setInt(1, styleVol);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()){
-				StyleDTO dto = new StyleDTO();
 				dto.setStyleVol(resultSet.getInt("style_vol"));
 				dto.setStyleName(resultSet.getString("style_name"));
 				dto.setStyleSex(resultSet.getString("style_sex"));
 				dto.setStyleComment(resultSet.getString("style_comment"));
 				dto.setStyleImg(resultSet.getString("style_img"));
 				dto.setStaffName(resultSet.getString("staff_name"));
-				styleList.add(dto);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -146,7 +144,7 @@ public class AdminStyleDAO {
 				e.printStackTrace();
 			}
 		}
-		return styleList;
+		return dto;
 	}
 
 	/**

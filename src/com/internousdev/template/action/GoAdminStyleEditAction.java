@@ -16,15 +16,40 @@ public class GoAdminStyleEditAction extends ActionSupport {
 
 	/**
 	 * スタイルVol
+	 * @param styleVol
 	 */
 	private int styleVol;
 
+	/**
+	 * スタイル名
+	 * @param styleName
+	 */
+	private String styleName;
+
+	/**
+	 *スタイルの性別
+	 *@param styleSex
+	 */
+	private String styleSex;
+
+	/**
+	 * スタイルのコメント
+	 * @param styleComment
+	 */
+	private String styleComment;
+
+	/**
+	 * スタイル画像
+	 * @param styleImg
+	 */
+	private String styleImg;
+
 	//インスタンス化
 	/**
-	 * スタイル情報リスト
-	 * @param styleList
+	 * スタイル情報dto
+	 * @param dto
 	 */
-	private ArrayList<StyleDTO> styleList = new ArrayList<StyleDTO>();
+	private StyleDTO dto = new StyleDTO();
 
 	/**
 	 *スタッフ情報リスト
@@ -49,7 +74,12 @@ public class GoAdminStyleEditAction extends ActionSupport {
 	 * @return SUCCESS
 	 */
 	public String execute() {
-		styleList = dao.styleEditSelect(styleVol);
+		dto = dao.styleEditSelect(styleVol);
+		styleVol = dto.getStyleVol();
+		styleName = dto.getStaffName();
+		styleSex = dto.getStyleSex();
+		styleComment = dto.getStyleComment();
+		styleImg = dto.getStyleImg();
 		staffList = staffDao.staffSelect();
 		return SUCCESS;
 	}
@@ -73,10 +103,66 @@ public class GoAdminStyleEditAction extends ActionSupport {
 
 	/**
 	 *
-	 * @return styleList
+	 * @return styleName
 	 */
-	public ArrayList<StyleDTO> getStyleList() {
-		return styleList;
+	public String getStyleName() {
+		return styleName;
+	}
+
+	/**
+	 *
+	 * @param styleName
+	 */
+	public void setStyleName(String styleName) {
+		this.styleName = styleName;
+	}
+
+	/**
+	 *
+	 * @return styleSex
+	 */
+	public String getStyleSex() {
+		return styleSex;
+	}
+
+	/**
+	 *
+	 * @param styleSex
+	 */
+	public void setStyleSex(String styleSex) {
+		this.styleSex = styleSex;
+	}
+
+	/**
+	 *
+	 * @return styleComment
+	 */
+	public String getStyleComment() {
+		return styleComment;
+	}
+
+	/**
+	 *
+	 * @param styleComment
+	 */
+	public void setStyleComment(String styleComment) {
+		this.styleComment = styleComment;
+	}
+
+	/**
+	 *
+	 * @return styleImg
+	 */
+	public String getStyleImg() {
+		return styleImg;
+	}
+
+	/**
+	 *
+	 * @param styleImg
+	 */
+	public void setStyleImg(String styleImg) {
+		this.styleImg = styleImg;
 	}
 
 	/**
@@ -86,4 +172,6 @@ public class GoAdminStyleEditAction extends ActionSupport {
 	public ArrayList<StaffDTO> getStaffList() {
 		return staffList;
 	}
+
+
 }

@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <!-- css読み込み -->
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/adminMaster.css">
+<link rel="stylesheet" type="text/css" href="css/adminStyle.css">
 <!-- jQuery読み込み -->
 <script src="js/jquery-3.2.1.min.js"></script>
 <!-- slick読み込み -->
@@ -22,7 +23,7 @@
 		<jsp:include page="header.jsp" />
 		<div class="head-space"></div>
 		<div class="style">
-			<h2>Ladies Style</h2>
+			<h4>Ladies Style</h4>
 			<div class="slider">
 				<s:iterator value="ladiesStyleList">
 					<div>
@@ -39,7 +40,7 @@
 
 		<div class="style-men">
 			<div class="style">
-				<h2>Mens Style</h2>
+				<h4>Mens Style</h4>
 				<div class="slider">
 					<s:iterator value="mensStyleList">
 						<div>
@@ -53,23 +54,29 @@
 				</div>
 			</div>
 			<div class="style-insert">
+			<p>スタッフ新規登録</p>
 			<s:property value="insertMsg"/>
 			<table>
 			<s:form action="AdminStyleInsertAction" enctype="multipart/form-data">
 				<tr>
-					<td>vol:<input type="number" name="styleVol" ></td>
+				<td>スタイルVOL</td>
+					<td><input type="number" name="styleVol" ></td>
 				</tr>
 				<tr>
-					<td>スタイル名:<input type="text" name="styleName"></td>
+				<td>スタイル名</td>
+					<td><input type="text" name="styleName"></td>
 				</tr>
 				<tr>
-					<td>性別:女性<input type="radio" name="styleSex" value="ladies" checked="checked">男性<input type="radio" name="styleSex" value="mens"></td>
+				<td>性別</td>
+					<td>女性<input type="radio" name="styleSex" value="ladies" checked="checked">男性<input type="radio" name="styleSex" value="mens"></td>
 				</tr>
 				<tr>
-					<td>スタイルコメント:<textarea name="styleComment" placeholder="スタイルの詳細を記入"></textarea></td>
+				<td>スタイルコメント</td>
+					<td><textarea name="styleComment" placeholder="スタイルの詳細を記入"></textarea></td>
 				</tr>
 					<tr>
-						<td>担当スタイリスト: <select name="staffId">
+					<td>担当スタイリスト</td>
+						<td> <select name="staffId">
 								<s:iterator value="staffList">
 									<option value="<s:property value="staffId"/>"><s:property
 											value="staffName" /></option>
@@ -77,38 +84,20 @@
 						</select>
 					</tr>
 					<tr>
+					<td>スタイル画像</td>
 						<td><input type="file" name="StyleFile" accept="image/*"></td>
 					</tr>
 					<tr>
-						<td><input type="submit" value="スタイルを追加"></td>
+						<td colspan="2"><input type="submit" value="スタイルを追加"></td>
 					</tr>
 					</s:form>
 				</table>
 			</div>
-			<div class="style-delete">
-			<p>スタイルを削除する</p>
-			<s:property value="deleteMsg"/>
-				<table>
-				<s:form action="AdminStyleDeleteAction">
-				<tr>
-					<td><input type="number" name="styleVol"></td>
-				</tr>
-				<tr>
-					<td><input type="submit" value="削除する"></td>
-				</tr>
-				</s:form>
-				</table>
-			</div>
 			<script>
 			$('.slider').slick({
-				  dots: false,
-				  arrows:false,
+				  dots: true,
+				  arrows:true,
 				  pauseOnHover:true,
-				  autoplay: true,
-				  autoplaySpeed: 0,
-				  cssEase:'linear',
-				  infinite: true,
-				  speed: 9000,
 				  slidesToShow: 5,
 				  slidesToScroll: 1,
 				  responsive: [
@@ -116,9 +105,7 @@
 				      breakpoint: 1024,
 				      settings: {
 				        slidesToShow: 4,
-				        slidesToScroll: 1,
-				        infinite: true,
-				        dots: true
+				        slidesToScroll: 1
 				      }
 				    },
 				    {
@@ -139,8 +126,5 @@
 				});
 					</script>
 		</div>
-
-		<!-- フッター -->
-		<jsp:include page="footer.jsp" />
 	</div>
 </body>

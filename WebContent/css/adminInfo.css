@@ -1,0 +1,14 @@
+.admin-navi{
+	display:flex;
+	justify-content:space-around;
+}
+
+.insert-display{
+	text-align:center;
+	margin-top:20px;
+}
+
+.insert-display table{
+	width:500px;
+	margin:0 auto;
+}

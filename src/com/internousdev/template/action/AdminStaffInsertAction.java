@@ -21,6 +21,11 @@ import com.opensymphony.xwork2.ActionSupport;
 public class AdminStaffInsertAction extends ActionSupport implements ServletRequestAware{
 
 	/**
+	 *スタッフID
+	 *@param staffId
+	 */
+	private int staffId;
+	/**
 	 * スタッフ名
 	 * @param staffName
 	 */
@@ -104,32 +109,55 @@ public class AdminStaffInsertAction extends ActionSupport implements ServletRequ
 					e2.printStackTrace();
 				}
 			}
-			dao.InsertStaff(staffName, staffComment, staffFileFileName);
+			dao.InsertStaff(staffId,staffName, staffComment, staffFileFileName);
 			insertMsg = "登録が完了しました。";
 			return SUCCESS;
-
-		}
-		if(staffFile == null || staffFile.length() == 0){
-			staffFileFileName = "img/noimage.png";
-		}else{
-			try{
-				//imgが重複するため下記パスに変更		String basePath = request.getServletContext().getRealPath("/");
-				String basePath = "/Users/apple/git/template/WebContent/";
-				File destFile = new File(basePath + "img", staffFileFileName);
-				FileUtils.copyFile(staffFile, destFile);
-				staffFileFileName = "img/" + staffFileFileName;
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			} catch (NullPointerException e2){
-				e2.printStackTrace();
+		}else {
+			for(int i = 0; i < staffList.size(); i++) {
+				if(staffList.get(i).getStaffId() == staffId) {
+					insertMsg = "staffIdが重複しています。";
+					return ERROR;
+				}
 			}
+			if(staffFile == null || staffFile.length() == 0){
+				staffFileFileName = "img/noimg.png";
+			}else{
+				try{
+					//imgが重複するため下記パスに変更		String basePath = request.getServletContext().getRealPath("/");
+					String basePath = "/Users/apple/git/template/WebContent/";
+					File destFile = new File(basePath + "img", staffFileFileName);
+					FileUtils.copyFile(staffFile, destFile);
+					staffFileFileName = "img/" + staffFileFileName;
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (NullPointerException e2){
+					e2.printStackTrace();
+				}
+			}
+			dao.InsertStaff(staffId,staffName, staffComment, staffFileFileName);
+			insertMsg = "登録が完了しました。";
+			return SUCCESS;
 		}
-		dao.InsertStaff(staffName, staffComment, staffFileFileName);
-		insertMsg = "登録が完了しました。";
-		return SUCCESS;
 	}
 
 	//以下、setter getter
+
+	/*
+	 *
+	 * @return staffId
+	 */
+	public int getStaffId() {
+		return staffId;
+	}
+
+	/**
+	 *
+	 * @param staffId
+	 */
+	public void setStaffId(int staffId) {
+		this.staffId = staffId;
+	}
+
 	/**
 	 *
 	 * @return staffName

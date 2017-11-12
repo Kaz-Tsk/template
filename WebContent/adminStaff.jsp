@@ -30,7 +30,7 @@
 								value="staffId" />
 						</a>
 						<p>
-							staffId:
+							ID:
 							<s:property value="staffId" />
 						</p>
 					</div>
@@ -38,49 +38,36 @@
 			</div>
 		</div>
 		<div class="staff-insert">
+			<p>スタッフ新規登録</p>
+			<p>
+				<s:property value="insertMsg" />
+			</p>
 			<table>
 				<s:form action="AdminStaffInsertAction"
 					enctype="multipart/form-data">
 					<tr>
+						<td>スタッフID</td>
+						<td><input type="text" name="staffId"></td>
+					</tr>
+					<tr>
+						<td>スタッフ名</td>
 						<td><input type="text" name="staffName"></td>
 					</tr>
 					<tr>
+						<td>紹介文</td>
 						<td><textarea name="staffComment"></textarea></td>
 					</tr>
 					<tr>
+						<td>スタッフ画像</td>
 						<td><input type="file" name="staffFile" accept="image/*"></td>
 					</tr>
 					<tr>
-						<td><input type="submit" value="登録する"></td>
+						<td colspan="2"><input type="submit" value="登録する"></td>
 					</tr>
 				</s:form>
 			</table>
 		</div>
-		<div class="staff-edit">
-			<table>
-				<s:form action="GoAdminStaffEditAction">
-					<tr>
-						<td><input type="number" name="staffId"></td>
-					</tr>
-					<tr>
-						<td><input type="submit" value="編集する"></td>
-					</tr>
-				</s:form>
-			</table>
-		</div>
-		<div class="staff-delete">
-			<s:property value="deleteMsg" />
-			<table>
-				<s:form action="AdminStaffDeleteAction">
-					<tr>
-						<td><input type="number" name="staffId"></td>
-					</tr>
-					<tr>
-						<td><input type="submit" value="削除する"></td>
-					</tr>
-				</s:form>
-			</table>
-		</div>
+		<!-- sride -->
 		<script>
 			$('.slider').slick({
 				dots : true,
